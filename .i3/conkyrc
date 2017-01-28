@@ -1,3 +1,5 @@
+###    lovelybacon.deviantart.com   ####
+
 background no
 out_to_x no
 out_to_console yes
@@ -5,12 +7,10 @@ update_interval 3
 total_run_times 0
 use_spacer none
 
-
 TEXT
-  ${exec ~/.conky/conky-spotify/scripts/artist.sh} - ${exec ~/.conky/conky-spotify/scripts/title.sh}   \
- ${addr p3p1}   \
+  ${exec ~/.config/i3/conky-spotify/scripts/artist.sh} - ${exec ~/.config/i3/conky-spotify/scripts/title.sh}   \
+ ${addr wlp2s0}   \
  ${mem}   \
  ${battery_percent}%   \
-  ${time %a %d %b}   \
- ${time %H:%M}   \
  ${exec whoami}
+
