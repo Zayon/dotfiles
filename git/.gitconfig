@@ -1,0 +1,21 @@
+[user]
+	name = Godinez Pablo
+	email = pablo.godinez@zayon.eu
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+    a  = add
+    ca = commit --amend
+    can = commit --verbose --amend --no-edit
+	d = diff
+	l = log
+	p = pull
+	ps = push
+[color]
+    ui = auto
+[rebase]
+    autoStash = true
+[core]
+	editor = vim
