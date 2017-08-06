@@ -1,5 +1,3 @@
-###    lovelybacon.deviantart.com   ####
-
 background no
 out_to_x no
 out_to_console yes
@@ -13,4 +11,3 @@ TEXT
  ${mem}   \
  ${battery_percent}%   \
  ${exec whoami}
-

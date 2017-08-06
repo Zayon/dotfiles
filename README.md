@@ -6,8 +6,7 @@ sudo apt install \
     i3 \
     fish \
     stow \
-    tree \
-    
+
 
 curl -L https://get.oh-my.fish | fish
 
