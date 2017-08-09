@@ -6,16 +6,24 @@
 	ci = commit
 	st = status
 	br = branch
-    a  = add
-    ca = commit --amend
-    can = commit --verbose --amend --no-edit
+	a  = add
+	ca = commit --amend
+	can = commit --verbose --amend --no-edit
 	d = diff
 	l = log
 	p = pull
 	ps = push
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
 [color]
-    ui = auto
+	ui = auto
 [rebase]
-    autoStash = true
+	autoStash = true
 [core]
+	fileMode = false
 	editor = vim
+[merge]
+	tool = meld
+[diff]
+	mnemonicPrefix = true
+	renames = true
+	wordRegex = .
