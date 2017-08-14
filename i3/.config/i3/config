@@ -24,6 +24,10 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
+# Terminal
+# set $terminal i3-sensible-terminal
+set $terminal urxvt
+
 # Lancher
 set $launcher i3-dmenu-desktop
 # bindsym $mod+d exec --no-startup-id $launcher
@@ -76,6 +80,22 @@ bar {
         }
 }
 
+### Mouse Bindings ###
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+# The right button toggles floating
+bindsym button3 floating toggle
+
+### Custom Shortcuts
+# return to last workspace
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+Shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
+bindsym $mod+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+
+bindsym $mod+shift+z move scratchpad
+bindsym $mod+z scratchpad show
+
 # Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
@@ -110,6 +130,7 @@ bindsym $mod+KP_Divide exec --no-startup-id amixer -D pulse sset Master 0%    # 
 # Indicators and Drop-down terminal
 exec --no-startup-id guake
 exec --no-startup-id albert
+exec_always --no-startup-id xrdb ~/.Xresources
 #exec --no-startup-id nm-applet
 #exec --no-startup-id synclient VertScrollDelta=-111
 #exec --no-startup-id synclient TapButton3=2
@@ -132,7 +153,8 @@ font pango:monospace 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
