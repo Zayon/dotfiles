@@ -5,7 +5,7 @@ Xft.hintstyle: hintslight
 
 URxvt.font: xft:DejaVuSansMono:pixelsize=14
 URxvt.letterSpace: -1
-URxvt.lineSpace: 0
+URxvt.lineSpace: 1
 
 URxvt.loginShell: true
 URxvt*scrollBar: true
