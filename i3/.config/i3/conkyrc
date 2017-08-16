@@ -6,7 +6,7 @@ total_run_times 0
 use_spacer none
 
 TEXT
-  ${exec ~/.config/i3/conky-spotify/scripts/artist.sh} - ${exec ~/.config/i3/conky-spotify/scripts/title.sh}   \
+${exec php -f ~/.config/i3/song.php}   \
  ${addr wlp2s0}   \
  ${mem}   \
  ${battery_percent}%   \

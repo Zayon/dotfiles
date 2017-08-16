@@ -1,7 +1,9 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Use Super key as modifier
 set $mod Mod4
 
+# Use vim keys
 set $left h
 set $up k
 set $down j
@@ -65,10 +67,11 @@ client.focused          $win-bg-color       $win-bg-color      $mint-text       
 bar {
         status_command conky -c $HOME/.config/i3/conkyrc
 
+        verbose yes
         position top
         mode dock
-        tray_output none
-        font pango:System San Francisco Display, FontAwesome 11
+        tray_output primary
+        font pango:System San Francisco Display, FontAwesome 10
 
         colors {
                 background $mint-text
@@ -81,13 +84,15 @@ bar {
 }
 
 ### Mouse Bindings ###
+
 # The middle button over a titlebar kills the window
 bindsym --release button2 kill
 # The right button toggles floating
 bindsym button3 floating toggle
 
-### Custom Shortcuts
-# return to last workspace
+### Custom Shortcuts ###
+
+# Return to last workspace
 bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
