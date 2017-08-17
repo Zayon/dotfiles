@@ -30,7 +30,7 @@ URxvt*scrollstyle: plain
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
-URxvt.perl-ext-common:  default,matcher
+URxvt.perl-ext-common:  default,matcher,clipboard
 URxvt.urlLauncher:      firefox
 URxvt.matcher.button:   1
 
