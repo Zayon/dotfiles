@@ -14,17 +14,24 @@ hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
 
-# workspaces vars
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
+# Workspaces vars
+set $workspace1 "1:  Terminal"
+set $workspace2 "2:  Web"
+set $workspace3 "3:  IDE"
+set $workspace4 "4:  IDE bis"
+set $workspace5 "5:  Files"
 set $workspace6 "6"
 set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+set $workspace8 "8:  Chat"
+set $workspace9 "9:  Mails"
+set $workspace10 "10:  Music"
+set $workspace11 "11:  Trash"
+
+workspace $workspace11 output eDP1
+bindsym $mod+minus workspace $workspace11
+bindsym $mod+Shift+minus move container to workspace $workspace11
+
+set $wallpaper $HOME/wallpaper.png
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -45,7 +52,7 @@ bindsym $mod+Shift+x exec $locker
 set $explorer caja --no-desktop $HOME
 bindsym $mod+n exec $explorer
 
-# Guake 
+# Guake
 bindsym Pause exec --no-startup-id guake -t
 for_window [instance="guake"] floating enable
 
@@ -127,11 +134,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 0% # mute sound
 
 # Program Workspaces
-#  assign [class="Firefox"] $workspace2
-#  assign [class="jetbrains-phpstorm"] $workspace2
-#  assign [class="Thunderbird"] $workspace9
-#  assign [class="Spotify"] $workspace10
-
+assign [class="Firefox"] $workspace2
+assign [class="jetbrains-phpstorm"] $workspace3
+assign [class="Thunderbird"] $workspace9
 
 # Auto start
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
