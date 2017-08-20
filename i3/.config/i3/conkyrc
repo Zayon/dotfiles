@@ -6,8 +6,9 @@ total_run_times 0
 use_spacer none
 
 TEXT
-${exec php -f ~/.config/i3/song.php}   \
- ${addr wlp2s0}   \
- ${mem}   \
- ${battery_percent}%   \
- ${exec whoami}
+${exec php -f ~/.config/i3/song.php} | \
+ ${addr wlp2s0} | \
+RAM: ${mem} | \
+ ${battery_percent}% | \
+${battery_time} | \
+${time} | \

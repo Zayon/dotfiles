@@ -1,6 +1,6 @@
 <?php
 
-$jsonFile = '/home/' . get_current_user() . '/.config/Google Play Music Desktop Player/json_store/playback.json';
+$jsonFile = $_SERVER['HOME']. '/.config/Google Play Music Desktop Player/json_store/playback.json';
 
 if (file_exists($jsonFile)) {
     $json = json_decode(file_get_contents($jsonFile), true);
@@ -15,7 +15,7 @@ if (file_exists($jsonFile)) {
 }
 
 $icon = '';
-$artist = exec('~/.config/i3/conky-spotify/scripts/artist.sh');
-$album = exec('~/.config/i3/conky-spotify/scripts/album.sh');
-$title = exec('~/.config/i3/conky-spotify/scripts/title.sh');
+$artist = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/artist.sh');
+$album = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/album.sh');
+$title = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/title.sh');
 echo "$icon $artist - $album - $title";
