@@ -18,4 +18,7 @@ $icon = '';
 $artist = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/artist.sh');
 $album = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/album.sh');
 $title = exec($_SERVER['HOME'].'/.config/i3/conky-spotify/scripts/title.sh');
-echo "$icon $artist - $album - $title";
+
+if ($title != '') {
+    echo "$icon $artist - $album - $title";
+}
