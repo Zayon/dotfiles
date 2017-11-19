@@ -9,6 +9,8 @@ set $up k
 set $down j
 set $right l
 
+set $wallpaper $HOME/wallpaper.png
+
 # Custom configuration
 hide_edge_borders both
 workspace_auto_back_and_forth yes
@@ -34,17 +36,14 @@ bindsym $mod+Shift+minus move container to workspace $workspace11
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
 
-set $wallpaper $HOME/wallpaper.png
-
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Terminal
-# set $terminal i3-sensible-terminal
-set $terminal urxvt
-
+set $terminal i3-sensible-terminal
 # Lancher
-set $launcher i3-dmenu-desktop
-# bindsym $mod+d exec --no-startup-id $launcher
+# set $launcher i3-dmenu-desktop
+set $launcher albert toggle
+bindsym $mod+d exec --no-startup-id $launcher
 
 # Screensaver
 set $locker i3lock -i $HOME/wallpaper.png
@@ -52,7 +51,7 @@ set $locker i3lock -i $HOME/wallpaper.png
 bindsym $mod+Shift+x exec $locker
 
 # Explorer
-set $explorer caja --no-desktop $HOME
+set $explorer pcmanfm
 bindsym $mod+n exec $explorer
 
 # Guake
@@ -78,8 +77,8 @@ client.focused          $win-bg-color       $win-bg-color      $mint-text       
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # status_command conky -c $HOME/.config/i3/conkyrc
-        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+        status_command conky -c $HOME/.config/i3/conkyrc
+        # status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
 
         verbose yes
         position top
@@ -142,23 +141,34 @@ assign [class="jetbrains-phpstorm"] $workspace3
 assign [class="Thunderbird"] $workspace9
 
 # Auto start
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id pasystray
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+#exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id guake
 exec --no-startup-id albert
 exec --no-startup-id redshift-gtk -l 48.51:2.20 &
+exec --no-startup-id lxpolkit &
+exec --no-startup-id volumeicon &
+exec --no-startup-id setxkbmap -variant intl
 
 # Natural Scroll
 exec --no-startup-id synclient VertScrollDelta=-111
 # Middle click on 3 finger tap on touchpad
+exec --no-startup-id synclient TapButton2=3
 exec --no-startup-id synclient TapButton3=2
 
-# Exec always 
+exec --no-startup-id ~/Apps/firefox-nightly
+
+# Exec always
 exec_always feh --bg-fill $HOME/wallpaper.png
 exec_always --no-startup-id xrdb ~/.Xresources
 #exec_always --no-startup-id $HOME/.screenlayout/screenlayout.sh
 
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
 ###############################################################################
 ### Default i3 configuration below ############################################
 ###############################################################################
