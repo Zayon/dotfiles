@@ -39,6 +39,16 @@ stow git
 stow urxvt
 ```
 
+## Firefox config
+
+Clé | valeur | détails
+----|--------|--------
+`browser.tabs.closeWindowWithLastTab` | false | ...
+`network.IDN_show_punycode` | true |  URL spoofing conerns
+`extensions.pocket.enabled` | false | ...
+`browser.ctrlTab.previews` | true | ctrl-tab between tabs
+`telemetry` | false | everywhere
+
 ## Additionnal tool
 
 ### autosuspend
