@@ -14,6 +14,7 @@ sudo apt install \
     fish \
     stow \
     conky \
+    playerctl \
     feh \
     arandr \
     imagemagick \

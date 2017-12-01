@@ -24,12 +24,14 @@ set $workspace4 "4:  IDE bis"
 set $workspace5 "5:  Files"
 set $workspace6 "6"
 set $workspace7 "7"
-set $workspace8 "8:  Chat"
-set $workspace9 "9:  Mails"
+set $workspace8 "8"
+set $workspace9 "9:  Chat"
 set $workspace10 "10:  Music"
 set $workspace11 "11:  Trash"
+#  Mails
 
-workspace $workspace11 output eDP1
+
+# workspace $workspace11 output DP-2-2
 bindsym $mod+minus workspace $workspace11
 bindsym $mod+Shift+minus move container to workspace $workspace11
 
@@ -39,15 +41,16 @@ bindsym $mod+u move workspace to output right
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Terminal
-set $terminal i3-sensible-terminal
+set $terminal mate-terminal
+# set $terminal i3-sensible-terminal
 # Lancher
 # set $launcher i3-dmenu-desktop
 set $launcher albert toggle
 bindsym $mod+d exec --no-startup-id $launcher
 
 # Screensaver
-set $locker i3lock -i $HOME/wallpaper.png
-# set $locker mate-screensaver-command -l
+# set $locker i3lock -i $HOME/wallpaper.png
+set $locker mate-screensaver-command -l
 bindsym $mod+Shift+x exec $locker
 
 # Explorer
@@ -83,7 +86,7 @@ bar {
         verbose yes
         position top
         mode dock
-        # tray_output primary
+        tray_output primary
         font pango:System San Francisco Display, FontAwesome 11
 
         colors {
