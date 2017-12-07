@@ -30,7 +30,7 @@ set $workspace10 "10:  Music"
 set $workspace11 "11:  Trash"
 #  Mails
 
-# workspace $workspace11 output DP-2-2
+workspace $workspace11 output eDP1
 bindsym $mod+minus workspace $workspace11
 bindsym $mod+Shift+minus move container to workspace $workspace11
 
@@ -161,7 +161,8 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 &
 # Set keyboard layout
 # exec --no-startup-id setxkbmap -variant intl
 
-# exec --no-startup-id ~/Apps/firefox-nightly
+exec --no-startup-id ~/Apps/firefox-nightly
+bindsym $mod+shift+n exec --no-startup-id ~/Apps/firefox-nightly
 
 # Exec always
 # exec_always feh --bg-fill $HOME/wallpaper.png
