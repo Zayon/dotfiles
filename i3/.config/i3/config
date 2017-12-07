@@ -30,7 +30,6 @@ set $workspace10 "10:  Music"
 set $workspace11 "11:  Trash"
 #  Mails
 
-
 # workspace $workspace11 output DP-2-2
 bindsym $mod+minus workspace $workspace11
 bindsym $mod+Shift+minus move container to workspace $workspace11
@@ -41,8 +40,9 @@ bindsym $mod+u move workspace to output right
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Terminal
-set $terminal mate-terminal
+set $terminal termite
 # set $terminal i3-sensible-terminal
+
 # Lancher
 # set $launcher i3-dmenu-desktop
 set $launcher albert toggle
@@ -58,8 +58,8 @@ set $explorer pcmanfm
 bindsym $mod+n exec $explorer
 
 # Guake
-bindsym Pause exec --no-startup-id guake -t
-for_window [instance="guake"] floating enable
+# bindsym Pause exec --no-startup-id guake -t
+# for_window [instance="guake"] floating enable
 
 # Colors vars
 set $win-bg-color        #8fa876
@@ -144,27 +144,28 @@ assign [class="jetbrains-phpstorm"] $workspace3
 assign [class="Thunderbird"] $workspace9
 
 # Auto start
-#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-#exec --no-startup-id pasystray
-exec --no-startup-id nm-applet
-exec --no-startup-id guake
-exec --no-startup-id albert
-exec --no-startup-id redshift-gtk -l 48.51:2.20 &
-exec --no-startup-id lxpolkit &
 exec --no-startup-id volumeicon &
-exec --no-startup-id setxkbmap -variant intl
+exec --no-startup-id nm-applet &
+exec --no-startup-id albert &
+exec --no-startup-id redshift-gtk -l 48.51:2.20 &
+# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# exec --no-startup-id lxpolkit &
+# exec --no-startup-id pasystray
+# exec --no-startup-id guake
 
 # Natural Scroll
-exec --no-startup-id synclient VertScrollDelta=-111
+# exec --no-startup-id synclient VertScrollDelta=-111
 # Middle click on 3 finger tap on touchpad
-exec --no-startup-id synclient TapButton2=3
-exec --no-startup-id synclient TapButton3=2
+# exec --no-startup-id synclient TapButton2=3
+# exec --no-startup-id synclient TapButton3=2
+# Set keyboard layout
+# exec --no-startup-id setxkbmap -variant intl
 
-exec --no-startup-id ~/Apps/firefox-nightly
+# exec --no-startup-id ~/Apps/firefox-nightly
 
 # Exec always
-exec_always feh --bg-fill $HOME/wallpaper.png
-exec_always --no-startup-id xrdb ~/.Xresources
+# exec_always feh --bg-fill $HOME/wallpaper.png
+exec_always --no-startup-id xrdb -merge ~/.Xresources
 #exec_always --no-startup-id $HOME/.screenlayout/screenlayout.sh
 
 ###############################################################################

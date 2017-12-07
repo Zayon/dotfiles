@@ -5,23 +5,21 @@
 ## Install stuff
 
 ```
-sudo apt update
-
-sudo apt install \
+sudo pacman -S \
     git \
     i3 \
     i3lock \
     fish \
     stow \
     conky \
+    termite \
+    pcmanfm \
     playerctl \
     feh \
     arandr \
     imagemagick \
-    python3 \
     pasystray \
-    php-cli \
-    meld \
+    php \
 ```
 
 ### Use fish as default shell
@@ -51,26 +49,6 @@ Clé | valeur | détails
 `telemetry` | false | everywhere
 
 ## Additionnal tool
-
-### autosuspend
-
-```
-sudo apt install \
-    psutil \
-    python3-psutil \
-    python3-setuptools \
-
-mkdir $HOME/Builds/autosuspend
-cd $HOME/Builds/autosuspend
-git clone git@github.com:languitar/autosuspend.git .
-sudo python3 setup.py install
-
-cd $HOME/dotfiles
-stow autosuspend
-sudo cp $HOME/.config/autosuspend/autosuspend.service /etc/systemd/system/autosuspend.service
-sudo cp $HOME/.config/autosuspend/autosuspend-detect-suspend.service /etc/systemd/system/autosuspend-detect-suspend.service
-sudo cp $HOME/.config/autosuspend/autosuspend.conf /etc/autosuspend.conf
-```
 
 ### Youtube-dl
 
@@ -103,4 +81,24 @@ cd ~/.fonts
 wget -O font-awesome http://fontawesome.io/assets/font-awesome-4.7.0.zip
 unzip -j font-awesome
 rm *ss font-awesome HELP-US-OUT.txt
+```
+
+### autosuspend - OLD
+
+```
+sudo apt install \
+    psutil \
+    python3-psutil \
+    python3-setuptools \
+
+mkdir $HOME/Builds/autosuspend
+cd $HOME/Builds/autosuspend
+git clone git@github.com:languitar/autosuspend.git .
+sudo python3 setup.py install
+
+cd $HOME/dotfiles
+stow autosuspend
+sudo cp $HOME/.config/autosuspend/autosuspend.service /etc/systemd/system/autosuspend.service
+sudo cp $HOME/.config/autosuspend/autosuspend-detect-suspend.service /etc/systemd/system/autosuspend-detect-suspend.service
+sudo cp $HOME/.config/autosuspend/autosuspend.conf /etc/autosuspend.conf
 ```

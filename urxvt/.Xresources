@@ -3,13 +3,7 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
-URxvt.font: xft:DejaVuSansMono:pixelsize=14
-URxvt.letterSpace: -1
-URxvt.lineSpace: 1
-
-URxvt.loginShell: true
-URxvt*scrollBar: true
-URxvt*scrollstyle: plain
+! ####### Dracula theme ######################################
 
 *.foreground: #F8F8F2
 *.background: #282A36
@@ -30,10 +24,37 @@ URxvt*scrollstyle: plain
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
+! ####### URxvt ###########################################
+
+URxvt.font: xft:DejaVuSansMono:pixelsize=14
+URxvt.letterSpace: -1
+URxvt.lineSpace: 1
+
+URxvt.loginShell: true
+URxvt*scrollBar: true
+URxvt*scrollstyle: plain
+
 URxvt.perl-ext-common:  default,matcher,clipboard
 URxvt.urlLauncher:      firefox
 URxvt.matcher.button:   1
 
 URxvt.saveLines:        4095
-
 URxvt.iso14755:         False
+
+! ####### XTerm ###########################################
+
+! double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+XTerm.vt100.selectToClipboard: true
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 11
+xterm*loginshell: true
+XTerm*metaSendsEscape: true
+
+XTerm.letterSpace: -1
+XTerm.lineSpace: 1
+XTerm*locale: true
+xterm*savelines: 16384
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
