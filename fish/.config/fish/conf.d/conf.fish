@@ -1,0 +1,1 @@
+set BROWSER /usr/bin/firefox

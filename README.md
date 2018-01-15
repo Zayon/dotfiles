@@ -57,6 +57,16 @@ sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtub
 sudo chmod a+rx /usr/local/bin/youtube-dl
 ```
 
+#### Use examples 
+
+```
+# Get album from bandcamp
+youtube-dl --get-filename -o "%(autonumber)02d_%(title)s.%(ext)s" "url"
+
+# Get music from youtube
+youtube-dl -x --audio-format mp3 "url"
+```
+
 ### Conky-Spotify
 
 ```
@@ -83,22 +93,4 @@ unzip -j font-awesome
 rm *ss font-awesome HELP-US-OUT.txt
 ```
 
-### autosuspend - OLD
 
-```
-sudo apt install \
-    psutil \
-    python3-psutil \
-    python3-setuptools \
-
-mkdir $HOME/Builds/autosuspend
-cd $HOME/Builds/autosuspend
-git clone git@github.com:languitar/autosuspend.git .
-sudo python3 setup.py install
-
-cd $HOME/dotfiles
-stow autosuspend
-sudo cp $HOME/.config/autosuspend/autosuspend.service /etc/systemd/system/autosuspend.service
-sudo cp $HOME/.config/autosuspend/autosuspend-detect-suspend.service /etc/systemd/system/autosuspend-detect-suspend.service
-sudo cp $HOME/.config/autosuspend/autosuspend.conf /etc/autosuspend.conf
-```
