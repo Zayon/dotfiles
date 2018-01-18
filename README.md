@@ -35,7 +35,25 @@ cd ~/dotfiles
 stow i3
 stow fish
 stow git
-stow urxvt
+stow termite
+stow vscode
+```
+
+## Install more stuff (AUR)
+```
+yaourt albert
+yaourt google-chrome
+yaourt google-musicmanager
+yaourt gpmdp
+yaourt keeweb-desktop
+yaourt mattermost-desktop
+yaourt neofetch
+yaourt phpstorm
+yaourt phpstorm-jre
+yaourt postman-bin
+yaourt slack-desktop
+yaourt spotify
+yaourt visual-studio-code
 ```
 
 ## Firefox config
