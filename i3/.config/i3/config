@@ -31,8 +31,6 @@ set $workspace11 "11:  Trash"
 #  Mails
 
 workspace $workspace11 output eDP1
-bindsym $mod+minus workspace $workspace11
-bindsym $mod+Shift+minus move container to workspace $workspace11
 
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
@@ -51,15 +49,17 @@ bindsym $mod+d exec --no-startup-id $launcher
 # Screensaver
 # set $locker i3lock -i $HOME/wallpaper.png
 set $locker mate-screensaver-command -l
-bindsym $mod+Shift+x exec $locker
+bindsym $mod+Shift+x exec --no-startup-id $locker
 
 # Explorer
 set $explorer pcmanfm
-bindsym $mod+n exec $explorer
+bindsym $mod+n exec --no-startup-id $explorer
 
 # Guake
 # bindsym Pause exec --no-startup-id guake -t
 # for_window [instance="guake"] floating enable
+
+for_window [class="Sms.py"] floating enable
 
 # Colors vars
 set $win-bg-color        #8fa876
@@ -119,8 +119,8 @@ bindsym $mod+shift+z move scratchpad
 bindsym $mod+z scratchpad show
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -138,10 +138,14 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 0% # mute sound
 
+# Toogle wifi
+bindsym XF86WLAN exec --no-startup $HOME/.config/i3/wifi.sh
+
 # Program Workspaces
 assign [class="Firefox"] $workspace2
 assign [class="jetbrains-phpstorm"] $workspace3
 assign [class="Thunderbird"] $workspace9
+assign [class="Slack"] $workspace9
 
 # Auto start
 exec --no-startup-id volumeicon &
@@ -160,13 +164,15 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 &
 # exec --no-startup-id synclient TapButton3=2
 # Set keyboard layout
 # exec --no-startup-id setxkbmap -variant intl
+# Make caps lock acts like Super key
+exec --no-startup-id setxkbmap -option caps:super
 
 exec --no-startup-id ~/Apps/firefox-nightly
 bindsym $mod+shift+n exec --no-startup-id ~/Apps/firefox-nightly
 
 # Exec always
 # exec_always feh --bg-fill $HOME/wallpaper.png
-exec_always --no-startup-id xrdb -merge ~/.Xresources
+# exec_always --no-startup-id xrdb -merge ~/.Xresources
 #exec_always --no-startup-id $HOME/.screenlayout/screenlayout.sh
 
 ###############################################################################
@@ -208,6 +214,7 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+bindsym $mod+minus workspace $workspace11
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -220,6 +227,7 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+minus move container to workspace $workspace11
 
 # change focus
 bindsym $mod+$left focus left
