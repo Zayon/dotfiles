@@ -106,7 +106,7 @@ https://code.visualstudio.com/docs/?dv=linux64_deb
 
 ```
 cd ~/.fonts
-wget -O font-awesome http://fontawesome.io/assets/font-awesome-4.7.0.zip
+wget -O font-awesome https://use.fontawesome.com/releases/v5.0.6/fontawesome-free-5.0.6.zip
 unzip -j font-awesome
 rm *ss font-awesome HELP-US-OUT.txt
 ```

@@ -3,5 +3,6 @@
     "editor.lineNumbers": "on",
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Dracula",
-    "extensions.ignoreRecommendations": false
+    "extensions.ignoreRecommendations": false,
+    "window.zoomLevel": 0
 }

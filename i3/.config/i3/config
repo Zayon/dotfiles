@@ -20,17 +20,23 @@ focus_follows_mouse no
 set $workspace1 "1:  Terminal"
 set $workspace2 "2:  Web"
 set $workspace3 "3:  IDE"
-set $workspace4 "4:  IDE bis"
+set $workspace4 "4:  IDE bis"
 set $workspace5 "5:  Files"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
+set $workspace6 "6: "
+set $workspace7 "7:  Work Web"
+set $workspace8 "8: "
 set $workspace9 "9:  Chat"
 set $workspace10 "10:  Music"
-set $workspace11 "11:  Trash"
+set $workspace11 "11: "
 #  Mails
 
-workspace $workspace11 output eDP1
+workspace $workspace1 output DP-2-1
+workspace $workspace2 output DP-2-1
+workspace $workspace3 output DP-2-1
+workspace $workspace2 output DP-2-1
+workspace $workspace9 output DP-2-1
+workspace $workspace8 output DP-2-2
+workspace $workspace10 output DP-2-2
 
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
@@ -165,7 +171,7 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 &
 # Set keyboard layout
 # exec --no-startup-id setxkbmap -variant intl
 # Make caps lock acts like Super key
-exec --no-startup-id setxkbmap -option caps:super
+exec_always --no-startup-id setxkbmap -option caps:super
 
 exec --no-startup-id ~/Apps/firefox-nightly
 bindsym $mod+shift+n exec --no-startup-id ~/Apps/firefox-nightly

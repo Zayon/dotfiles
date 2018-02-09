@@ -7,8 +7,7 @@ use_spacer none
 
 TEXT
 ${exec php -f ~/.config/i3/song.php} | \
- ${addr wlp2s0} | \
-RAM: ${mem} | \
- ${battery_percent}% | \
-${battery_time} | \
+${if_match "${addr wlp2s0}" != "No Address"} : ${addr wlp2s0}${else} ${addr enp0s31f6}${endif} | \
+ ${mem} | \
+ ${battery_percent}% ${battery_time} | \
 ${time} | \
