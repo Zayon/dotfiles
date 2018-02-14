@@ -20,6 +20,7 @@ sudo pacman -S \
     imagemagick \
     pasystray \
     php \
+    rofi \
 ```
 
 ### Use fish as default shell
