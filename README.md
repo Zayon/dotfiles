@@ -105,11 +105,13 @@ https://code.visualstudio.com/docs/?dv=linux64_deb
 
 ### Fonts
 
+#### Fork Awesome 
+
+https://forkawesome.github.io/Fork-Awesome/cheatsheet/
+
 ```
 cd ~/.fonts
-wget -O font-awesome https://use.fontawesome.com/releases/v5.0.6/fontawesome-free-5.0.6.zip
-unzip -j font-awesome
-rm *ss font-awesome HELP-US-OUT.txt
+wget -O fork-awesome (curl -s https://api.github.com/repos/ForkAwesome/Fork-Awesome/tags | grep zipball_url | cut -d '"' -f 4 | head -n 1)
+unzip -j fork-awesome '*/fonts/*' -d .
+rm fork-awesome *.svg
 ```
-
-

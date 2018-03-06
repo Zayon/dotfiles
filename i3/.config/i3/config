@@ -16,16 +16,17 @@ hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
 
+# https://fontawesome.com/icons?d=listing&s=solid
 # Workspaces vars
 set $workspace1 "1:  Terminal"
 set $workspace2 "2:  Web"
 set $workspace3 "3:  IDE"
-set $workspace4 "4:  IDE bis"
-set $workspace5 "5:  Files"
+set $workspace4 "4:  IDE bis"
+set $workspace5 "5:  Files"
 set $workspace6 "6: "
-set $workspace7 "7:  Work Web"
-set $workspace8 "8: "
-set $workspace9 "9:  Chat"
+set $workspace7 "7:  Web bis"
+set $workspace8 "8:  Chat"
+set $workspace9 "9:  Slack"
 set $workspace10 "10:  Music"
 set $workspace11 "11: "
 #  Mails
@@ -33,9 +34,10 @@ set $workspace11 "11: "
 workspace $workspace1 output DP-2-1
 workspace $workspace2 output DP-2-1
 workspace $workspace3 output DP-2-1
-workspace $workspace2 output DP-2-1
-workspace $workspace9 output DP-2-1
+workspace $workspace4 output DP-2-2
+workspace $workspace7 output DP-2-2
 workspace $workspace8 output DP-2-2
+workspace $workspace9 output DP-2-1
 workspace $workspace10 output DP-2-2
 
 bindsym $mod+y move workspace to output left
@@ -77,9 +79,37 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+set $white #ffffff
+
+# set $win-bg-color        $green
+# set $mint-text           #363636
+# set $bg-color 	         #8fa876
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     $white
+
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $green $green $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+
 # window colors
 #                       border              background         text                 indicator
-client.focused          $win-bg-color       $win-bg-color      $mint-text          #00ff00
+# client.focused          $win-bg-color       $win-bg-color      $mint-text          #00ff00
 # client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 # client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 # client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
@@ -94,15 +124,20 @@ bar {
         position top
         mode dock
         tray_output primary
-        font pango:System San Francisco Display, FontAwesome 11
+        font pango:System San Francisco Display, FontAwesome 11, forkawesome 11
 
         colors {
                 background $mint-text
                 separator #757575
                 #                  border             background         text
-                focused_workspace  $win-bg-color      $win-bg-color      $mint-text
-                inactive_workspace $mint-text $mint-text $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+                # focused_workspace  $win-bg-color      $win-bg-color      $mint-text
+                # inactive_workspace $mint-text $mint-text $inactive-text-color
+                # urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+                focused_workspace    $aqua $aqua $darkgray
+                inactive_workspace   $darkgray $darkgray $yellow
+                active_workspace     $darkgray $darkgray $yellow
+                urgent_workspace $red $red $bg
         }
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
