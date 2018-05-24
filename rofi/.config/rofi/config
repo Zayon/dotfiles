@@ -1,3 +1,2 @@
-rofi.combi-modi:    window,drun,ssh
-rofi.theme:         gruvbox-dark
-rofi.modi:          combi
+rofi.theme: gruvbox-dark
+rofi.modi:  drun
