@@ -22,6 +22,8 @@ sudo pacman -S \
     php \
     rofi \
     ranger \
+    zathura zathura-pdf-mupdf \
+    httpie \
 ```
 
 ### Use fish as default shell
@@ -40,6 +42,8 @@ stow git
 stow termite
 stow vscode
 stow omf
+stow ranger
+stow pcmanfm
 ```
 
 ## Install more stuff (AUR)
