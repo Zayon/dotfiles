@@ -21,6 +21,7 @@ sudo pacman -S \
     pasystray \
     php \
     rofi \
+    ranger \
 ```
 
 ### Use fish as default shell
@@ -38,6 +39,7 @@ stow fish
 stow git
 stow termite
 stow vscode
+stow omf
 ```
 
 ## Install more stuff (AUR)
