@@ -2,21 +2,23 @@
 	name = Godinez Pablo
 	email = pablo.godinez@zayon.eu
 [alias]
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
 	a  = add
+	br = branch
 	ca = commit --amend
 	can = commit --verbose --amend --no-edit
+	ci = commit
+	co = checkout
 	d = diff
-	l = log
-	p = pull
-	ps = push
-	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	dm = diff --patience master
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all -p
+	l = log
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	p = pull
+	pf = push --force-with-lease
+	ps = push
+	st = status
 [color]
 	ui = auto
 [rebase]
