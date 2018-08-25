@@ -6,5 +6,10 @@
     "extensions.ignoreRecommendations": false,
     "window.zoomLevel": 0,
     "vsicons.dontShowNewVersionMessage": true,
-    "editor.rulers": [80, 120]
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "files.trimTrailingWhitespace": true,
+    "breadcrumbs.enabled": true
 }
