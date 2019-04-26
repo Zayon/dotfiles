@@ -32,13 +32,16 @@ set $workspace11 "11: "
 #  Mails
 
 workspace $workspace1 output DP-2-2
-workspace $workspace2 output DP-2-2
-workspace $workspace3 output DP-2-2
-workspace $workspace4 output DP-2-1
-workspace $workspace7 output DP-2-1
-workspace $workspace8 output DP-2-1
-workspace $workspace9 output DP-2-2
-workspace $workspace10 output DP-2-1
+workspace $workspace2 output DP-2-1
+workspace $workspace3 output DP-2-1
+workspace $workspace4 output DP-2-2
+workspace $workspace5 output DP-2-2
+workspace $workspace6 output DP-2-2
+workspace $workspace7 output DP-2-2
+workspace $workspace8 output eDP-1
+workspace $workspace9 output DP-2-1
+workspace $workspace10 output DP-2-2
+workspace $workspace11 output DP-2-2
 
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
@@ -62,7 +65,9 @@ bindsym $mod+Shift+x exec --no-startup-id $locker
 
 # Explorer
 set $explorer pcmanfm
-bindsym $mod+n exec --no-startup-id $explorer
+# set $explorer ranger
+bindsym $mod+shift+n exec --no-startup-id $explorer
+bindsym $mod+n exec $terminal -e ranger
 
 # Guake
 # bindsym Pause exec --no-startup-id guake -t
@@ -99,13 +104,19 @@ set $white #ffffff
 # set $inactive-text-color #676E7D
 # set $urgent-bg-color     $white
 
+set $focused_bg #689d6a
+set $focused_text #1d2021
+set $inactive_bg #3c3836
+set $inactive_text #d5c4a1
+set $unfocused_bg #1d2021
+set $unfocused_text #d5c4a1
+
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $green $green $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.focused          $focused_bg $focused_bg $focused_text $purple $darkgray
+client.focused_inactive $inactive_bg $inactive_bg $inactive_text $purple $darkgray
+client.unfocused        $unfocused_bg $unfocused_bg $unfocused_text $purple $darkgray
 client.urgent           $red $red $white $red $red
-
 
 # window colors
 #                       border              background         text                 indicator
@@ -127,16 +138,16 @@ bar {
         font pango:System San Francisco Display, FontAwesome 11, forkawesome 11
 
         colors {
-                background $mint-text
-                separator #757575
+                background $darkgray
+                separator $darkgray
                 #                  border             background         text
                 # focused_workspace  $win-bg-color      $win-bg-color      $mint-text
                 # inactive_workspace $mint-text $mint-text $inactive-text-color
                 # urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 
                 focused_workspace    $aqua $aqua $darkgray
-                inactive_workspace   $darkgray $darkgray $yellow
-                active_workspace     $darkgray $darkgray $yellow
+                inactive_workspace   $darkgray $darkgray $unfocused_text
+                active_workspace     $darkgray $darkgray $unfocused_text
                 urgent_workspace $red $red $bg
         }
 }
@@ -195,10 +206,10 @@ bindsym XF86WLAN exec --no-startup $HOME/.config/i3/wifi.sh
 # Program Workspaces
 assign [class="Firefox"] $workspace2
 assign [class="jetbrains-phpstorm"] $workspace3
-assign [class="Thunderbird"] $workspace9
 assign [class="Slack"] $workspace9
 
 # Auto start
+exec --no-startup-id dockd --daemon
 exec --no-startup-id volumeicon &
 exec --no-startup-id nm-applet &
 exec --no-startup-id albert &

@@ -11,5 +11,6 @@
         120
     ],
     "files.trimTrailingWhitespace": true,
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "window.titleBarStyle": "native"
 }

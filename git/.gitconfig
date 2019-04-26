@@ -19,6 +19,7 @@
 	pf = push --force-with-lease
 	ps = push
 	st = status
+	ap = add -p
 [color]
 	ui = auto
 [rebase]
@@ -34,3 +35,5 @@
 	wordRegex = .
 [commit]
 	template = /home/pablo/dotfiles/git/commit-msg-template
+[push]
+	default = current
