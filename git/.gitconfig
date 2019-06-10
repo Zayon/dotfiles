@@ -24,6 +24,7 @@
 	ui = auto
 [rebase]
 	autoStash = true
+	instructionFormat = [%an] %s
 [core]
 	fileMode = false
 	editor = vim +2 -c 'startinsert'
