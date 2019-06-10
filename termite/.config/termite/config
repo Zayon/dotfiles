@@ -1,92 +1,46 @@
 [options]
+
+allow_bold = true
+audible_bell = false
+browser = firefox
+clickable_url = true
+cursor_blink = system
+cursor_shape = block
+dynamic_title = true
+filter_unmatched_urls = true
+font = DejaVuSansMono Nerd Font 10
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
 scroll_on_output = false
 scroll_on_keystroke = true
-audible_bell = false
-mouse_autohide = false
-allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
-clickable_url = true
-font = DejaVuSansMono 10
-scrollback_lines = 10000
+scrollback_lines = -1
+size_hints = false
 search_wrap = true
-browser = firefox
-#icon_name = terminal
-#geometry = 640x480
-
-# "system", "on" or "off"
-cursor_blink = system
-
-# "block", "underline" or "ibeam"
-cursor_shape = block
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
-
-# set size hints for the window
-#size_hints = false
-
-# Hide links that are no longer valid in url select overlay mode
-filter_unmatched_urls = true
-
-# emit escape sequences for extra modified keys
-#modify_other_keys = false
+urgent_on_bell = true
+highlight = #30343e
 
 [colors]
-foreground      = #e9e9f4
-foreground_bold = #f1f2f8
-cursor          = #f1f2f8
-background      = #282936
 
-# 16 color space
+# https://git.io/nord
+foreground=#d8dee9
+background=#2e3440
+cursor=#d8dee9
 
-# Black, Gray, Silver, White
-color0  = #000000
-color8  = #4D4D4D
-color7  = #BFBFBF
-color15 = #E6E6E6
+color0=#3b4252
+color1=#bf616a
+color2=#a3be8c
+color3=#ebcb8b
+color4=#81a1c1
+color5=#b48ead
+color6=#88c0d0
+color7=#e5e8f0
 
-# Red
-color1  = #FF5555
-color9  = #FF6E67
-
-# Green
-color2  = #50FA7B
-color10 = #5AF78E
-
-# Yellow
-color3  = #F1FA8C
-color11 = #F4F99D
-
-# Blue
-color4  = #BD93F9
-color12 = #CAA9FA
-
-# Purple
-color5  = #FF79C6
-color13 = #FF92D0
-
-# Teal
-color6  = #8BE9FD
-color14 = #9AEDFE
-
-# Extra colors
-color16 = #b45bcf
-color17 = #00f769
-color18 = #3a3c4e
-color19 = #4d4f68
-color20 = #62d6e8
-color21 = #f1f2f8
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
-# vim: ft=dosini cms=#%s
+color8=#4c566a
+color9=#bf616a
+color10=#a3be8c
+color11=#ebcb8b
+color12=#81a1c1
+color13=#b48ead
+color14=#8fbcbb
+color15=#eceff4
