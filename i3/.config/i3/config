@@ -129,13 +129,12 @@ client.urgent           $red $red $white $red $red
 # finds out, if available)
 bar {
         status_command conky -c $HOME/.config/i3/conkyrc
-        # status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
 
         verbose yes
         position top
         mode dock
         tray_output primary
-        font pango:System San Francisco Display, FontAwesome 11, forkawesome 11
+        font pango:System San Francisco Display, forkawesome 11
 
         colors {
                 background $darkgray
@@ -151,7 +150,6 @@ bar {
                 urgent_workspace $red $red $bg
         }
 }
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ### Mouse Bindings ###
 
@@ -210,14 +208,12 @@ assign [class="Slack"] $workspace9
 
 # Auto start
 exec --no-startup-id dockd --daemon
-exec --no-startup-id volumeicon &
+# exec --no-startup-id volumeicon &
 exec --no-startup-id nm-applet &
-exec --no-startup-id albert &
-exec --no-startup-id redshift-gtk -l 48.51:2.20 &
+exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
 # exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # exec --no-startup-id lxpolkit &
 # exec --no-startup-id pasystray
-# exec --no-startup-id guake
 
 # Natural Scroll
 # exec --no-startup-id synclient VertScrollDelta=-111
@@ -229,13 +225,6 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 &
 # Make caps lock acts like Super key
 exec_always --no-startup-id setxkbmap -option caps:super
 
-exec --no-startup-id ~/Apps/firefox-nightly
-bindsym $mod+shift+n exec --no-startup-id ~/Apps/firefox-nightly
-
-# Exec always
-# exec_always feh --bg-fill $HOME/wallpaper.png
-# exec_always --no-startup-id xrdb -merge ~/.Xresources
-#exec_always --no-startup-id $HOME/.screenlayout/screenlayout.sh
 
 ###############################################################################
 ###############################################################################
@@ -248,7 +237,6 @@ bindsym $mod+shift+n exec --no-startup-id ~/Apps/firefox-nightly
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and

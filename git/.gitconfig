@@ -35,6 +35,6 @@
 	renames = true
 	wordRegex = .
 [commit]
-	template = /home/pablo/dotfiles/git/commit-msg-template
+	template = ~/dotfiles/git/commit-msg-template
 [push]
 	default = current
