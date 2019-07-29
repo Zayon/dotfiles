@@ -1,29 +1,33 @@
 # dotfiles
 
-`git clone git@github.com:Zayon/dotfiles.git ~/dotfiles`
+```
+pacman -S git stow
+git clone git@github.com:Zayon/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+stow fish
+stow git
+stow termite
+stow vscode
+stow omf
+stow pcmanfm
+```
 
 ## Install stuff
 
 ```
 sudo pacman -S \
-    git \
-    i3 \
-    i3lock \
     fish \
-    stow \
+    i3 \
     conky \
     termite \
     pcmanfm \
     playerctl \
-    feh \
     arandr \
-    imagemagick \
     pasystray \
-    php \
     rofi \
-    ranger \
     zathura zathura-pdf-mupdf \
-    httpie \
+    network-manager-applet \
+    
 ```
 
 ### Use fish as default shell
@@ -32,35 +36,23 @@ sudo pacman -S \
 ### Install omf
 `curl -L https://get.oh-my.fish | fish`
 
-## Configure stuff
-```
-cd ~/dotfiles
-
-stow i3
-stow fish
-stow git
-stow termite
-stow vscode
-stow omf
-stow ranger
-stow pcmanfm
-```
-
 ## Install more stuff (AUR)
 ```
-yaourt albert
-yaourt google-chrome
-yaourt google-musicmanager
-yaourt gpmdp
-yaourt keeweb-desktop
-yaourt mattermost-desktop
-yaourt neofetch
-yaourt phpstorm
-yaourt phpstorm-jre
-yaourt postman-bin
-yaourt slack-desktop
-yaourt spotify
-yaourt visual-studio-code
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay google-chrome
+yay google-musicmanager
+yay gpmdp
+yay keeweb-desktop
+yay neofetch
+yay phpstorm
+yay phpstorm-jre
+yay postman-bin
+yay slack-desktop
+yay spotify
+yay visual-studio-code
 ```
 
 ## Firefox config
