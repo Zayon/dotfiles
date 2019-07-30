@@ -27,7 +27,8 @@ sudo pacman -S \
     rofi \
     zathura zathura-pdf-mupdf \
     network-manager-applet \
-    
+    volumeicon \
+    openssh \
 ```
 
 ### Use fish as default shell
@@ -74,7 +75,7 @@ sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtub
 sudo chmod a+rx /usr/local/bin/youtube-dl
 ```
 
-#### Use examples 
+#### Use examples
 
 ```
 # Get album from bandcamp
@@ -103,7 +104,7 @@ https://code.visualstudio.com/docs/?dv=linux64_deb
 
 ### Fonts
 
-#### Fork Awesome 
+#### Fork Awesome
 
 https://forkawesome.github.io/Fork-Awesome/cheatsheet/
 
