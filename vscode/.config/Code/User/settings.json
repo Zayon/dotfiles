@@ -2,7 +2,7 @@
     "editor.renderWhitespace": "all",
     "editor.lineNumbers": "on",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Overflow Contrast (rainglow)",
+    "workbench.colorTheme": "Peacock (rainglow)",
     "extensions.ignoreRecommendations": false,
     "window.zoomLevel": 0,
     "vsicons.dontShowNewVersionMessage": true,

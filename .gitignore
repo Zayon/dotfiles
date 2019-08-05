@@ -1,3 +1,5 @@
 i3/.config/i3/conky-spotify/
 fish/.config/fish/fishd.*
 fish/.config/fish/conf.d/omf.fish
+vscode/.config/Code
+!vscode/.config/Code/User/settings.json
