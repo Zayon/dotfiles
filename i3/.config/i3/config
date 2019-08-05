@@ -20,18 +20,17 @@ focus_follows_mouse no
 
 # https://forkaweso.me/Fork-Awesome/cheatsheet/
 # Workspaces vars
-set $workspace1 "1:  Terminal"
-set $workspace2 "2:  Web"
-set $workspace3 "3:  IDE"
-set $workspace4 "4:  IDE bis"
-set $workspace5 "5:  Files"
-set $workspace6 "6: "
-set $workspace7 "7:  Web bis"
-set $workspace8 "8:  Chat"
-set $workspace9 "9:  Slack"
-set $workspace10 "10:  Music"
-set $workspace11 "11: "
-#  Mails
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+set $workspace11 "11"
 
 # workspace $workspace1  output DP-2-2
 # workspace $workspace2  output DP-2-1
@@ -48,6 +47,8 @@ set $workspace11 "11: "
 # Terminal
 set $terminal termite
 # set $terminal i3-sensible-terminal
+bindsym $mod+Shift+Return exec termite -r termite-float -c ~/.config/termite/transparent-config
+for_window [class="Termite" window_role="termite-float"] floating enable
 
 # Lancher
 # set $launcher i3-dmenu-desktop
@@ -99,31 +100,28 @@ client.focused_inactive $inactive_bg  $inactive_bg  $inactive_text  $purple   $d
 client.unfocused        $unfocused_bg $unfocused_bg $unfocused_text $purple   $darkgray
 client.urgent           $red          $red          $white          $red      $red
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command conky -c $HOME/.config/i3/conkyrc
+### Polybar ###
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-        verbose yes
-        position top
-        mode dock
-        tray_output primary
-        font pango:System San Francisco Display, forkawesome 11
-
-        colors {
-                background $darkgray
-                separator $darkgray
-                #                  border             background         text
-                # focused_workspace  $win-bg-color      $win-bg-color      $mint-text
-                # inactive_workspace $mint-text $mint-text $inactive-text-color
-                # urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-
-                focused_workspace  $aqua     $aqua     $darkgray
-                inactive_workspace $darkgray $darkgray $unfocused_text
-                active_workspace   $darkgray $darkgray $unfocused_text
-                urgent_workspace   $red      $red      $bg
-        }
-}
+#bar {
+#        status_command conky -c $HOME/.config/i3/conkyrc
+#
+#        verbose yes
+#        position top
+#        mode dock
+#        tray_output primary
+#        font pango:System San Francisco Display, forkawesome 11
+#
+#        colors {
+#                background $darkgray
+#                separator  $darkgray
+#
+#                focused_workspace    $aqua     $aqua     $darkgray
+#                inactive_workspace   $darkgray $darkgray $unfocused_text
+#                active_workspace     $darkgray $darkgray $unfocused_text
+#                urgent_workspace     $red      $red      $bg
+#        }
+#}
 
 ### Mouse Bindings ###
 
@@ -146,9 +144,6 @@ bindsym $mod+Shift+s sticky toggle
 
 # Return to last workspace
 bindsym $mod+Tab workspace back_and_forth
-
-bindsym $mod+Shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
-bindsym $mod+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
 bindsym $mod+shift+z move scratchpad
 bindsym $mod+z scratchpad show
@@ -181,10 +176,9 @@ assign [class="jetbrains-phpstorm"] $workspace3
 assign [class="Slack"] $workspace9
 
 # Auto start
-exec --no-startup-id dockd --daemon
-exec --no-startup-id volumeicon &
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
+exec --no-startup-id xcompmgr &
 
 # Natural Scroll
 # exec --no-startup-id synclient VertScrollDelta=-111
@@ -194,7 +188,7 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
 # Set keyboard layout
 # exec --no-startup-id setxkbmap -variant intl
 # Make caps lock acts like Super key
-exec_always --no-startup-id setxkbmap -option caps:super
+exec --no-startup-id setxkbmap -option caps:super
 
 ###############################################################################
 ###############################################################################
