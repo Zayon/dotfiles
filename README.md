@@ -1,15 +1,22 @@
 # dotfiles
 
+## Archlinux Installation
+
+https://gist.github.com/Zayon/afc3d9fd83cbfc6e63ded6887eb9b5fc
+
+## Set up dotfiles
+
 ```
 pacman -S git stow
-git clone git@github.com:Zayon/dotfiles.git ~/dotfiles
+git clone https://github.com:Zayon/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 stow fish
+stow omf
 stow git
 stow termite
 stow vscode
-stow omf
 stow pcmanfm
+stow polybar
 ```
 
 ## Install stuff
@@ -17,18 +24,23 @@ stow pcmanfm
 ```
 sudo pacman -S \
     fish \
-    i3 \
-    conky \
+    i3-wm i3status \
     termite \
     pcmanfm \
-    playerctl \
+    firefox \
+    mate \
     arandr \
-    pasystray \
     rofi \
     zathura zathura-pdf-mupdf \
     network-manager-applet \
-    volumeicon \
     openssh \
+    playerctl \
+    wget \
+    redshift \
+    feh \
+    numlockx \
+    xcompmgr \
+    pulseaudio pulseaudio-alsa alsa-utils pasystray \
 ```
 
 ### Use fish as default shell
@@ -43,17 +55,16 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay google-chrome
-yay google-musicmanager
-yay gpmdp
-yay keeweb-desktop
-yay neofetch
-yay phpstorm
-yay phpstorm-jre
-yay postman-bin
-yay slack-desktop
-yay spotify
-yay visual-studio-code
+yay -S google-chrome
+yay -S google-musicmanager
+yay -S gpmdp
+yay -S keeweb-desktop
+yay -S phpstorm
+yay -S phpstorm-jre
+yay -S postman-bin
+yay -S slack-desktop
+yay -S spotify
+yay -S visual-studio-code
 ```
 
 ## Firefox config
