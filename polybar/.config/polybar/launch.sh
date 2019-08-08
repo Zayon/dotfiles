@@ -7,15 +7,23 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    if [[ "$(xrandr --query | grep primary | cut -d" " -f1)" == $m ]]; then
-        traypos="right"
-    else
-        traypos="none"
-    fi
+  screens=$(xrandr --query | grep " connected" | cut -d" " -f1)
+  nbScreen=$(wc -l <<<"$(echo "$screens")")
 
-    MONITOR=$m TRAY_POS=$traypos polybar example &
-  done
+  if [[ nbScreen == 1 ]]; then
+    TRAY_POS=right polybar example &
+  else
+    primary=$(xrandr --query | grep primary | cut -d" " -f1)
+
+    for m in $screens; do
+      if [[ $primary == $m ]]; then
+          traypos="right"
+      else
+          traypos="none"
+      fi
+      MONITOR=$m TRAY_POS=$traypos polybar example &
+    done
+  fi
 else
   TRAY_POS=right polybar example &
 fi
