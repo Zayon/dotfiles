@@ -28,7 +28,7 @@ sudo pacman -S \
     termite \
     pcmanfm \
     firefox \
-    mate \
+    mate mate-utils \
     arandr \
     rofi \
     zathura zathura-pdf-mupdf \

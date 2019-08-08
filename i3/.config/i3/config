@@ -47,8 +47,10 @@ set $workspace11 "11"
 # Terminal
 set $terminal termite
 # set $terminal i3-sensible-terminal
-bindsym $mod+Shift+Return exec termite -r termite-float -c ~/.config/termite/transparent-config
-for_window [class="Termite" window_role="termite-float"] floating enable
+
+set $termite-float termite -r termite-float -c ~/.config/termite/transparent-config
+bindsym $mod+Shift+Return exec $termite-float
+for_window [class="Termite" window_role="termite-float"] floating enable sticky enable
 
 # Lancher
 # set $launcher i3-dmenu-desktop
