@@ -58,7 +58,7 @@ font-3 = forkawesome:style=Regular:pixelsize=10;1
 
 modules-left = i3
 modules-center = spotify
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date
 
 tray-position = ${env:TRAY_POS}
 tray-padding = 2
@@ -149,6 +149,9 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/xkeyboard]
+type = internal/xkeyboard
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -189,7 +192,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = ens20u1
+interface = ens20u1u4
 interval = 3.0
 
 format-connected-underline = #55aa55
