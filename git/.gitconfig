@@ -8,11 +8,13 @@
 	can = commit --verbose --amend --no-edit
 	ci = commit
 	co = checkout
+	cp = cherry-pick
 	d = diff
 	dm = diff --patience master
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all -p
+	fixup = commit --fixup
 	l = log
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
 	p = pull
@@ -22,8 +24,13 @@
 	ap = add -p
 [color]
 	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
 [rebase]
 	autoStash = true
+	autosquash = true
 	instructionFormat = [%an] %s
 [core]
 	fileMode = false
@@ -38,3 +45,5 @@
 	template = ~/dotfiles/git/commit-msg-template
 [push]
 	default = current
+[sequence]
+	editor = interactive-rebase-tool
