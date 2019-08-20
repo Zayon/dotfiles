@@ -17,15 +17,28 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+xfs=#f2eeed
+xbs=#4b5cc4
+xbg=#802d2d2d
+xbg2=#00000000
+xfg=#f2eeed
+
+color0=#282828 # ----
+color1=#383838 # ---
+color2=#4b4b4b # --
+color3=#5b5b5b # -
+color4=#bdbdbd # +
+color5=#cecece # ++
+color6=#e0e0e0 # +++
+color7=#f5f5f5 # ++++
+color8=#eb0029 # red
+color9=#E85D00 # orange
+colorA=#faa41a # yellow
+colorB=#87a566 # green
+colorC=#00a489 # aqua
+colorD=#4169e1 # blue
+colorE=#7851a9 # purple
+colorF=#574F4A # brown
 
 [bar/example]
 monitor = ${env:MONITOR:eDP1}
@@ -36,8 +49,8 @@ offset-y = 0
 radius = 0
 fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.xbg}
+foreground = ${colors.xfg}
 
 line-size = 2
 line-color = #f00
@@ -56,8 +69,8 @@ font-1 = siji:pixelsize=12;1
 font-2 = forkawesome:style=Regular:pixelsize=12;1
 
 modules-left = i3
-modules-center = spotify
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date
+modules-center = date spotify
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature
 
 tray-position = ${env:TRAY_POS}
 tray-padding = 2
@@ -76,7 +89,6 @@ cursor-scroll = ns-resize
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 scroll-up = i3wm-wsnext
@@ -85,31 +97,51 @@ scroll-down = i3wm-wsprev
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
+format = <label-state> <label-mode>
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
+label-mode-background = #e85d00
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
 label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #4b5cc4
+label-focused-padding = 3
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
 label-unfocused = %index%
+label-unfocused-padding = 3
+label-unfocused-background = ${colors.xbg2}
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
 label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 3
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
 label-urgent = %index%
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 3
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -131,7 +163,7 @@ strip-wsnumbers = true
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = " "
 format = <label>
 exec = python /home/pablo/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{artist}-{song}'
 format-underline = #1db954
@@ -151,7 +183,7 @@ bar-fill-font = 2
 bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${colors.xfg}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -164,16 +196,16 @@ type = internal/xkeyboard
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${colors.xfg}
 format-underline = #f90000
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${colors.xfg}
 format-underline = #4bffdc
 label = %percentage_used%%
 
@@ -197,7 +229,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${colors.xfg}
 
 [module/eth]
 type = internal/network
@@ -206,7 +238,7 @@ interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.xfg}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -219,14 +251,14 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %d / %m / %Y "
-date-alt = " %d / %m / %Y "
+date = "%a %d/%m "
+date-alt = "%a %d-%m-%Y "
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix = 
+format-prefix-foreground = ${colors.xfg}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -256,7 +288,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.xfg}
 
 [module/alsa]
 type = internal/alsa
@@ -266,7 +298,7 @@ label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = ${colors.xfg}
 label-muted = sound muted
 
 bar-volume-width = 10
@@ -284,7 +316,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.xfg}
 
 [module/battery]
 type = internal/battery
@@ -299,24 +331,24 @@ format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.xfg}
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.xfg}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.xfg}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-foreground = ${colors.xfg}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -331,12 +363,12 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.color8}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.xfg}
 
 [module/powermenu]
 type = custom/menu
@@ -350,7 +382,7 @@ label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.xfg}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
