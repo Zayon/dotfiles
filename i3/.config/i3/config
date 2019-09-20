@@ -17,6 +17,7 @@ exec_always --no-startup-id sh ~/.fehbg
 hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
+title_align center
 
 # https://forkaweso.me/Fork-Awesome/cheatsheet/
 # Workspaces vars
@@ -48,9 +49,10 @@ workspace $workspace11 output eDP1
 set $terminal termite
 # set $terminal i3-sensible-terminal
 
+# Scratchpad terminal
 set $termite-float termite -r termite-float -c ~/.config/termite/transparent-config
-bindsym $mod+Shift+Return exec $termite-float
-for_window [class="Termite" window_role="termite-float"] floating enable sticky enable
+exec $termite-float
+for_window [class="Termite" window_role="termite-float"] floating enable, border none,  move scratchpad, sticky enable
 
 # Lancher
 # set $launcher i3-dmenu-desktop
@@ -88,14 +90,13 @@ set $gray #a89984
 set $darkgray #1d2021
 set $white #ffffff
 
-set $focused_bg #689d6a
+set $focused_bg #a0a0a0
 set $focused_text #1d2021
 set $inactive_bg #3c3836
 set $inactive_text #d5c4a1
 set $unfocused_bg #1d2021
 set $unfocused_text #d5c4a1
 
-# green gruvbox
 # class                 border        backgr        text            indicator child_border
 client.focused          $focused_bg   $focused_bg   $focused_text   $purple   $darkgray
 client.focused_inactive $inactive_bg  $inactive_bg  $inactive_text  $purple   $darkgray
@@ -207,7 +208,7 @@ exec --no-startup-id setxkbmap -option caps:super
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:monospace 12
+font pango:Noto Sans 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -298,6 +299,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 for_window [window_role="pop-up"] floating enable
+for_window [class="System-config-printer.py"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

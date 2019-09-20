@@ -1,2 +1,5 @@
 rofi.theme: ~/.config/rofi/default.rasi
-rofi.modi:  drun
+rofi.modi: combi
+rofi.combi-modi: drun,window,ssh
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
+rofi.terminal: termite
