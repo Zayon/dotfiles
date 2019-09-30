@@ -42,7 +42,7 @@
 	renames = true
 	wordRegex = .
 [commit]
-	template = ~/dotfiles/git/commit-msg-template
+	template = ~/.config/git/commit-msg-template
 [push]
 	default = current
 [sequence]
