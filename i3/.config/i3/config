@@ -33,26 +33,26 @@ set $workspace9 "9"
 set $workspace10 "10"
 set $workspace11 "11"
 
-workspace $workspace1  output DP1
-workspace $workspace2  output DP1
-workspace $workspace3  output DP1
-workspace $workspace4  output DP1
+#workspace $workspace1  output DP3
+workspace $workspace2  output DP3
+workspace $workspace3  output DP3
+#workspace $workspace4  output DP3
 #workspace $workspace5  output DP1
 #workspace $workspace6  output DP1
 #workspace $workspace7  output DP1
 #workspace $workspace8  output DP1
-workspace $workspace9  output DP1
-workspace $workspace10 output DP1
-workspace $workspace11 output eDP1
+workspace $workspace9  output DP3
+workspace $workspace10 output DP3
+workspace $workspace11 output DP1
 
 # Terminal
 set $terminal termite
 # set $terminal i3-sensible-terminal
 
-# Scratchpad terminal
-set $termite-float termite -r termite-float -c ~/.config/termite/transparent-config
-exec $termite-float
-for_window [class="Termite" window_role="termite-float"] floating enable, border none,  move scratchpad, sticky enable
+# # Scratchpad terminal
+# set $termite-float termite -r termite-float -c ~/.config/termite/transparent-config
+# exec $termite-float
+# for_window [class="Termite" window_role="termite-float"] floating enable, border none,  move scratchpad, sticky enable
 
 # Lancher
 # set $launcher i3-dmenu-desktop
@@ -191,7 +191,9 @@ exec --no-startup-id xcompmgr &
 # Set keyboard layout
 # exec --no-startup-id setxkbmap -variant intl
 # Make caps lock acts like Super key
-exec --no-startup-id setxkbmap -option caps:super
+# exec --no-startup-id setxkbmap -option caps:super
+# Make caps lock acts like Control key
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier
 
 # Slack calls window
 for_window [class="Slack" floating] move container to workspace current

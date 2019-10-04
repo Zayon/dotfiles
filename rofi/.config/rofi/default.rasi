@@ -1,6 +1,6 @@
 configuration {
-    display-drun:                   "Apps";
-    display-window:                 "Window";
+    display-drun: "run";
+    display-window: "win";
     show-icons:true;
 }
 
