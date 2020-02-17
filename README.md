@@ -17,6 +17,8 @@ stow termite
 stow vscode
 stow pcmanfm
 stow polybar
+stow rofi
+stow vscode
 ```
 
 ## Install stuff
@@ -41,6 +43,13 @@ sudo pacman -S \
     numlockx \
     xcompmgr \
     pulseaudio pulseaudio-alsa alsa-utils pasystray \
+    bat \
+    ncdu \
+    shotwell \
+    vlc \
+    polybar \
+    yay \
+    docker \
 ```
 
 ### Use fish as default shell

@@ -3,9 +3,9 @@
 # Use Super key as modifier
 set $mod Mod4
 
-set $left j
-set $up i
-set $down k
+set $left h
+set $up k
+set $down j
 set $right l
 
 set $wallpaper $HOME/wallpaper.png
@@ -21,29 +21,29 @@ title_align center
 
 # https://forkaweso.me/Fork-Awesome/cheatsheet/
 # Workspaces vars
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
-set $workspace11 "11"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
 
-#workspace $workspace1  output DP3
-workspace $workspace2  output DP3
-workspace $workspace3  output DP3
-#workspace $workspace4  output DP3
-#workspace $workspace5  output DP1
-#workspace $workspace6  output DP1
-#workspace $workspace7  output DP1
-#workspace $workspace8  output DP1
-workspace $workspace9  output DP3
-workspace $workspace10 output DP3
-workspace $workspace11 output DP1
+#workspace $ws1  output DP3
+workspace $ws2  output DP3
+workspace $ws3  output DP3
+#workspace $ws4  output DP3
+#workspace $ws5  output DP1
+#workspace $ws6  output DP1
+#workspace $ws7  output DP1
+#workspace $ws8  output DP1
+workspace $ws9  output DP3
+workspace $ws10 output DP3
+workspace $ws11 output DP1
 
 # Terminal
 set $terminal termite
@@ -100,7 +100,7 @@ set $unfocused_text #d5c4a1
 # class                 border        backgr        text            indicator child_border
 client.focused          $focused_bg   $focused_bg   $focused_text   $purple   $darkgray
 client.focused_inactive $inactive_bg  $inactive_bg  $inactive_text  $purple   $darkgray
-client.unfocused        $unfocused_bg $unfocused_bg $unfocused_text $purple   $darkgray
+client.unfocused        $unfocused_text $unfocused_bg $unfocused_text $purple   $darkgray
 client.urgent           $red          $red          $white          $red      $red
 
 ### Polybar ###
@@ -149,7 +149,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+shift+z move scratchpad
-bindsym $mod+z scratchpad show
+bindsym $mod+z exec --no-startup-id rofi -show window
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
@@ -163,20 +163,20 @@ bindsym $mod+grave exec --no-startup-id playerctl play-pause      # Play/Pause S
 bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Spotify Win+` internationnal
 
 # Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym $mod+KP_Subtract exec --no-startup-id amixer -D pulse sset Master 5%+ # monter le son Win+-
-bindsym $mod+KP_Add exec --no-startup-id amixer -D pulse sset Master 5%-      # baisser le son Win++
-bindsym $mod+KP_Divide exec --no-startup-id amixer -D pulse sset Master 0%    # mute sound Win+/
+bindsym $mod+KP_Subtract exec --no-startup-id amixer sset Master 5%+ # monter le son Win+-
+bindsym $mod+KP_Add exec --no-startup-id amixer sset Master 5%-      # baisser le son Win++
+bindsym $mod+KP_Divide exec --no-startup-id amixer sset Master 0%    # mute sound Win+/
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 0% # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master 0% # mute sound
 
 # Toogle wifi
 bindsym XF86WLAN exec --no-startup-id $HOME/.config/i3/wifi.sh
 
 # Program Workspaces
-assign [class="jetbrains-phpstorm"] $workspace3
-assign [class="Slack"] $workspace9
+assign [class="jetbrains-phpstorm"] $ws3
+assign [class="Slack"] $ws9
 
 # Auto start
 exec --no-startup-id nm-applet &
@@ -226,30 +226,30 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
-bindsym $mod+minus workspace $workspace11
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+minus workspace $ws11
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
-bindsym $mod+Shift+minus move container to workspace $workspace11
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+minus move container to workspace $ws11
 
 # change focus
 bindsym $mod+$left focus left

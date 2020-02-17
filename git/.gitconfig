@@ -3,6 +3,7 @@
 	email = pablo.godinez@zayon.eu
 [alias]
 	a  = add
+	ap = add -p
 	br = branch
 	ca = commit --amend
 	can = commit --verbose --amend --no-edit
@@ -10,7 +11,7 @@
 	co = checkout
 	cp = cherry-pick
 	d = diff
-	dm = diff --patience master
+	dm = diff --patience origin/master
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all -p
@@ -20,8 +21,11 @@
 	p = pull
 	pf = push --force-with-lease
 	ps = push
+	reb = rebase
+	ra = rebase --abort
+	rc = rebase --continue
 	st = status
-	ap = add -p
+	wip = commit -m "WIP"
 [color]
 	ui = auto
 	branch = auto

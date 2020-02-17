@@ -3,3 +3,5 @@ fish/.config/fish/fishd.*
 fish/.config/fish/conf.d/omf.fish
 vscode/.config/Code
 !vscode/.config/Code/User/settings.json
+watson/.config/watson
+!watson/.config/watson/config

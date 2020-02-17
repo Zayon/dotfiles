@@ -39,14 +39,13 @@ colorD=#4169e1 # blue
 colorE=#7851a9 # purple
 colorF=#574F4A # brown
 
-[bar/example]
+[section/base]
 monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 20
 offset-x = 0
 offset-y = 0
 radius = 0
-fixed-center = false
 
 background = ${colors.xbg}
 foreground = ${colors.xfg}
@@ -67,16 +66,18 @@ font-0 = Noto Sans:pixelsize=12;0
 font-1 = siji:pixelsize=12;1
 font-2 = forkawesome:style=Regular:pixelsize=12;1
 
+[bar/main]
+inherit = section/base
 modules-left = i3
 modules-center = date spotify
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature
+modules-right = pulseaudio docker memory cpu wlan eth battery
+fixed-center = false
 
 tray-position = ${env:TRAY_POS}
 tray-padding = 2
 tray-background = ${colors.xbg}
 tray-transparent = false
 
-;wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -86,6 +87,16 @@ tray-transparent = false
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[bar/secondary]
+inherit = section/base
+modules-left = i3
+override-redirect = true
+fixed-center = true
+background = #00000000
+border-size = 0
+height = 26
+width = 10%
 
 [module/i3]
 type = internal/i3
@@ -167,31 +178,6 @@ format-prefix = " "
 format = <label>
 exec = python $HOME/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{artist}-{song}'
 format-underline = #1db954
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.xfg}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/xkeyboard]
-type = internal/xkeyboard
 
 [module/cpu]
 type = internal/cpu
@@ -290,34 +276,6 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.xfg}
 
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.xfg}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.xfg}
-
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -351,53 +309,11 @@ animation-discharging-2 = 
 animation-discharging-foreground = ${colors.xfg}
 animation-discharging-framerate = 750
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.color8}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.xfg}
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.xfg}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+[module/docker]
+type = custom/script
+exec = docker ps -q | wc -l
+interval = 90
+label =  %output%
 
 [settings]
 screenchange-reload = true
@@ -412,3 +328,104 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+; [module/xbacklight]
+; type = internal/xbacklight
+
+; format = <label> <bar>
+; label = BL
+
+; bar-width = 10
+; bar-indicator = |
+; bar-indicator-foreground = #fff
+; bar-indicator-font = 2
+; bar-fill = ─
+; bar-fill-font = 2
+; bar-fill-foreground = #9f78e1
+; bar-empty = ─
+; bar-empty-font = 2
+; bar-empty-foreground = ${colors.xfg}
+
+; [module/backlight-acpi]
+; inherit = module/xbacklight
+; type = internal/backlight
+; card = intel_backlight
+
+; [module/xkeyboard]
+; type = internal/xkeyboard
+
+; [module/powermenu]
+; type = custom/menu
+
+; expand-right = true
+
+; format-spacing = 1
+
+; label-open = 
+; label-open-foreground = ${colors.secondary}
+; label-close =  cancel
+; label-close-foreground = ${colors.secondary}
+; label-separator = |
+; label-separator-foreground = ${colors.xfg}
+
+; menu-0-0 = reboot
+; menu-0-0-exec = menu-open-1
+; menu-0-1 = power off
+; menu-0-1-exec = menu-open-2
+
+; menu-1-0 = cancel
+; menu-1-0-exec = menu-open-0
+; menu-1-1 = reboot
+; menu-1-1-exec = sudo reboot
+
+; menu-2-0 = power off
+; menu-2-0-exec = sudo poweroff
+; menu-2-1 = cancel
+; menu-2-1-exec = menu-open-0
+
+; [module/alsa]
+; type = internal/alsa
+
+; format-volume = <label-volume> <bar-volume>
+; label-volume = VOL
+; label-volume-foreground = ${root.foreground}
+
+; format-muted-prefix = " "
+; format-muted-foreground = ${colors.xfg}
+; label-muted = sound muted
+
+; bar-volume-width = 10
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = |
+; bar-volume-indicator-font = 2
+; bar-volume-fill = ─
+; bar-volume-fill-font = 2
+; bar-volume-empty = ─
+; bar-volume-empty-font = 2
+; bar-volume-empty-foreground = ${colors.xfg}
+
+; [module/temperature]
+; type = internal/temperature
+; thermal-zone = 0
+; warn-temperature = 60
+
+; format = <ramp> <label>
+; format-underline = #f50a4d
+; format-warn = <ramp> <label-warn>
+; format-warn-underline = ${self.format-underline}
+
+; label = %temperature-c%
+; label-warn = %temperature-c%
+; label-warn-foreground = ${colors.color8}
+
+; ramp-0 = 
+; ramp-1 = 
+; ramp-2 = 
+; ramp-foreground = ${colors.xfg}
