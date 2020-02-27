@@ -6,20 +6,18 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-screens=$(xrandr --query | grep " connected" | cut -d" " -f1)
+screens=$(xrandr --listactivemonitors | grep -v "Monitors" | cut -d" " -f6)
 
-if [[ $(wc -l <<<"$(echo "$screens")") == 1 ]]; then
-  TRAY_POS=right polybar main &
+if [[ $(xrandr --listactivemonitors | grep -v "Monitors" | cut -d" " -f4 | cut -d"+" -f2- | uniq | wc -l) == 1 ]]; then
+  MONITOR=$(polybar --list-monitors | cut -d":" -f1) TRAY_POS=right polybar main &
 else
   primary=$(xrandr --query | grep primary | cut -d" " -f1)
 
   for m in $screens; do
     if [[ $primary == $m ]]; then
-        traypos="right"
-        MONITOR=$m TRAY_POS=$traypos polybar main &
+        MONITOR=$m TRAY_POS=right polybar main &
     else
-        traypos="none"
-        MONITOR=$m TRAY_POS=$traypos polybar secondary &
+        MONITOR=$m TRAY_POS=none polybar secondary &
     fi
   done
 fi

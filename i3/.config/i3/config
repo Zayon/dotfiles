@@ -1,5 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+### VARS #######################################################################
+
 # Use Super key as modifier
 set $mod Mod4
 
@@ -8,66 +10,15 @@ set $up k
 set $down j
 set $right l
 
-set $wallpaper $HOME/wallpaper.png
-
-# Set wallpaper
-exec_always --no-startup-id sh ~/.fehbg
-
-# Custom configuration
-hide_edge_borders both
-workspace_auto_back_and_forth yes
-focus_follows_mouse no
-title_align center
-
-# https://forkaweso.me/Fork-Awesome/cheatsheet/
-# Workspaces vars
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-set $ws11 "11"
-
-#workspace $ws1  output DP3
-workspace $ws2  output DP3
-workspace $ws3  output DP3
-#workspace $ws4  output DP3
-#workspace $ws5  output DP1
-#workspace $ws6  output DP1
-#workspace $ws7  output DP1
-#workspace $ws8  output DP1
-workspace $ws9  output DP3
-workspace $ws10 output DP3
-workspace $ws11 output DP1
-
 # Terminal
 set $terminal termite
-# set $terminal i3-sensible-terminal
-
-# # Scratchpad terminal
-# set $termite-float termite -r termite-float -c ~/.config/termite/transparent-config
-# exec $termite-float
-# for_window [class="Termite" window_role="termite-float"] floating enable, border none,  move scratchpad, sticky enable
-
+# Screen lock
+set $locker mate-screensaver-command -l
+# Explorer
+set $explorer pcmanfm
 # Lancher
 # set $launcher i3-dmenu-desktop
 set $launcher rofi -show
-bindsym $mod+d exec --no-startup-id $launcher
-
-# Screen lock
-# set $locker i3lock -i $HOME/wallpaper.png
-set $locker mate-screensaver-command -l
-bindsym $mod+Shift+x exec --no-startup-id $locker
-
-# Explorer
-set $explorer pcmanfm
-# set $explorer ranger
-bindsym $mod+shift+n exec --no-startup-id $explorer
 
 # Colors vars
 set $win-bg-color        #8fa876
@@ -97,44 +48,63 @@ set $inactive_text #d5c4a1
 set $unfocused_bg #1d2021
 set $unfocused_text #d5c4a1
 
+# Workspaces vars
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
+
+################################################################################
+
+# Custom configuration
+hide_edge_borders both
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+title_align center
+
+## Windows configuration
 # class                 border        backgr        text            indicator child_border
 client.focused          $focused_bg   $focused_bg   $focused_text   $purple   $darkgray
 client.focused_inactive $inactive_bg  $inactive_bg  $inactive_text  $purple   $darkgray
 client.unfocused        $unfocused_text $unfocused_bg $unfocused_text $purple   $darkgray
 client.urgent           $red          $red          $white          $red      $red
 
-### Polybar ###
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#workspace $ws1  output DP3
+workspace $ws2  output DP3
+workspace $ws3  output DP3
+#workspace $ws4  output DP3
+#workspace $ws5  output DP1
+#workspace $ws6  output DP1
+#workspace $ws7  output DP1
+#workspace $ws8  output DP1
+workspace $ws9  output DP3
+workspace $ws10 output DP3
+workspace $ws11 output DP1
 
-#bar {
-#        status_command conky -c $HOME/.config/i3/conkyrc
-#
-#        verbose yes
-#        position top
-#        mode dock
-#        tray_output primary
-#        font pango:System San Francisco Display, forkawesome 11
-#
-#        colors {
-#                background $darkgray
-#                separator  $darkgray
-#
-#                focused_workspace    $aqua     $aqua     $darkgray
-#                inactive_workspace   $darkgray $darkgray $unfocused_text
-#                active_workspace     $darkgray $darkgray $unfocused_text
-#                urgent_workspace     $red      $red      $bg
-#        }
-#}
+# Program Workspaces
+assign [class="jetbrains-phpstorm"] $ws3
+assign [class="Slack"] $ws9
 
-### Mouse Bindings ###
+### Custom Shortcuts ###########################################################
 
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
+bindsym $mod+d exec --no-startup-id $launcher
+bindsym $mod+Shift+x exec --no-startup-id $locker
+bindsym $mod+shift+n exec --no-startup-id $explorer
 
-### Custom Shortcuts ###
-
+### Workspaces related Shortcuts ###
+# Move workspace to outputs
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
+
+# Return to last workspace
+bindsym $mod+Tab workspace back_and_forth
 
 # Navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -142,14 +112,15 @@ bindsym $mod+Ctrl+$right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+$left workspace prev
 
+# The middle button over a titlebar kills the windowlmi
+bindsym --release button2 kill
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
-# Return to last workspace
-bindsym $mod+Tab workspace back_and_forth
-
 bindsym $mod+shift+z move scratchpad
 bindsym $mod+z exec --no-startup-id rofi -show window
+
+### FN keys Shortcuts ###
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
@@ -174,14 +145,19 @@ bindsym XF86AudioMute exec --no-startup-id amixer sset Master 0% # mute sound
 # Toogle wifi
 bindsym XF86WLAN exec --no-startup-id $HOME/.config/i3/wifi.sh
 
-# Program Workspaces
-assign [class="jetbrains-phpstorm"] $ws3
-assign [class="Slack"] $ws9
+### exec_always configs ########################################################
 
-# Auto start
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Set wallpaper
+exec_always --no-startup-id sh ~/.fehbg
+
+### Auto start #################################################################
+
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
 exec --no-startup-id xcompmgr &
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier
 
 # Natural Scroll
 # exec --no-startup-id synclient VertScrollDelta=-111
@@ -193,10 +169,30 @@ exec --no-startup-id xcompmgr &
 # Make caps lock acts like Super key
 # exec --no-startup-id setxkbmap -option caps:super
 # Make caps lock acts like Control key
-exec --no-startup-id setxkbmap -option caps:ctrl_modifier
+
+### for_window configs #########################################################
 
 # Slack calls window
 for_window [class="Slack" floating] move container to workspace current
+for_window [window_role="pop-up"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+
+### Mode monitor ###############################################################
+
+set $mode_monitor Monitor configuration: [b]ench [p]resentation [r]emote [l]aptop
+bindsym $mod+m mode "$mode_monitor"
+
+mode "$mode_monitor" {
+        bindsym b exec $HOME/dotfiles/screenlayouts/bench.sh
+        bindsym p exec $HOME/dotfiles/screenlayouts/prez.sh
+        bindsym r exec $HOME/dotfiles/screenlayouts/remote.sh
+        bindsym l exec $HOME/dotfiles/screenlayouts/laptop.sh
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 
 ###############################################################################
 ###############################################################################
@@ -302,9 +298,6 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-for_window [window_role="pop-up"] floating enable
-for_window [class="System-config-printer.py"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

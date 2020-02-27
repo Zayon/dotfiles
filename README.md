@@ -70,7 +70,6 @@ yay -S gpmdp
 yay -S keeweb-desktop
 yay -S phpstorm
 yay -S phpstorm-jre
-yay -S postman-bin
 yay -S slack-desktop
 yay -S spotify
 yay -S visual-studio-code
@@ -86,7 +85,7 @@ Clé | valeur | détails
 `browser.ctrlTab.previews` | true | ctrl-tab between tabs
 `telemetry` | false | everywhere
 
-## Additionnal tool
+## Additionnal tools
 
 ### Youtube-dl
 
@@ -103,23 +102,6 @@ youtube-dl --get-filename -o "%(autonumber)02d_%(title)s.%(ext)s" "url"
 
 # Get music from youtube
 youtube-dl -x --audio-format mp3 "url"
-```
-
-### Conky-Spotify
-
-```
-wget -O conky-spotify https://codeload.github.com/Madh93/conky-spotify/zip/master
-unzip conky-spotify
-rm conky-spotify
-mv conky-spotify-master ~/.config/i3/conky-spotify
-```
-
-### Desktop apps
-
-```
-https://www.googleplaymusicdesktopplayer.com
-https://www.spotify.com/fr/download/linux/
-https://code.visualstudio.com/docs/?dv=linux64_deb
 ```
 
 ### Fonts
