@@ -105,12 +105,19 @@ bindsym $mod+u move workspace to output right
 
 # Return to last workspace
 bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Tab workspace next_on_output
 
 # Navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+$right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+$left workspace prev
+bindsym $mod+Ctrl+Right workspace next_on_output
+bindsym $mod+Ctrl+$right workspace next_on_output
+bindsym $mod+Ctrl+Left workspace prev_on_output
+bindsym $mod+Ctrl+$left workspace prev_on_output
+
+bindsym $mod+Shift+Ctrl+Right focus output right
+bindsym $mod+Shift+Ctrl+$right focus output right
+bindsym $mod+Shift+Ctrl+Left focus output left
+bindsym $mod+Shift+Ctrl+$left focus output left
+
 
 # The middle button over a titlebar kills the windowlmi
 bindsym --release button2 kill

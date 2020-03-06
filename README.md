@@ -18,7 +18,6 @@ stow vscode
 stow pcmanfm
 stow polybar
 stow rofi
-stow vscode
 ```
 
 ## Install stuff
@@ -26,7 +25,7 @@ stow vscode
 ```
 sudo pacman -S \
     fish \
-    i3-wm i3status \
+    i3-wm \
     termite \
     pcmanfm \
     firefox \
@@ -44,6 +43,7 @@ sudo pacman -S \
     xcompmgr \
     pulseaudio pulseaudio-alsa alsa-utils pasystray \
     bat \
+    exa \
     ncdu \
     shotwell \
     vlc \
