@@ -1,1 +1,0 @@
-../conf.d/functions/ssh-agent.fish
