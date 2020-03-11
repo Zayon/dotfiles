@@ -20,6 +20,8 @@ set $explorer pcmanfm
 # set $launcher i3-dmenu-desktop
 set $launcher rofi -show
 
+set $bin-dir $HOME/dotfiles/bin
+
 # Colors vars
 set $win-bg-color        #8fa876
 set $mint-text           #363636
@@ -70,11 +72,11 @@ focus_follows_mouse no
 title_align center
 
 ## Windows configuration
-# class                 border        backgr        text            indicator child_border
-client.focused          $focused_bg   $focused_bg   $focused_text   $purple   $darkgray
-client.focused_inactive $inactive_bg  $inactive_bg  $inactive_text  $purple   $darkgray
+# class                 border          backgr        text            indicator child_border
+client.focused          $focused_bg     $focused_bg   $focused_text   $purple   $darkgray
+client.focused_inactive $inactive_bg    $inactive_bg  $inactive_text  $purple   $darkgray
 client.unfocused        $unfocused_text $unfocused_bg $unfocused_text $purple   $darkgray
-client.urgent           $red          $red          $white          $red      $red
+client.urgent           $red            $red          $white          $red      $red
 
 #workspace $ws1  output DP3
 workspace $ws2  output DP3
@@ -152,6 +154,8 @@ bindsym XF86AudioMute exec --no-startup-id amixer sset Master 0% # mute sound
 # Toogle wifi
 bindsym XF86WLAN exec --no-startup-id $HOME/.config/i3/wifi.sh
 
+bindsym $mod+Shift+e exec --no-startup-id mate-session-save --shutdown-dialog
+
 ### exec_always configs ########################################################
 
 # Polybar
@@ -190,10 +194,10 @@ set $mode_monitor Monitor configuration: [b]ench [p]resentation [r]emote [l]apto
 bindsym $mod+m mode "$mode_monitor"
 
 mode "$mode_monitor" {
-        bindsym b exec $HOME/dotfiles/screenlayouts/bench.sh
-        bindsym p exec $HOME/dotfiles/screenlayouts/prez.sh
-        bindsym r exec $HOME/dotfiles/screenlayouts/remote.sh
-        bindsym l exec $HOME/dotfiles/screenlayouts/laptop.sh
+        bindsym b exec $bin-dir/screenlayouts/bench.sh
+        bindsym p exec $bin-dir/screenlayouts/prez.sh
+        bindsym r exec $bin-dir/screenlayouts/remote.sh
+        bindsym l exec $bin-dir/screenlayouts/laptop.sh
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
