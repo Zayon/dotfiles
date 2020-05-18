@@ -1,5 +1,0 @@
-[options]
-stop_on_start = true
-stop_on_restart = true
-week_start = monday
-pager = false
