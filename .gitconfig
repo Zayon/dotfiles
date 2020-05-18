@@ -1,7 +1,6 @@
 [user]
 	name = Godinez Pablo
-	email = pablo.godinez@evaneos.com
-	signingkey = A302618DBDE94C7D
+	email = pablo.godinez@zayon.eu
 [alias]
 	a  = add
 	ap = add -p
