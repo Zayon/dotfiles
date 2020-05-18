@@ -102,6 +102,13 @@ youtube-dl --get-filename -o "%(autonumber)02d_%(title)s.%(ext)s" "url"
 
 # Get music from youtube
 youtube-dl -x --audio-format mp3 "url"
+
+# Get portion of youtube video
+ffmpeg -i $(youtube-dl -f 22 --get-url <<URL>>) \
+    -ss 00:25:30 \ # Start of capture
+    -t 00:02:10 \ # Duration of capture
+    -c:v copy -c:a copy video.mp4
+
 ```
 
 ### Fonts

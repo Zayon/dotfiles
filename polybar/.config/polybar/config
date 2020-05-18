@@ -65,12 +65,13 @@ module-margin-right = 2
 font-0 = Noto Sans:pixelsize=12;0
 font-1 = siji:pixelsize=12;1
 font-2 = forkawesome:style=Regular:pixelsize=12;1
+font-3 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
 
 [bar/main]
 inherit = section/base
 modules-left = i3
 modules-center = date spotify
-modules-right = pulseaudio docker memory cpu wlan eth battery
+modules-right = numlockx xkeyboard pulseaudio docker wlan eth battery
 fixed-center = false
 
 tray-position = ${env:TRAY_POS}
@@ -87,6 +88,9 @@ tray-transparent = false
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[bar/debug]
+modules-left = numlockx
 
 [bar/secondary]
 inherit = section/base
@@ -176,24 +180,9 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python $HOME/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{artist}-{song}'
+exec = python $HOME/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{play_pause} {artist}-{song}'
 format-underline = #1db954
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.xfg}
-format-underline = #f90000
-label = %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.xfg}
-format-underline = #4bffdc
-label = %percentage_used%%
+click-left = playerctl play-pause
 
 [module/wlan]
 type = internal/network
@@ -251,13 +240,21 @@ label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
+format-volume-underline = #f90000
+format-muted-underline = ${self.format-volume-underline}
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+; format-volume = <label-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -268,7 +265,7 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator =
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
@@ -312,8 +309,9 @@ animation-discharging-framerate = 750
 [module/docker]
 type = custom/script
 exec = docker ps -q | wc -l
-interval = 90
-label =  %output%
+interval = 60
+label =  %output%
+format-underline = #00a489
 
 [settings]
 screenchange-reload = true
@@ -351,8 +349,31 @@ margin-bottom = 5
 ; type = internal/backlight
 ; card = intel_backlight
 
-; [module/xkeyboard]
-; type = internal/xkeyboard
+[module/xkeyboard]
+type = internal/xkeyboard
+label-layout = %name%
+format-underline = #4169e1
+
+[module/numlockx]
+type = custom/text
+content = 
+click-left = numlockx on && numlockx off
+
+; [module/cpu]
+; type = internal/cpu
+; interval = 2
+; format-prefix = " "
+; format-prefix-foreground = ${colors.xfg}
+; format-underline = #f90000
+; label = %percentage:2%%
+
+; [module/memory]
+; type = internal/memory
+; interval = 2
+; format-prefix = " "
+; format-prefix-foreground = ${colors.xfg}
+; format-underline = #4bffdc
+; label = %percentage_used%%
 
 ; [module/powermenu]
 ; type = custom/menu

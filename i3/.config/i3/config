@@ -10,22 +10,17 @@ set $up k
 set $down j
 set $right l
 
-# Terminal
-set $terminal termite
-# Screen lock
-set $locker mate-screensaver-command -l
-# Explorer
-set $explorer pcmanfm
-# Lancher
-# set $launcher i3-dmenu-desktop
-set $launcher rofi -show
+set $terminal termite # Terminal
+set $locker mate-screensaver-command -l # Screen lock
+set $explorer pcmanfm # Explorer
+set $launcher rofi -show # Lancher
 
 set $bin-dir $HOME/dotfiles/bin
 
 # Colors vars
 set $win-bg-color        #8fa876
 set $mint-text           #363636
-set $bg-color 	         #8fa876
+set $bg-color            #8fa876
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -69,6 +64,7 @@ set $ws11 "11"
 hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
+focus_wrapping no
 title_align center
 
 ## Windows configuration
@@ -78,7 +74,7 @@ client.focused_inactive $inactive_bg    $inactive_bg  $inactive_text  $purple   
 client.unfocused        $unfocused_text $unfocused_bg $unfocused_text $purple   $darkgray
 client.urgent           $red            $red          $white          $red      $red
 
-#workspace $ws1  output DP3
+workspace $ws1  output DP1
 workspace $ws2  output DP3
 workspace $ws3  output DP3
 #workspace $ws4  output DP3
@@ -96,7 +92,7 @@ assign [class="Slack"] $ws9
 
 ### Custom Shortcuts ###########################################################
 
-bindsym $mod+d exec --no-startup-id $launcher
+bindsym $mod+d       exec --no-startup-id $launcher
 bindsym $mod+Shift+x exec --no-startup-id $locker
 bindsym $mod+shift+n exec --no-startup-id $explorer
 
@@ -105,23 +101,23 @@ bindsym $mod+shift+n exec --no-startup-id $explorer
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
 
+bindsym $mod+slash nop
+
 # Return to last workspace
 bindsym $mod+Tab workspace back_and_forth
-# bindsym $mod+Tab workspace next_on_output
 
 # Navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next_on_output
+bindsym $mod+Ctrl+Right  workspace next_on_output
 bindsym $mod+Ctrl+$right workspace next_on_output
-bindsym $mod+Ctrl+Left workspace prev_on_output
-bindsym $mod+Ctrl+$left workspace prev_on_output
+bindsym $mod+Ctrl+Left   workspace prev_on_output
+bindsym $mod+Ctrl+$left  workspace prev_on_output
 
-bindsym $mod+Shift+Ctrl+Right focus output right
+bindsym $mod+Shift+Ctrl+Right  focus output right
 bindsym $mod+Shift+Ctrl+$right focus output right
-bindsym $mod+Shift+Ctrl+Left focus output left
-bindsym $mod+Shift+Ctrl+$left focus output left
+bindsym $mod+Shift+Ctrl+Left   focus output left
+bindsym $mod+Shift+Ctrl+$left  focus output left
 
-
-# The middle button over a titlebar kills the windowlmi
+# The middle button over a titlebar kills the window
 bindsym --release button2 kill
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -129,31 +125,10 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+shift+z move scratchpad
 bindsym $mod+z exec --no-startup-id rofi -show window
 
-### FN keys Shortcuts ###
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
-
-# Media player controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym $mod+grave exec --no-startup-id playerctl play-pause      # Play/Pause Spotify Win+` US classic
-bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Spotify Win+` internationnal
-
-# Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym $mod+KP_Subtract exec --no-startup-id amixer sset Master 5%+ # monter le son Win+-
-bindsym $mod+KP_Add exec --no-startup-id amixer sset Master 5%-      # baisser le son Win++
-bindsym $mod+KP_Divide exec --no-startup-id amixer sset Master 0%    # mute sound Win+/
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master 0% # mute sound
-
 # Toogle wifi
 bindsym XF86WLAN exec --no-startup-id $HOME/.config/i3/wifi.sh
 
+# Show Power dialog
 bindsym $mod+Shift+e exec --no-startup-id mate-session-save --shutdown-dialog
 
 ### exec_always configs ########################################################
@@ -170,23 +145,12 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id setxkbmap -option caps:ctrl_modifier
 
-# Natural Scroll
-# exec --no-startup-id synclient VertScrollDelta=-111
-# Middle click on 3 finger tap on touchpad
-# exec --no-startup-id synclient TapButton2=3
-# exec --no-startup-id synclient TapButton3=2
-# Set keyboard layout
-# exec --no-startup-id setxkbmap -variant intl
-# Make caps lock acts like Super key
-# exec --no-startup-id setxkbmap -option caps:super
-# Make caps lock acts like Control key
-
 ### for_window configs #########################################################
 
-# Slack calls window
 for_window [class="Slack" floating] move container to workspace current
 for_window [window_role="pop-up"] floating enable
 for_window [class="System-config-printer.py"] floating enable
+for_window [class="Blueman-manager"] floating enable
 
 ### Mode monitor ###############################################################
 
@@ -194,16 +158,15 @@ set $mode_monitor Monitor configuration: [b]ench [p]resentation [r]emote [l]apto
 bindsym $mod+m mode "$mode_monitor"
 
 mode "$mode_monitor" {
-        bindsym b exec $bin-dir/screenlayouts/bench.sh
-        bindsym p exec $bin-dir/screenlayouts/prez.sh
-        bindsym r exec $bin-dir/screenlayouts/remote.sh
-        bindsym l exec $bin-dir/screenlayouts/laptop.sh
+    bindsym b exec $bin-dir/screenlayouts/bench.sh
+    bindsym p exec $bin-dir/screenlayouts/prez.sh
+    bindsym r exec $bin-dir/screenlayouts/remote.sh
+    bindsym l exec $bin-dir/screenlayouts/laptop.sh
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-
 
 ###############################################################################
 ###############################################################################
@@ -214,12 +177,6 @@ mode "$mode_monitor" {
 ### Default i3 configuration below ############################################
 ###############################################################################
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
 font pango:Noto Sans 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -285,7 +242,7 @@ bindsym $mod+Shift+Right move right
 # split in horizontal orientation
 bindsym $mod+o split h
 
-# split in vertical orientation
+# split in vertical (portrait) orientation
 bindsym $mod+p split v
 
 # enter fullscreen mode for the focused container
@@ -312,26 +269,47 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left  resize shrink width 10 px or 10 ppt
-        bindsym $down  resize grow height 10 px or 10 ppt
-        bindsym $up    resize shrink height 10 px or 10 ppt
-        bindsym $right resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym $left  resize shrink width 10 px or 10 ppt
+    bindsym $down  resize grow height 10 px or 10 ppt
+    bindsym $up    resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
+
+### FN keys Shortcuts ###
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioNext   exec --no-startup-id playerctl next
+bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay   exec --no-startup-id playerctl play-pause
+bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause Win+` US classic
+bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
+
+# Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
+bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # monter le son Win+-
+bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # baisser le son Win++
+bindsym $mod+KP_Divide       exec --no-startup-id amixer sset Master 0%  # mute sound Win+/
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound

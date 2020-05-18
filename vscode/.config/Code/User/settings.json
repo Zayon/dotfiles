@@ -3,7 +3,6 @@
     "editor.lineNumbers": "on",
     "workbench.iconTheme": "vscode-icons",
     "extensions.ignoreRecommendations": false,
-    "window.zoomLevel": 0,
     "vsicons.dontShowNewVersionMessage": true,
     "editor.rulers": [
         80,
@@ -80,5 +79,6 @@
         "ini"
     ],
     "editor.fontFamily": "'Input Mono Narrow'",
-    "workbench.colorTheme": "Default Light+"
+    "editor.fontSize": 16,
+    "window.zoomLevel": 0.5
 }
