@@ -7,17 +7,17 @@ https://gist.github.com/Zayon/afc3d9fd83cbfc6e63ded6887eb9b5fc
 ## Set up dotfiles
 
 ```
-pacman -S git stow
-git clone https://github.com:Zayon/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-stow fish
-stow omf
-stow git
-stow termite
-stow vscode
-stow pcmanfm
-stow polybar
-stow rofi
+pacman -S git
+git clone https://github.com:Zayon/dotfiles.git ~/.dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config checkout
+config config status.showUntrackedFiles no
+```
+
+```
+mkdir -p .config-backup && \
+config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .config-backup/{}
 ```
 
 ## Install stuff
@@ -41,7 +41,7 @@ sudo pacman -S \
     feh \
     numlockx \
     xcompmgr \
-    pulseaudio pulseaudio-alsa alsa-utils pasystray \
+    pulseaudio pulseaudio-alsa alsa-utils pasystray pavucontrol \
     bat \
     exa \
     ncdu \
@@ -50,13 +50,12 @@ sudo pacman -S \
     polybar \
     yay \
     docker \
+    dive \
+    chromium \
 ```
 
 ### Use fish as default shell
 `chsh -s /usr/bin/fish`
-
-### Install omf
-`curl -L https://get.oh-my.fish | fish`
 
 ## Install more stuff (AUR)
 ```
@@ -77,13 +76,13 @@ yay -S visual-studio-code
 
 ## Firefox config
 
-Clé | valeur | détails
-----|--------|--------
-`browser.tabs.closeWindowWithLastTab` | false | ...
-`network.IDN_show_punycode` | true |  URL spoofing conerns
-`extensions.pocket.enabled` | false | ...
-`browser.ctrlTab.previews` | true | ctrl-tab between tabs
-`telemetry` | false | everywhere
+| Clé | valeur | détails |
+| --- | ------ | ------- |
+| `browser.tabs.closeWindowWithLastTab` | false | ... |
+| `network.IDN_show_punycode` | true |  URL spoofing conerns |
+| `extensions.pocket.enabled` | false | ... |
+| `browser.ctrlTab.previews` | true | ctrl-tab between tabs |
+| `telemetry` | false | everywhere |
 
 ## Additionnal tools
 
@@ -96,19 +95,18 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 #### Use examples
 
+##### Get album from bandcamp
+`youtube-dl --get-filename -o "%(autonumber)02d_%(title)s.%(ext)s" "URL"`
+
+##### Get music from youtube
+`youtube-dl -x --audio-format mp3 "URL"`
+
+##### Get portion of youtube video
 ```
-# Get album from bandcamp
-youtube-dl --get-filename -o "%(autonumber)02d_%(title)s.%(ext)s" "url"
-
-# Get music from youtube
-youtube-dl -x --audio-format mp3 "url"
-
-# Get portion of youtube video
-ffmpeg -i $(youtube-dl -f 22 --get-url <<URL>>) \
+ffmpeg -i $(youtube-dl -f 22 --get-url "URL") \
     -ss 00:25:30 \ # Start of capture
     -t 00:02:10 \ # Duration of capture
     -c:v copy -c:a copy video.mp4
-
 ```
 
 ### Fonts

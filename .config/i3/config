@@ -151,6 +151,7 @@ for_window [class="Slack" floating] move container to workspace current
 for_window [window_role="pop-up"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="Blueman-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 ### Mode monitor ###############################################################
 
