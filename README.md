@@ -23,6 +23,8 @@ xargs -I{} mv {} .config-backup/{}
 ## Install stuff
 
 ```
+sudo pacman -S reflector
+sudo reflector --country France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -S \
     fish \
     i3-wm \
