@@ -78,7 +78,8 @@
         "i3",
         "ini"
     ],
-    "editor.fontFamily": "'Input Mono Narrow'",
+    "editor.fontFamily": "'Jetbrains Mono'",
     "editor.fontSize": 16,
-    "window.zoomLevel": 0.5
+    "window.zoomLevel": 0.5,
+    "workbench.colorTheme": "Solarized Light"
 }

@@ -52,3 +52,5 @@
 	default = current
 [sequence]
 	editor = interactive-rebase-tool
+[pull]
+	rebase = true

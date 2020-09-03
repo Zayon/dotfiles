@@ -244,7 +244,7 @@ format-volume-underline = #f90000
 format-muted-underline = ${self.format-volume-underline}
 
 ; format-volume = <label-volume> <bar-volume>
-format-volume = <ramp-volume> <label-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 

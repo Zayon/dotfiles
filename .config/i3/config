@@ -1,6 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 ### VARS #######################################################################
+font pango:Noto Sans 12
 
 # Use Super key as modifier
 set $mod Mod4
@@ -178,8 +179,6 @@ mode "$mode_monitor" {
 ### Default i3 configuration below ############################################
 ###############################################################################
 
-font pango:Noto Sans 12
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -308,8 +307,8 @@ bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause W
 bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
 
 # Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # monter le son Win+-
-bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # baisser le son Win++
+bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # increase sound volume Win+-
+bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # decrease sound volume Win++
 bindsym $mod+KP_Divide       exec --no-startup-id amixer sset Master 0%  # mute sound Win+/
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
