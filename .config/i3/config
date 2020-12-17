@@ -100,7 +100,9 @@ bindsym $mod+shift+n exec --no-startup-id $explorer
 ### Workspaces related Shortcuts ###
 # Move workspace to outputs
 bindsym $mod+y move workspace to output left
+bindsym $mod+Shift+y move workspace to output up
 bindsym $mod+u move workspace to output right
+bindsym $mod+Shift+u move workspace to output down
 
 bindsym $mod+slash nop
 
@@ -143,7 +145,6 @@ exec_always --no-startup-id sh ~/.fehbg
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
-exec --no-startup-id xcompmgr &
 exec --no-startup-id setxkbmap -option caps:ctrl_modifier
 
 ### for_window configs #########################################################
@@ -169,6 +170,27 @@ mode "$mode_monitor" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+### FN keys Shortcuts ###
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioNext   exec --no-startup-id playerctl next
+bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay   exec --no-startup-id playerctl play-pause
+bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause Win+` US classic
+bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
+
+# Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
+bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # increase sound volume Win+-
+bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # decrease sound volume Win++
+bindsym $mod+KP_Divide       exec --no-startup-id amixer sset Master 0%  # mute sound Win+/
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
 
 ###############################################################################
 ###############################################################################
@@ -292,24 +314,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-### FN keys Shortcuts ###
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
-
-# Media player controls
-bindsym XF86AudioNext   exec --no-startup-id playerctl next
-bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
-bindsym XF86AudioPlay   exec --no-startup-id playerctl play-pause
-bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause Win+` US classic
-bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
-
-# Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # increase sound volume Win+-
-bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # decrease sound volume Win++
-bindsym $mod+KP_Divide       exec --no-startup-id amixer sset Master 0%  # mute sound Win+/
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
-bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
