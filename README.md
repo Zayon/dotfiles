@@ -8,10 +8,11 @@ https://gist.github.com/Zayon/afc3d9fd83cbfc6e63ded6887eb9b5fc
 
 ```
 pacman -S git
-git clone https://github.com:Zayon/dotfiles.git ~/.dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/Zayon/dotfiles.git ~/.dotfiles $HOME/dotfiles-tmp
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 config checkout
 config config status.showUntrackedFiles no
+config restore .
 ```
 
 ```
