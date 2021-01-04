@@ -50,10 +50,8 @@ sudo pacman -S \
     ncdu \
     shotwell \
     vlc \
-    polybar \
-    yay \
+    ttf-jetbrains-mono \
     docker \
-    dive \
     chromium \
 ```
 
