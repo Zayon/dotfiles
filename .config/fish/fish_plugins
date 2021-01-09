@@ -6,3 +6,4 @@ brgmnn/fish-docker-compose
 jethrokuan/z
 oh-my-fish/theme-bobthefish
 ~/.config/fish/custom
+jorgebucaran/fisher
