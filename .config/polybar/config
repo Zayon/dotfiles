@@ -22,27 +22,43 @@ xbs=#4b5cc4
 xbg=#2d2d2d
 xfg=#f2eeed
 
-color0=#282828 # ----
-color1=#383838 # ---
-color2=#4b4b4b # --
-color3=#5b5b5b # -
-color4=#bdbdbd # +
-color5=#cecece # ++
-color6=#e0e0e0 # +++
-color7=#f5f5f5 # ++++
-color8=#eb0029 # red
-color9=#E85D00 # orange
-colorA=#faa41a # yellow
-colorB=#87a566 # green
-colorC=#00a489 # aqua
-colorD=#4169e1 # blue
-colorE=#7851a9 # purple
-colorF=#574F4A # brown
+# ----
+color0=#282828
+# ---
+color1=#383838
+# --
+color2=#4b4b4b
+# -
+color3=#5b5b5b
+# +
+color4=#bdbdbd
+# ++
+color5=#cecece
+# +++
+color6=#e0e0e0
+# ++++
+color7=#f5f5f5
+# red
+color8=#eb0029
+# orange
+color9=#E85D00
+# yellow
+colorA=#faa41a
+# green
+colorB=#87a566
+# aqua
+colorC=#00a489
+# blue
+colorD=#4169e1
+# purple
+colorE=#7851a9
+# brown
+colorF=#574F4A
 
 [section/base]
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-height = 20
+height = 26
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -52,9 +68,8 @@ foreground = ${colors.xfg}
 
 line-size = 2
 line-color = #f00
-
-border-size = 2
-border-color = #222
+underline-size = 0
+overline-size = 0
 
 padding-left = 0
 padding-right = 2
@@ -64,8 +79,10 @@ module-margin-right = 2
 
 font-0 = Noto Sans:pixelsize=12;0
 font-1 = siji:pixelsize=12;1
-font-2 = forkawesome:style=Regular:pixelsize=12;1
-font-3 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
+font-2 = la\-solid\-900:pixelsize=14;1
+font-3 = la\-regular\-400:pixelsize=14;1
+font-4 = la\-brands\-400:pixelsize=14;1
+font-5 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
 
 [bar/main]
 inherit = section/base
@@ -77,7 +94,6 @@ fixed-center = false
 tray-position = ${env:TRAY_POS}
 tray-padding = 2
 tray-background = ${colors.xbg}
-tray-transparent = false
 
 ;wm-restack = i3
 
@@ -145,7 +161,7 @@ label-unfocused-background = ${colors.xbg}
 ;   %output%
 ; Default: %icon%  %name%
 label-visible = %index%
-label-visible-underline = #555555
+;label-visible-underline = #555555
 label-visible-padding = 3
 ; Available tokens:
 ;   %name%
@@ -163,25 +179,13 @@ label-urgent-padding = 3
 
 strip-wsnumbers = true
 
-;ws-icon-0  = 10;
-;ws-icon-1  = 1;
-;ws-icon-2  = 2;
-;ws-icon-3  = 3;
-;ws-icon-4  = 4;
-;ws-icon-5  = 5;
-;ws-icon-6  = 6;
-;ws-icon-7  = 7;
-;ws-icon-8  = 8;
-;ws-icon-9  = 9;
-;ws-icon-11 = 11;
-
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = ""
 format = <label>
 exec = python $HOME/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{play_pause} {artist}-{song}'
-format-underline = #1db954
+;format-underline = #1db954
 click-left = playerctl play-pause
 
 [module/wlan]
@@ -190,7 +194,7 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+;format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
@@ -211,7 +215,7 @@ type = internal/network
 interface = enp1s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+;format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.xfg}
 label-connected = %local_ip%
@@ -227,28 +231,29 @@ type = internal/date
 interval = 5
 
 date = "%a %d/%m "
-date-alt = "%a %d-%m-%Y "
+date-alt = "%a %d/%m/%Y "
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-;format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.xfg}
-format-underline = #0a6cf5
+;format-underline = ${colors.color7}
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume-underline = #f90000
-format-muted-underline = ${self.format-volume-underline}
+;format-volume-underline = #f90000
+;format-muted-underline = ${self.format-volume-underline}
 
 ; format-volume = <label-volume> <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+;label-muted = 🔇 muted
+label-muted =  muted
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
@@ -280,38 +285,42 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xfg}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.xfg}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.xfg}
-animation-charging-framerate = 750
+animation-charging-framerate = 500
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
 animation-discharging-foreground = ${colors.xfg}
-animation-discharging-framerate = 750
+animation-discharging-framerate = 500
 
 [module/docker]
 type = custom/script
 exec = docker ps -q | wc -l
 interval = 60
 label =  %output%
-format-underline = #00a489
+;format-underline = #00a489
 
 [settings]
 screenchange-reload = true
@@ -352,7 +361,7 @@ margin-bottom = 5
 [module/xkeyboard]
 type = internal/xkeyboard
 label-layout = %name%
-format-underline = #4169e1
+;format-underline = #4169e1
 
 [module/numlockx]
 type = custom/text
@@ -362,7 +371,7 @@ click-left = numlockx on && numlockx off
 ; [module/cpu]
 ; type = internal/cpu
 ; interval = 2
-; format-prefix = " "
+; format-prefix = " "
 ; format-prefix-foreground = ${colors.xfg}
 ; format-underline = #f90000
 ; label = %percentage:2%%
@@ -370,7 +379,7 @@ click-left = numlockx on && numlockx off
 ; [module/memory]
 ; type = internal/memory
 ; interval = 2
-; format-prefix = " "
+; format-prefix = " "
 ; format-prefix-foreground = ${colors.xfg}
 ; format-underline = #4bffdc
 ; label = %percentage_used%%
