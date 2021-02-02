@@ -71,7 +71,7 @@ font-3 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
 inherit = section/base
 modules-left = i3
 modules-center = date spotify
-modules-right = numlockx xkeyboard pulseaudio docker wlan eth battery
+modules-right = numlockx xkeyboard pulseaudio wlan eth battery
 fixed-center = false
 
 tray-position = ${env:TRAY_POS}
@@ -186,7 +186,7 @@ click-left = playerctl play-pause
 
 [module/wlan]
 type = internal/network
-interface = wlp59s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -208,7 +208,7 @@ ramp-signal-foreground = ${colors.xfg}
 
 [module/eth]
 type = internal/network
-interface = ens20u1u4
+interface = enp1s0
 interval = 3.0
 
 format-connected-underline = #55aa55

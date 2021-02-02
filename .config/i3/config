@@ -97,6 +97,7 @@ bindsym $mod+d       exec --no-startup-id $launcher
 bindsym $mod+Shift+x exec --no-startup-id $locker
 bindsym $mod+shift+n exec --no-startup-id $explorer
 bindsym $mod+n exec --no-startup-id termite -e "fish -c nnn"
+bindsym Print exec --no-startup-id flameshot gui
 
 ### Workspaces related Shortcuts ###
 # Move workspace to outputs
