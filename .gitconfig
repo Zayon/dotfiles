@@ -54,3 +54,5 @@
 	editor = interactive-rebase-tool
 [pull]
 	rebase = true
+[credential]
+	helper = libsecret
