@@ -148,7 +148,8 @@ exec_always --no-startup-id sh ~/.fehbg
 exec --no-startup-id nm-applet &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
-exec --no-startup-id setxkbmap -option caps:ctrl_modifier
+exec --no-startup-id setxkbmap -option caps:menu # set capslock as menu
+exec --no-startup-id setxkbmap -option ctrl:swap_rwin_rctl # set right ctrl as super
 
 ### for_window configs #########################################################
 
