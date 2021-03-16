@@ -88,7 +88,7 @@ font-5 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
 inherit = section/base
 modules-left = i3
 modules-center = date spotify
-modules-right = numlockx xkeyboard pulseaudio wlan eth battery
+modules-right = microphone-loopback numlockx xkeyboard pulseaudio wlan eth battery
 fixed-center = false
 
 tray-position = ${env:TRAY_POS}
@@ -187,6 +187,13 @@ format = <label>
 exec = python $HOME/.config/polybar/spotify_status.py --playpause-font=3 -p ',' -f '{play_pause} {artist}-{song}'
 ;format-underline = #1db954
 click-left = playerctl play-pause
+
+[module/microphone-loopback]
+type = custom/script
+exec = $HOME/.config/polybar/micro-status.sh
+format = <label>
+click-left = $HOME/.config/polybar/micro-switch.sh
+click-right = $HOME/.config/polybar/micro-switch.sh
 
 [module/wlan]
 type = internal/network
