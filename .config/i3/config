@@ -142,13 +142,13 @@ bindsym $mod+Shift+e exec --no-startup-id mate-session-save --shutdown-dialog
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id sh ~/.fehbg
+exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
 
 ### Auto start #################################################################
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
-exec --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
 
 ### for_window configs #########################################################
 
