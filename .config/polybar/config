@@ -88,7 +88,7 @@ font-5 = Noto Sans Symbols2:style=Regular:pixelsize=12;1
 inherit = section/base
 modules-left = i3
 modules-center = date spotify
-modules-right = microphone-loopback numlockx xkeyboard pulseaudio wlan eth battery
+modules-right = numlockx xkeyboard pulseaudio wlan eth battery
 fixed-center = false
 
 tray-position = ${env:TRAY_POS}

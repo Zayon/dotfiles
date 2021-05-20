@@ -81,5 +81,9 @@
     "editor.fontFamily": "'Jetbrains Mono'",
     "editor.fontSize": 16,
     "window.zoomLevel": 0.5,
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "files.associations": {
+        "**/.i3/config": "i3",
+        ".i3/config": "i3"
+    }
 }

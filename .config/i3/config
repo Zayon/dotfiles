@@ -12,7 +12,8 @@ set $down j
 set $right l
 
 set $terminal alacritty
-set $locker mate-screensaver-command -l
+set $locker qdbus6 org.freedesktop.ScreenSaver /ScreenSaver Lock
+set $power-dialog qdbus6 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 set $explorer pcmanfm
 set $launcher rofi -show
 
@@ -107,6 +108,7 @@ bindsym $mod+u move workspace to output right
 bindsym $mod+Shift+u move workspace to output down
 
 bindsym $mod+slash nop
+bindsym $mod+q nop
 
 # Return to last workspace
 bindsym $mod+Tab workspace back_and_forth
@@ -134,21 +136,31 @@ bindsym $mod+z exec --no-startup-id rofi -show window
 # bindsym XF86WLAN exec --no-startup-id $bin-dir/wifi.sh
 
 # Show Power dialog
-bindsym $mod+Shift+e exec --no-startup-id mate-session-save --shutdown-dialog
+bindsym $mod+Shift+e exec --no-startup-id $power-dialog
 
 ### exec_always configs ########################################################
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id sh ~/.fehbg
 exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
 
 ### Auto start #################################################################
 
-exec --no-startup-id nm-applet &
-exec --no-startup-id xcompmgr &
+# exec --no-startup-id nm-applet &
+exec --no-startup-id picom &
+#exec --no-startup-id xfce4-panel -d &
 exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
+
+### gaps
+
+for_window [class=".*"] border pixel 0
+for_window [class="^.*"] border pixel 2
+for_window [class=".*"] title_format "  %title"
+gaps inner 10
+smart_borders on
+smart_gaps on
 
 ### for_window configs #########################################################
 
@@ -157,6 +169,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="clock-applet"] floating enable
 
 ### Mode monitor ###############################################################
 
@@ -188,12 +201,37 @@ bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause W
 bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
 
 # Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym $mod+KP_Subtract     exec --no-startup-id amixer sset Master 5%+ # increase sound volume Win+-
-bindsym $mod+KP_Add          exec --no-startup-id amixer sset Master 5%- # decrease sound volume Win++
-bindsym $mod+KP_Divide       exec --no-startup-id amixer sset Master 0%  # mute sound Win+/
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
-bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
+bindsym $mod+KP_Subtract     exec --no-startup-id pamixer -i 5 # increase sound volume Win+-
+bindsym $mod+KP_Add          exec --no-startup-id pamixer -d 5 # decrease sound volume Win++
+bindsym $mod+KP_Divide       exec --no-startup-id pamixer -t  # mute sound Win+/
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
+# bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute        exec --no-startup-id pamixer -t
+
+### plasma
+
+exec --no-startup-id wmctrl -c Plasma
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+exec_always plasmashell --replace
+
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+# Plasma compatibility improvements
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable, floating_minimum_size 700 x 700, floating_maximum_size 700 x 700
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="plasmashell" window_type="notification"] floating enable, border none
+no_focus [class="plasmashell" window_type="notification"]
 
 ###############################################################################
 ###############################################################################

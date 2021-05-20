@@ -27,33 +27,36 @@ xargs -I{} mv {} .config-backup/{}
 sudo pacman -S reflector
 sudo reflector --country France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -S \
+    plasma-desktop plasma-pm plasma-pa kscreen \
+    pamixer powerdevil qt6-tools \
+    breeze-gtk kde-gtk-config xdg-desktop-portal \
     fish \
-    i3-wm \
-    termite \
+    i3-gaps \
+    pipewire \
+    picom \
+    bluez bluez-utils bluedevil \
+    ttf-jetbrains-mono \
     pcmanfm-gtk3 \
     nnn \
     firefox \
-    mate mate-utils \
     arandr \
     rofi \
     zathura zathura-pdf-mupdf \
-    network-manager-applet \
+    flameshot \
     openssh \
     playerctl \
-    xarchiver \
     wget \
     redshift \
     feh \
-    numlockx \
-    xcompmgr \
-    pulseaudio pulseaudio-alsa alsa-utils pasystray pavucontrol \
+    picom \
+    pasystray pavucontrol \
     bat \
     exa \
+    code \
     fzf \
     ncdu \
-    shotwell \
+    ark \
     vlc \
-    ttf-jetbrains-mono \
     python python-dbus \
     docker \
     chromium \
@@ -61,6 +64,30 @@ sudo pacman -S \
 
 ### Use fish as default shell
 `chsh -s /usr/bin/fish`
+
+### Backlight
+
+```
+sudo pacman -S light
+
+sudo gpasswd -a $USER video
+sudo chmod g+w /sys/class/backlight/intel_backlight/brightness
+sudo chgrp video /sys/class/backlight/intel_backlight/brightness
+```
+
+### Configure i3 + KDE
+
+`sudo vim /usr/share/xsessions/plasma-i3.desktop`
+
+```
+[Desktop Entry]
+Type=XSession
+Exec=env KDEWM=/usr/bin/i3 /usr/bin/startplasma-x11
+TryExec=/usr/bin/startplasma-x11
+DesktopNames=KDE
+Name=Plasma (i3)
+Comment=Plasma with i3
+```
 
 ### Install nnn's plugins
 
@@ -72,12 +99,13 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay keeweb-desktop
+yay polybar
+yay keeweb
 yay phpstorm
 yay phpstorm-jre
 yay slack-desktop
 yay spotify
-yay siji
+yay -S plasma5-applets-eventcalendar
 yay git-interactive-rebase-tool
 ```
 
