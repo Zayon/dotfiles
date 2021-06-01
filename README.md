@@ -2,17 +2,18 @@
 
 ## Archlinux Installation
 
-https://gist.github.com/Zayon/afc3d9fd83cbfc6e63ded6887eb9b5fc
+[Archlinux Installation gist](https://gist.github.com/Zayon/afc3d9fd83cbfc6e63ded6887eb9b5fc)
 
 ## Set up dotfiles
 
 ```
 pacman -S git
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/Zayon/dotfiles.git ~/.dotfiles $HOME/dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/Zayon/dotfiles.git $HOME/dotfiles-tmp
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 config checkout
 config config status.showUntrackedFiles no
 config restore .
+rm $HOME/dotfiles-tmp
 ```
 
 ```
@@ -30,13 +31,13 @@ sudo pacman -S \
     plasma-desktop plasma-pm plasma-pa kscreen \
     pamixer powerdevil qt6-tools \
     breeze-gtk kde-gtk-config xdg-desktop-portal \
+    dolphin gwenview \
     fish \
     i3-gaps \
     pipewire \
     picom \
     bluez bluez-utils bluedevil \
     ttf-jetbrains-mono \
-    pcmanfm-gtk3 \
     nnn \
     firefox \
     arandr \
@@ -62,10 +63,10 @@ sudo pacman -S \
     chromium \
 ```
 
-### Use fish as default shell
+## Use fish as default shell
 `chsh -s /usr/bin/fish`
 
-### Backlight
+## Backlight
 
 ```
 sudo pacman -S light
@@ -75,7 +76,7 @@ sudo chmod g+w /sys/class/backlight/intel_backlight/brightness
 sudo chgrp video /sys/class/backlight/intel_backlight/brightness
 ```
 
-### Configure i3 + KDE
+## Configure i3 + KDE
 
 `sudo vim /usr/share/xsessions/plasma-i3.desktop`
 
@@ -89,7 +90,7 @@ Name=Plasma (i3)
 Comment=Plasma with i3
 ```
 
-### Install nnn's plugins
+## Install nnn's plugins
 
 `curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh`
 
@@ -108,6 +109,17 @@ yay spotify
 yay -S plasma5-applets-eventcalendar
 yay git-interactive-rebase-tool
 ```
+
+## Syncthing
+
+`sudo pacman -S syncthing`
+
+`systemctl enable syncthing@$USER.service`
+
+`systemctl start syncthing@$USER.service`
+
+[Web GUI](http://127.0.0.1:8384/#)
+
 
 ## Firefox config
 

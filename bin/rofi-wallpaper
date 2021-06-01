@@ -1,0 +1,5 @@
+#!/bin/bash
+
+options=(random daily)
+mode=$( (printf "%s\n"  "${options[@]}") | rofi -dmenu -p "Select wallpaper mode")
+$(dirname "$0")/wallpaper "$mode"

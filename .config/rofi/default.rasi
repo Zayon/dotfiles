@@ -11,7 +11,7 @@ configuration {
     background-color: @xbg;
     border-color: #00000000;
     text-color: @xfg;
-    font: "Noto Sans 15";
+    font: "SF Pro Display 15";
 }
 
 #window {

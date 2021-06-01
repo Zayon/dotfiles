@@ -1,0 +1,57 @@
+#!/bin/bash
+
+mode=$1
+
+# Print a usage message and exit.
+usage() {
+    local name
+    name=$(basename "$0")
+
+    cat >&2 <<-EOF
+${name} [daily|random]
+
+examples:
+    # set unsplash's daily image as wallpaper:
+    ${name} daily
+    # set ramdom image from unsplash as wallpaper:
+    ${name} random
+EOF
+
+    exit 1
+}
+
+if [ "$#" -lt 1 ]; then
+    usage;
+fi
+
+if [ "$mode" == 'daily' ]; then
+    id=$(date --iso-8601)
+    url="https://source.unsplash.com/1920x1080/daily"
+elif [ "$mode" == 'random' ]; then
+    id=$(uuidgen)
+    url="https://source.unsplash.com/random/1920x1080/?nature"
+else
+    usage;
+fi
+
+image_path=$HOME/Images/wallpapers/${id}.jpg
+
+if [ ! -f "$image_path" ]; then
+    wget $url -O "$image_path" >/dev/null 2>&1
+fi
+
+feh --bg-scale "$image_path"
+
+kwriteconfig5 \
+    --file kscreenlockerrc \
+    --group Greeter \
+    --group Wallpaper \
+    --group org.kde.image \
+    --group General \
+    --key Image "file://${image_path}"
+
+cat <<EOT > /usr/share/sddm/themes/breeze/theme.conf.user
+[General]
+background=${image_path}
+type=image
+EOT

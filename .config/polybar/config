@@ -19,7 +19,7 @@
 [colors]
 xfs=#f2eeed
 xbs=#4b5cc4
-xbg=#2d2d2d
+xbg=#eff0f1
 xfg=#f2eeed
 
 # ----
@@ -29,7 +29,7 @@ color1=#383838
 # --
 color2=#4b4b4b
 # -
-color3=#5b5b5b
+color3=#5b5b5br
 # +
 color4=#bdbdbd
 # ++
@@ -56,7 +56,7 @@ colorE=#7851a9
 colorF=#574F4A
 
 [section/base]
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 26
 offset-x = 0
@@ -77,7 +77,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Noto Sans:pixelsize=12;0
+font-0 = SF Pro Display:pixelsize=12;0
 font-1 = siji:pixelsize=12;1
 font-2 = la\-solid\-900:pixelsize=14;1
 font-3 = la\-regular\-400:pixelsize=14;1
@@ -112,7 +112,6 @@ modules-left = numlockx
 inherit = section/base
 modules-left = i3
 override-redirect = true
-fixed-center = true
 background = #00000000
 border-size = 0
 height = 26
@@ -142,8 +141,8 @@ label-mode-background = #e85d00
 ;   %output%
 ; Default: %icon%  %name%
 label-focused = %index%
-label-focused-foreground = #ffffff
-label-focused-background = #4b5cc4
+label-focused-foreground = #000000
+label-focused-background = #85c9ec
 label-focused-padding = 3
 ; Available tokens:
 ;   %name%
@@ -153,7 +152,8 @@ label-focused-padding = 3
 ; Default: %icon%  %name%
 label-unfocused = %index%
 label-unfocused-padding = 3
-label-unfocused-background = ${colors.xbg}
+label-unfocused-foreground = #000000
+label-unfocused-background = #dbdcdd
 ; Available tokens:
 ;   %name%
 ;   %icon%
@@ -161,7 +161,9 @@ label-unfocused-background = ${colors.xbg}
 ;   %output%
 ; Default: %icon%  %name%
 label-visible = %index%
-;label-visible-underline = #555555
+;label-visible-underline = #ff0000
+label-visible-foreground = #000000
+label-visible-background = #90daff
 label-visible-padding = 3
 ; Available tokens:
 ;   %name%
