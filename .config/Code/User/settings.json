@@ -83,7 +83,11 @@
     "window.zoomLevel": 0.5,
     "workbench.colorTheme": "Solarized Light",
     "files.associations": {
-        "**/.i3/config": "i3",
-        ".i3/config": "i3"
+        "i3/config": "i3",
+        "*/i3/config": "i3",
+        "**/i3/config": "i3"
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
     }
 }

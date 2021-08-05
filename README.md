@@ -123,15 +123,11 @@ yay git-interactive-rebase-tool
 
 ## Firefox config
 
-| Clé | valeur | détails |
-| --- | ------ | ------- |
-| `toolkit.legacyUserProfileCustomizations.stylesheets` | true | enable userChrome.css |
-| `browser.tabs.closeWindowWithLastTab` | false | ... |
-| `network.IDN_show_punycode` | true |  URL spoofing conerns |
-| `extensions.pocket.enabled` | false | ... |
-| `browser.ctrlTab.previews` | true | ctrl-tab between tabs |
-| `telemetry` | false | everywhere |
-
+```
+cd $HOME/.mozilla/firefox/<profile>/
+ln -s $HOME/.config/firefox/user.js user.js
+ln -s $HOME/.config/firefox/chrome chrome
+```
 
 ## Network Manager config
 

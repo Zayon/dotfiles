@@ -49,9 +49,3 @@ kwriteconfig5 \
     --group org.kde.image \
     --group General \
     --key Image "file://${image_path}"
-
-cat <<EOT > /usr/share/sddm/themes/breeze/theme.conf.user
-[General]
-background=${image_path}
-type=image
-EOT

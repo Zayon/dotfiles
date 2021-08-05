@@ -21,5 +21,5 @@ sed -i $CONFIG_FILE -re "${START_LINE},${END_LINE}d"
 if [[ $1 == "dark" ]]; then
     sed -i "$START_LINE a --theme=\"Nord\"" $CONFIG_FILE
 else
-    sed -i "$START_LINE a --theme=\"ansi-light\"" $CONFIG_FILE
+    sed -i "$START_LINE a --theme=\"ansi\"" $CONFIG_FILE
 fi
