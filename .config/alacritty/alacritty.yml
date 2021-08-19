@@ -112,7 +112,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: JetBrains Mono
+    # family: JetBrains Mono
+    family: Cascadia Code PL
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -151,14 +152,14 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 14
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  #offset:
+  offset:
   #  x: 0
-  #  y: 0
+   y: 2
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -377,9 +378,9 @@ background_opacity: 1.0
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#cursor:
+cursor:
   # Cursor style
-  #style:
+  style:
     # Cursor shape
     #
     # Values for `shape`:
@@ -395,7 +396,7 @@ background_opacity: 1.0
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
-    #blinking: Off
+    blinking: On
 
   # Vi mode cursor style
   #
@@ -708,7 +709,7 @@ background_opacity: 1.0
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -817,6 +818,7 @@ background_opacity: 1.0
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward    }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward   }
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 
 #debug:
   # Display the time it takes to redraw each frame.

@@ -89,5 +89,6 @@
     },
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
-    }
+    },
+    "docker.showStartPage": false
 }

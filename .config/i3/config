@@ -156,6 +156,9 @@ exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
 
 ### gaps
 
+# use window title, but no border
+bindsym $mod+t border toggle 2
+
 for_window [class="^.*"] border pixel 2
 for_window [class=".*"] title_format "  %title"
 gaps inner 10

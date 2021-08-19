@@ -61,6 +61,8 @@ sudo pacman -S \
     python python-dbus \
     docker \
     chromium \
+    xdotool \
+
 ```
 
 ## Use fish as default shell
