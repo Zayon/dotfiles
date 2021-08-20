@@ -193,8 +193,8 @@ mode "$mode_monitor" {
 ### FN keys Shortcuts ###
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioNext   exec --no-startup-id playerctl next
