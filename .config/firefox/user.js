@@ -220,3 +220,10 @@ user_pref("security.certerrors.recordEventTelemetry", false);
 user_pref("security.disable_button.openCertManager", false);
 user_pref("security.identitypopup.recordEventElemetry", false);
 
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.ffvpx.enabled", false);
+user_pref("media.rdd-vpx.enabled", false);
+user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
+
+
+user_pref("widget.use-xdg-desktop-portal", true);

@@ -61,7 +61,7 @@ sudo pacman -S \
     python python-dbus \
     docker \
     chromium \
-    xdotool \
+    xdotool wmctrl \
 
 ```
 
@@ -111,6 +111,19 @@ yay spotify
 yay -S plasma5-applets-eventcalendar
 yay git-interactive-rebase-tool
 ```
+
+## Touchpad Gestures
+
+```
+git clone https://github.com/bulletmark/libinput-gestures.git
+cd libinput-gestures
+sudo make install (or sudo ./libinput-gestures-setup install)
+
+libinput-gestures-setup service
+systemctl --user enable libinput-gestures.service
+```
+
+
 
 ## Syncthing
 
