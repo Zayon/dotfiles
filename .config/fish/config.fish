@@ -16,6 +16,9 @@ status is-interactive; and pyenv init - | source
 # Rust cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export GOPATH="$HOME/go/bin"
+export PATH="$GOPATH:$PATH"
+
 #-------------------------------------------------------------------------------
 # SSH Agent
 #-------------------------------------------------------------------------------
