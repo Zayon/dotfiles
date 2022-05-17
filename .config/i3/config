@@ -105,8 +105,10 @@ bindsym Print exec --no-startup-id flameshot gui
 ### Workspaces related Shortcuts ###
 # Move workspace to outputs
 bindsym $mod+y move workspace to output left
+bindsym $mod+$alt+Left move workspace to output left
 bindsym $mod+Shift+y move workspace to output up
 bindsym $mod+u move workspace to output right
+bindsym $mod+$alt+Right move workspace to output right
 bindsym $mod+Shift+u move workspace to output down
 
 bindsym $mod+slash nop
@@ -205,19 +207,23 @@ bindsym XF86AudioPlay   exec --no-startup-id playerctl play-pause
 bindsym $mod+grave      exec --no-startup-id playerctl play-pause # Play/Pause Win+` US classic
 bindsym $mod+dead_grave exec --no-startup-id playerctl play-pause # Play/Pause Win+` internationnal
 
+set $raiseVolume qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'increase_volume'
+set $lowerVolume qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'decrease_volume'
+set $mute qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'mute'
+
 # Sound controls # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-# bindsym $mod+KP_Subtract     exec --no-startup-id pamixer -i 5 # increase sound volume Win+-
-# bindsym $mod+KP_Add          exec --no-startup-id pamixer -d 5 # decrease sound volume Win++
-# bindsym $mod+KP_Divide       exec --no-startup-id pamixer -t  # mute sound Win+/
+bindsym $mod+KP_Subtract     exec --no-startup-id $raiseVolume # increase sound volume Win+-
+bindsym $mod+KP_Add          exec --no-startup-id $lowerVolume # decrease sound volume Win++
+bindsym $mod+KP_Divide       exec $mute  # mute sound Win+/
 # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ # increase sound volume
 # bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- # decrease sound volume
 # bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 # bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 
-bindsym XF86AudioMute        exec --no-startup-id qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'mute'
-bindsym XF86AudioLowerVolume exec --no-startup-id qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'decrease_volume'
-bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus6 org.kde.kglobalaccel /component/kmix org.kde.kglobalaccel.Component.invokeShortcut 'increase_volume'
+bindsym XF86AudioMute        exec --no-startup-id $mute
+bindsym XF86AudioLowerVolume exec --no-startup-id $lowerVolume
+bindsym XF86AudioRaiseVolume exec --no-startup-id $raiseVolume
 
 
 ### plasma

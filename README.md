@@ -62,6 +62,7 @@ sudo pacman -S \
     docker \
     chromium \
     xdotool wmctrl \
+    fzf git-delta \
 
 ```
 
