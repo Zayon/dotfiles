@@ -7,6 +7,8 @@ export CLOUDSDK_PYTHON=(which python3)
 
 set --global tide_right_prompt_items status cmd_duration context jobs
 
+export AGICAP_DOCKER_DIR="$HOME/Documents/dev/agicap/agicap-docker-compose/dev-stack"
+
 #-------------------------------------------------------------------------------
 # SSH Agent
 #-------------------------------------------------------------------------------
