@@ -1,7 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 ### VARS #######################################################################
-font pango:Noto Sans 12
+font pango:SF Pro Display, Noto Sans 12
 
 # Use Super key as modifier
 set $mod Mod4
@@ -150,6 +150,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id sh ~/.fehbg
 exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
+
+exec_always --no-startup-id systemctl --user start libinput-gestures.service
 
 ### Auto start #################################################################
 

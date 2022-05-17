@@ -63,7 +63,7 @@ sudo pacman -S \
     chromium \
     xdotool wmctrl \
     fzf git-delta \
-
+    bandwhich \
 ```
 
 ## Use fish as default shell
