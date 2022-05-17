@@ -64,6 +64,7 @@ sudo pacman -S \
     xdotool wmctrl \
     fzf git-delta \
     bandwhich \
+    task \
 ```
 
 ## Use fish as default shell

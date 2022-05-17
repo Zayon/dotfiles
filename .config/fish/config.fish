@@ -4,3 +4,4 @@
 source ~/.profile
 
 set --global tide_right_prompt_items status cmd_duration context jobs
+
