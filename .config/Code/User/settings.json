@@ -10,7 +10,7 @@
     ],
     "files.trimTrailingWhitespace": true,
     "breadcrumbs.enabled": true,
-    "window.titleBarStyle": "native",
+    "window.titleBarStyle": "custom",
     "peacock.favoriteColors": [
         {
             "name": "Angular Red",
@@ -91,5 +91,12 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "docker.showStartPage": false,
-    "terminal.external.linuxExec": "alacritty"
+    "terminal.external.linuxExec": "alacritty",
+    "docker.containers.label": "ContainerName",
+    "docker.containers.description": [
+        "Status"
+    ],
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "markdown.preview.breaks": true,
+    "markdown.preview.fontSize": 16
 }
