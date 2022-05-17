@@ -6,4 +6,5 @@
 !README.md
 !.profile
 !.gitignore
+!.vimrc
 **.DS_Store

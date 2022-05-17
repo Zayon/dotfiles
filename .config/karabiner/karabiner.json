@@ -208,7 +208,7 @@
                         },
                         {
                             "from": {
-                                "key_code": "right_command"
+                                "key_code": "right_control"
                             },
                             "to": [
                                 {
@@ -218,7 +218,7 @@
                         },
                         {
                             "from": {
-                                "key_code": "right_control"
+                                "key_code": "right_option"
                             },
                             "to": [
                                 {

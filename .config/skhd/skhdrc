@@ -76,9 +76,12 @@ rctrl + rcmd + ralt - p : yabai -m window --insert south
 # Kill windows
 rctrl + rcmd + ralt + shift - q : yabai -m window --close
 rctrl + rcmd + ralt + shift - s : yabai -m window --toggle sticky
+rctrl + rcmd + ralt + shift - t : yabai -m window --toggle topmost
 
 # Explorer
 rctrl + rcmd + ralt + shift - n : open ~
+
+rctrl + rcmd + ralt + shift - m : code ~/Sync/Notes/agicap
 
 ## TODO LIST
 # Resize windows
