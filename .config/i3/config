@@ -159,7 +159,7 @@ exec_always --no-startup-id systemctl --user start libinput-gestures.service
 
 # exec --no-startup-id nm-applet &
 exec --no-startup-id picom &
-exec --no-startup-id redshift-gtk -l 48.51:2.20 -t 6000:3000 &
+exec --no-startup-id redshift-gtk
 exec --no-startup-id /usr/lib/pam_kwallet_init &
 
 ### gaps
@@ -183,6 +183,17 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="clock-applet"] floating enable
 
 for_window [class=".*"] title_window_icon on
+
+bindsym $mod+Shift+g mode "$launchmode"
+mode "$launchmode" {
+    bindsym r exec --no-startup-id redshift-gtk
+    bindsym Shift+r exec --no-startup-id killall redshift
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 
 ### Mode monitor ###############################################################
 
@@ -366,12 +377,20 @@ mode "resize" {
     bindsym $down  resize grow height 10 px or 10 ppt
     bindsym $up    resize shrink height 10 px or 10 ppt
     bindsym $right resize grow width 10 px or 10 ppt
+    bindsym Shift+$left  resize shrink width 1 px or 1 ppt
+    bindsym Shift+$down  resize grow height 1 px or 1 ppt
+    bindsym Shift+$up    resize shrink height 1 px or 1 ppt
+    bindsym Shift+$right resize grow width 1 px or 1 ppt
 
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Shift+Left resize shrink width 1 px or 1 ppt
+    bindsym Shift+Down resize grow height 1 px or 1 ppt
+    bindsym Shift+Up resize shrink height 1 px or 1 ppt
+    bindsym Shift+Right resize grow width 1 px or 1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

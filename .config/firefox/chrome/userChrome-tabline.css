@@ -108,7 +108,7 @@ tab:not([selected="true"]).identity-color-pink > .tab-stack > .tab-background{
     transform: translateX(0px) !important;
 }
 
-#tabbrowser-tabs[closebuttons="activetab"] > #tabbrowser-arrowscrollbox > 
+#tabbrowser-tabs[closebuttons="activetab"] > #tabbrowser-arrowscrollbox >
 .tabbrowser-tab > .tab-stack > .tab-content > .tab-close-button:not([selected="true"]){
     display: block !important;
 }
