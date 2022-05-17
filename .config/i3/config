@@ -3,6 +3,8 @@
 ### VARS #######################################################################
 font pango:SF Pro Display, Noto Sans 12
 
+workspace_layout tabbed
+
 # Use Super key as modifier
 set $mod Mod4
 set $alt Mod1
@@ -78,17 +80,17 @@ client.unfocused        #333333 #d7dadd #2A2C31 #292D2E   #222222
 client.urgent           #2F343A #E16975 #FFFFFF #E16975   #e16975
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
-# workspace $ws1  output DP1
-# workspace $ws2  output DP3
-# workspace $ws3  output DP3
-#workspace $ws4  output DP3
-#workspace $ws5  output DP1
-#workspace $ws6  output DP1
-#workspace $ws7  output DP1
-#workspace $ws8  output DP1
-# workspace $ws9  output DP3
-# workspace $ws10 output DP3
-# workspace $ws11 output DP1
+workspace $ws1  output primary
+workspace $ws2  output primary
+workspace $ws3  output primary
+workspace $ws4  output primary
+workspace $ws5  output primary
+workspace $ws6  output primary
+workspace $ws7  output primary
+workspace $ws8  output primary
+workspace $ws9  output primary
+workspace $ws10 output primary
+workspace $ws11 output primary
 
 # Program Workspaces
 assign [class="jetbrains-phpstorm"] $ws3
@@ -180,6 +182,8 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="clock-applet"] floating enable
 
+for_window [class=".*"] title_window_icon on
+
 ### Mode monitor ###############################################################
 
 # set $mode_monitor Monitor configuration: [b]ench [p]resentation [r]emote [l]aptop
@@ -222,6 +226,9 @@ bindsym $mod+KP_Divide       exec $mute  # mute sound Win+/
 # bindsym XF86AudioMute        exec --no-startup-id amixer sset Master 0%  # mute sound
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 # bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym $mod+Prior exec --no-startup-id $raiseVolume
+bindsym $mod+Next exec --no-startup-id $lowerVolume
+bindsym $mod+Home exec --no-startup-id playerctl play-pause
 
 bindsym XF86AudioMute        exec --no-startup-id $mute
 bindsym XF86AudioLowerVolume exec --no-startup-id $lowerVolume

@@ -5,7 +5,8 @@ configuration {
 	ssh-command: "{terminal} -e "{ssh-client} {host}"";
 	combi-modi: "window,drun,ssh";
 	window-format: "[{w}] {c} {t}";
-	theme: "~/.config/rofi/default.rasi";
 	display-window: "win";
 	display-drun: "run";
 }
+
+@theme "~/.config/rofi/default.rasi"

@@ -162,3 +162,11 @@ Set FDN DNS
 nameserver 80.67.169.12
 nameserver 80.67.169.40
 ```
+
+## Performances
+
+`sudo vim /etc/sysctl.d/99-swappiness.conf` 
+
+```
+vw.swappiness=10
+```

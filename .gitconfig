@@ -26,7 +26,7 @@
 	ra = rebase --abort
 	rc = rebase --continue
 	st = status
-	wip = commit -m "WIP"
+	wip = commit -m "🚧"
 [color]
 	ui = auto
 	branch = auto
@@ -40,6 +40,7 @@
 [core]
 	fileMode = false
 	editor = vim +2 -c 'startinsert'
+	autocrlf = false
 [merge]
 	tool = meld
 [diff]
@@ -55,17 +56,7 @@
 [credential]
 	helper = libsecret
 
-[pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
 
 [delta]
-    plus-style = "syntax #012800"
-    minus-style = "syntax #340001"
-    syntax-theme = Monokai Extended Light
     navigate = true
 
-[interactive]
-    diffFilter = delta --color-only

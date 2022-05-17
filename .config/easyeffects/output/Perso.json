@@ -17,7 +17,7 @@
             "boost-threshold": -60.0,
             "hpf-frequency": 500.0,
             "hpf-mode": "24 dB/oct",
-            "input-gain": 0.0,
+            "input-gain": -16.0,
             "knee": -23.99,
             "lpf-frequency": 1500.0,
             "lpf-mode": "24 dB/oct",
