@@ -1,6 +1,6 @@
 [user]
 	name = Godinez Pablo
-	email = pablo.godinez@zayon.eu
+	email = pablo.godinez@agicap.com
 [alias]
 	a  = add
 	ap = add -p
@@ -50,8 +50,6 @@
 	template = ~/.config/git/commit-msg-template
 [push]
 	default = current
-[sequence]
-	editor = interactive-rebase-tool
 [pull]
 	rebase = true
 [credential]

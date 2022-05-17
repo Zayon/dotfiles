@@ -78,7 +78,7 @@
         "i3",
         "ini"
     ],
-    "editor.fontFamily": "'Jetbrains Mono'",
+    "editor.fontFamily": "'Cascadia Code PL'",
     "editor.fontSize": 16,
     "window.zoomLevel": 0.5,
     "workbench.colorTheme": "Solarized Light",
@@ -90,5 +90,6 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "docker.showStartPage": false
+    "docker.showStartPage": false,
+    "terminal.external.linuxExec": "alacritty"
 }

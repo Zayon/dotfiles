@@ -1,7 +1,7 @@
 configuration {
-	modi: "combi";
+	modi: "combi,window";
 	show-icons: true;
-	terminal: "termite";
+	terminal: "alacritty";
 	ssh-command: "{terminal} -e "{ssh-client} {host}"";
 	combi-modi: "window,drun,ssh";
 	window-format: "[{w}] {c} {t}";

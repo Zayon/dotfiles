@@ -34,7 +34,7 @@ else
     usage;
 fi
 
-image_path=$HOME/Images/wallpapers/${id}.jpg
+image_path=$HOME/Pictures/wallpapers/${id}.jpg
 
 if [ ! -f "$image_path" ]; then
     wget $url -O "$image_path" >/dev/null 2>&1
