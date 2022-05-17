@@ -1,0 +1,30 @@
+{
+    "title": "Perso",
+    "rules": [
+      {
+        "description": "Perso (descr)",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "caps_lock",
+              "modifiers": {
+                "optional": [
+                    "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "right_command",
+                "modifiers": [
+                  "right_control",
+                  "right_alt"
+                ]
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+      }
+    ]
+  }

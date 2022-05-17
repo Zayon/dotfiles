@@ -41,8 +41,6 @@
 	fileMode = false
 	editor = vim +2 -c 'startinsert'
 	autocrlf = false
-[merge]
-	tool = meld
 [diff]
 	mnemonicPrefix = true
 	renames = true
@@ -57,6 +55,14 @@
 	helper = libsecret
 
 
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [delta]
-    navigate = true
-
+    navigate = true  # use n and N to move between diff sections
+    syntax-theme = Solarized (light)
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default

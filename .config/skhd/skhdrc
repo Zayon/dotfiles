@@ -1,0 +1,95 @@
+# open terminal
+rctrl + rcmd + ralt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+
+rctrl + rcmd + ralt + shift - r : launchctl kickstart -k "gui/$(id -u)/homebrew.mxcl.yabai"
+
+# Change layout mode
+rctrl + rcmd + ralt - e : yabai -m space --layout bsp
+rctrl + rcmd + ralt - s : yabai -m space --layout stack
+
+rctrl + rcmd + ralt - r : yabai -m space --rotate 90
+rctrl + rcmd + ralt - 0x0A : yabai -m display --focus next || yabai -m display --focus first
+
+# Move focus
+rctrl + rcmd + ralt - down : yabai -m window --focus stack.next || yabai -m window --focus south || yabai -m window --focus stack.first
+rctrl + rcmd + ralt - up : yabai -m window --focus stack.prev || yabai -m window --focus north || yabai -m window --focus stack.last
+rctrl + rcmd + ralt - left : yabai -m window --focus west
+rctrl + rcmd + ralt - right : yabai -m window --focus east
+rctrl + rcmd + ralt - j : yabai -m window --focus stack.next || yabai -m window --focus south || yabai -m window --focus stack.first
+rctrl + rcmd + ralt - k : yabai -m window --focus stack.prev || yabai -m window --focus north || yabai -m window --focus stack.last
+rctrl + rcmd + ralt - h : yabai -m window --focus west
+rctrl + rcmd + ralt - l : yabai -m window --focus east
+
+
+# Move focused window
+rctrl + rcmd + ralt + shift - left : yabai -m window --warp west
+rctrl + rcmd + ralt + shift - right : yabai -m window --warp east
+rctrl + rcmd + ralt + shift - up : yabai -m window --warp north
+rctrl + rcmd + ralt + shift - down : yabai -m window --warp south
+rctrl + rcmd + ralt + shift - h : yabai -m window --warp west
+rctrl + rcmd + ralt + shift - l : yabai -m window --warp east
+rctrl + rcmd + ralt + shift - k : yabai -m window --warp north
+rctrl + rcmd + ralt + shift - j : yabai -m window --warp south
+
+# Change workspaces (space)
+rctrl + rcmd + ralt - 1 : yabai -m space --focus    one
+rctrl + rcmd + ralt - 2 : yabai -m space --focus    two
+rctrl + rcmd + ralt - 3 : yabai -m space --focus    three
+rctrl + rcmd + ralt - 4 : yabai -m space --focus    four
+rctrl + rcmd + ralt - 5 : yabai -m space --focus    five
+rctrl + rcmd + ralt - 6 : yabai -m space --focus    six
+rctrl + rcmd + ralt - 7 : yabai -m space --focus    seven
+rctrl + rcmd + ralt - 8 : yabai -m space --focus    eight
+rctrl + rcmd + ralt - 9 : yabai -m space --focus    nine
+rctrl + rcmd + ralt - 0 : yabai -m space --focus    ten
+rctrl + rcmd + ralt - 0x1B : yabai -m space --focus eleven
+
+rctrl + rcmd + ralt - 1 : yabai -m space --focus one
+rctrl + rcmd + ralt - 6 : yabai -m space --focus six
+rctrl + rcmd + ralt + shift - 1 : yabai -m window --space one
+
+
+# Move focused window in n'th workspace
+rctrl + rcmd + ralt + shift - 1 : yabai -m window --space one
+rctrl + rcmd + ralt + shift - 2 : yabai -m window --space two
+rctrl + rcmd + ralt + shift - 3 : yabai -m window --space three
+rctrl + rcmd + ralt + shift - 4 : yabai -m window --space four
+rctrl + rcmd + ralt + shift - 5 : yabai -m window --space five
+rctrl + rcmd + ralt + shift - 6 : yabai -m window --space six
+rctrl + rcmd + ralt + shift - 7 : yabai -m window --space seven
+rctrl + rcmd + ralt + shift - 8 : yabai -m window --space eight
+rctrl + rcmd + ralt + shift - 9 : yabai -m window --space nine
+rctrl + rcmd + ralt + shift - 0 : yabai -m window --space ten
+rctrl + rcmd + ralt + shift - 0x1B : yabai -m window --space eleven
+
+# Focus next/previous workspace
+# ctrl + alt - left : yabai -m space --focus prev
+# ctrl + alt - right : yabai -m space --focus next
+
+# Pass focused window in float layout
+rctrl + rcmd + ralt + shift - space : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+
+# split in horizontal orientation
+rctrl + rcmd + ralt - o : yabai -m window --insert east
+rctrl + rcmd + ralt - p : yabai -m window --insert south
+
+# Kill windows
+rctrl + rcmd + ralt + shift - q : yabai -m window --close
+rctrl + rcmd + ralt + shift - s : yabai -m window --toggle sticky
+
+# Explorer
+rctrl + rcmd + ralt + shift - n : open ~
+
+## TODO LIST
+# Resize windows
+# Resize and move floating windows
+# move space to next display
+
+cmd + shift - x : /Applications/flameshot.app/Contents/MacOS/flameshot gui
+
+## focus display
+rctrl + rcmd + ralt + alt - 1 : yabai -m display --focus 1
+rctrl + rcmd + ralt + alt - 2 : yabai -m display --focus 2
+
+rctrl + rcmd + ralt - u : yabai -m space --display next || yabai -m space --display first
+rctrl + rcmd + ralt - y : yabai -m space --display prev || yabai -m space --display last

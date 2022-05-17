@@ -15,15 +15,22 @@ font:
   size: 14
 
   offset:
-    y: 2
+    y: 5
 
 cursor:
   style:
     blinking: On
 
 key_bindings:
-  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
 
+selection:
+  save_to_clipboard: true
+
+# mouse_bindings:
+#  - { mouse: Right,                 action: ExpandSelection }
+#  - { mouse: Right,  mods: Control, action: ExpandSelection }
+  # - { mouse: Middle, action: PasteSelection  }
 
 # Colors (Solarized Light)
 colors:
@@ -46,7 +53,7 @@ colors:
     blue:    '#268bd2' # blue
     magenta: '#d33682' # magenta
     cyan:    '#2aa198' # cyan
-    white:   '#eee8d5' # base2
+    white:   '0x7c6f64' # base2
 
   # Bright colors
   bright:
@@ -57,7 +64,7 @@ colors:
     blue:    '#839496' # base0
     magenta: '#6c71c4' # violet
     cyan:    '#93a1a1' # base1
-    white:   '#fdf6e3' # base3
+    white:   '0x3c3836' # base3
 
 ################################################################################
 ################################################################################
