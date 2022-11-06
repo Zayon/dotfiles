@@ -8,24 +8,28 @@
 	ca = commit --amend
 	can = commit --verbose --amend --no-edit
 	ci = commit
-	co = checkout
-	cop = checkout -p
+	co = "!f() { echo \"git checkout is obsolete, use switch or restore\" && exit 1; }; f"
+	cop = "!f() { echo \"git checkout is obsolete, use switch or restore\" && exit 1; }; f" 
 	cp = cherry-pick
 	d = diff
-	dm = diff --patience origin/master
+	dm = diff --patience origin/main
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all -p
 	fixup = commit --fixup
 	l = log
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+    new = "!f() { git fetch && git switch -c $1 origin/main; }; f"
 	p = pull
 	pf = push --force-with-lease
 	ps = push
 	reb = rebase
 	ra = rebase --abort
+    res = restore
+    resp = restore -p
 	rc = rebase --continue
 	st = status
+    sw = switch
 	wip = commit -m "🚧"
 [color]
 	ui = auto
@@ -66,3 +70,5 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[init]
+	defaultBranch = main

@@ -3,7 +3,10 @@ export COMPOSER_CACHE_DIR="$HOME/.cache/composer"
 export _Z_DATA="$HOME/.local/share/z/data"
 export NNN_PLUG='z:fzz;c:_bat $nnn;o:_code $nnn;v:_vim $nnn'
 export NNN_OPTS='HU'
-
+export MOB_WIP_COMMIT_MESSAGE="chore: End of Pablo's session [ci-skip]"
+export MOB_TIMER="15"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"

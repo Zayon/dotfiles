@@ -59,8 +59,8 @@ yabai -m rule --add title='Settings$' manage=off
 yabai -m rule --add app="UTM" manage=off
 yabai -m rule --add app="SentinelAgent" manage=off
 yabai -m rule --add app="Safari" title="Général" manage=off
-yabai -m rule --add app="Pycharm" title="Welcome to PyCharm" manage=off
-yabai -m rule --add app="Pycharm" title="Run/Debug Configurations" manage=off
+yabai -m rule --add app="Pycharm" manage=off
+yabai -m rule --add app="Pycharm" title="^pre-categorisation.*" manage=on
 yabai -m rule --add app="Scroll Reverser" manage=off
 yabai -m rule --add app="Pritunl" manage=off
 

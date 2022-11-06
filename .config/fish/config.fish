@@ -19,6 +19,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/go/bin"
 export PATH="$GOPATH:$PATH"
 
+zoxide init fish | source
+
 #-------------------------------------------------------------------------------
 # SSH Agent
 #-------------------------------------------------------------------------------
