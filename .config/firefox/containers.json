@@ -81,6 +81,20 @@
             "icon": "circle",
             "color": "turquoise",
             "name": "twitter"
+        },
+        {
+            "userContextId": 5366,
+            "public": true,
+            "icon": "circle",
+            "color": "red",
+            "name": "reddit"
+        },
+        {
+            "userContextId": 7803,
+            "public": true,
+            "icon": "circle",
+            "color": "purple",
+            "name": "Discord"
         }
     ]
 }

@@ -6,7 +6,7 @@ font pango:SF Pro Display, Noto Sans 12
 workspace_layout tabbed
 
 # Use Super key as modifier
-set $mod Mod4
+set $mod Mod3
 set $alt Mod1
 
 set $left h
@@ -151,7 +151,7 @@ bindsym $mod+Shift+e exec --no-startup-id $power-dialog
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id sh ~/.fehbg
-exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
+# exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
 
 exec_always --no-startup-id systemctl --user start libinput-gestures.service
 
