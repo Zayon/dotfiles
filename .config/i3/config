@@ -3,10 +3,11 @@
 ### VARS #######################################################################
 font pango:SF Pro Display, Noto Sans 12
 
-workspace_layout tabbed
+workspace_layout default
 
 # Use Super key as modifier
 set $mod Mod3
+set $win Mod4
 set $alt Mod1
 
 set $left h
@@ -74,11 +75,11 @@ title_align center
 
 ## Windows configuration
 # class                 border  backgr  text    indicator child_border
-client.focused          #4C7899 #6A91B4 #FFFFFF #2E9EF4   #285577
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #d7dadd #2A2C31 #292D2E   #222222
+client.focused          #292D2E #6A91B4 #FFFFFF #2E9EF4   #000000
+client.focused_inactive #292D2E #5F676A #FFFFFF #484E50   #FFFFFF
+client.unfocused        #292D2E #d7dadd #2A2C31 #292D2E   #FFFFFF
 client.urgent           #2F343A #E16975 #FFFFFF #E16975   #e16975
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #FFFFFF
 
 workspace $ws1  output primary
 workspace $ws2  output primary
@@ -101,17 +102,17 @@ assign [class="Slack"] $ws9
 bindsym $mod+d       exec --no-startup-id $launcher
 bindsym $mod+Shift+x exec --no-startup-id $locker
 bindsym $mod+shift+n exec --no-startup-id $explorer
-bindsym $mod+n exec --no-startup-id $terminal -e nnn
+# bindsym $mod+n exec --no-startup-id $terminal -e nnn
 bindsym Print exec --no-startup-id flameshot gui
 
 ### Workspaces related Shortcuts ###
 # Move workspace to outputs
 bindsym $mod+y move workspace to output left
-bindsym $mod+$alt+Left move workspace to output left
-bindsym $mod+Shift+y move workspace to output up
+# bindsym $mod+$alt+Left move workspace to output left
+# bindsym $mod+Shift+y move workspace to output up
 bindsym $mod+u move workspace to output right
-bindsym $mod+$alt+Right move workspace to output right
-bindsym $mod+Shift+u move workspace to output down
+# bindsym $mod+$alt+Right move workspace to output right
+# bindsym $mod+Shift+u move workspace to output down
 
 bindsym $mod+slash nop
 bindsym $mod+q nop
@@ -137,7 +138,7 @@ bindsym $mod+Shift+s sticky toggle
 
 bindsym $mod+shift+z move scratchpad
 bindsym $mod+z exec --no-startup-id rofi -show window
-bindsym $mod+g exec --no-startup-id $HOME/bin/rofi-wallpaper
+# bindsym $mod+g exec --no-startup-id $HOME/bin/rofi-wallpaper
 
 # Toogle wifi
 # bindsym XF86WLAN exec --no-startup-id $bin-dir/wifi.sh
@@ -148,7 +149,7 @@ bindsym $mod+Shift+e exec --no-startup-id $power-dialog
 ### exec_always configs ########################################################
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id sh ~/.fehbg
 # exec_always --no-startup-id setxkbmap -option && setxkbmap -option caps:menu -option ctrl:swap_rwin_rctl
@@ -171,6 +172,7 @@ for_window [class="^.*"] border pixel 2
 for_window [class=".*"] title_format "  %title"
 gaps inner 10
 smart_borders on
+# smart_gaps inverse_outer
 smart_gaps on
 
 ### for_window configs #########################################################
@@ -181,6 +183,7 @@ for_window [class="System-config-printer.py"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="clock-applet"] floating enable
+for_window [class="kcalc"] floating enable
 
 for_window [class=".*"] title_window_icon on
 
@@ -214,8 +217,14 @@ mode "$launchmode" {
 ### FN keys Shortcuts ###
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
+set $raiseBrightness qdbus6 org.kde.kglobalaccel /component/org_kde_powerdevil org.kde.kglobalaccel.Component.invokeShortcut 'Increase Screen Brightness'
+set $lowerBrightness qdbus6 org.kde.kglobalaccel /component/org_kde_powerdevil org.kde.kglobalaccel.Component.invokeShortcut 'Decrease Screen Brightness'
+
+# set $raiseBrightness exec --no-startup-id light -A 5
+# set $lowerBrightness exec --no-startup-id light -U 5
+
+bindsym XF86MonBrightnessUp   exec --no-startup-id $raiseBrightness
+bindsym XF86MonBrightnessDown exec --no-startup-id $lowerBrightness
 
 # Media player controls
 bindsym XF86AudioNext   exec --no-startup-id playerctl next
@@ -348,7 +357,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+w layout toggle tabbed split
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
