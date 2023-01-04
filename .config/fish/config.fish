@@ -15,10 +15,10 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # status is-interactive; and pyenv init - | source
 
 # Rust cargo
-export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/.cargo/bin:$PATH"
 
-export GOPATH="$HOME/go/bin"
-export PATH="$GOPATH:$PATH"
+# export GOPATH="$HOME/go/bin"
+# export PATH="$GOPATH:$PATH"
 
 #zoxide init fish | source
 

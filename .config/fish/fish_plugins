@@ -3,7 +3,8 @@ oh-my-fish/plugin-sudope
 brgmnn/fish-docker-compose
 ~/.config/fish/custom
 franciscolourenco/done
-IlanCosman/tide
 wfxr/forgit
 edc/bass
 jethrokuan/z
+ilancosman/tide
+jorgebucaran/fisher

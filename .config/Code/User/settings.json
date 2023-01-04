@@ -10,7 +10,6 @@
     ],
     "files.trimTrailingWhitespace": true,
     "breadcrumbs.enabled": true,
-    "window.titleBarStyle": "custom",
     "peacock.favoriteColors": [
         {
             "name": "Angular Red",

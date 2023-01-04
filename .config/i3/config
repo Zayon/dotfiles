@@ -107,6 +107,7 @@ bindsym Print exec --no-startup-id flameshot gui
 
 ### Workspaces related Shortcuts ###
 # Move workspace to outputs
+bindsym $mod+i move workspace to output next
 bindsym $mod+y move workspace to output left
 # bindsym $mod+$alt+Left move workspace to output left
 # bindsym $mod+Shift+y move workspace to output up
@@ -160,7 +161,7 @@ exec_always --no-startup-id systemctl --user start libinput-gestures.service
 
 # exec --no-startup-id nm-applet &
 exec --no-startup-id picom &
-exec --no-startup-id redshift-gtk
+# exec --no-startup-id redshift-gtk
 exec --no-startup-id /usr/lib/pam_kwallet_init &
 
 ### gaps
@@ -267,6 +268,7 @@ focus_on_window_activation urgent
 
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
+for_window [class="TiddlyDesktop" window_role="pop-up"] floating disable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="systemsettings"] floating enable

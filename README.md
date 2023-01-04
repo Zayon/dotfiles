@@ -9,17 +9,11 @@
 ```
 pacman -S git
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/Zayon/dotfiles.git $HOME/dotfiles-tmp
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-config checkout
-config config status.showUntrackedFiles no
-config restore .
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+dot checkout
+dot config status.showUntrackedFiles no
+dot restore .
 rm $HOME/dotfiles-tmp
-```
-
-```
-mkdir -p .config-backup && \
-config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-xargs -I{} mv {} .config-backup/{}
 ```
 
 ## Install stuff
@@ -29,28 +23,22 @@ sudo pacman -S reflector
 sudo reflector --country France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -S \
     plasma-desktop plasma-pm plasma-pa kscreen \
-    pamixer powerdevil qt6-tools \
-    breeze-gtk kde-gtk-config xdg-desktop-portal \
+    powerdevil qt6-tools \
+    breeze-gtk kde-gtk-config xdg-desktop-portal xdg-desktop-portal-kde \
     dolphin gwenview \
     fish \
-    i3-gaps \
+    i3 \
     pipewire \
     picom \
     bluez bluez-utils bluedevil \
-    ttf-jetbrains-mono \
-    nnn \
     firefox \
-    arandr \
     rofi \
     zathura zathura-pdf-mupdf \
     flameshot \
     openssh \
     playerctl \
     wget \
-    redshift \
     feh \
-    picom \
-    pasystray pavucontrol \
     bat \
     exa \
     code \
@@ -59,12 +47,34 @@ sudo pacman -S \
     ark \
     vlc \
     python python-dbus \
-    docker \
+    docker docker-compose \
+    libappindicator-gtk3 \
     chromium \
     xdotool wmctrl \
     fzf git-delta \
     bandwhich \
     task \
+    lsp-plugins calf easyeffects
+    sof-firmware # For audio on thinkpads
+```
+
+## Install more stuff (AUR)
+```
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay phpstorm
+yay phpstorm-jre
+yay slack-desktop
+yay signal-desktop
+yay spotify
+yay chromium
+yay tidgi
+yay -S plasma5-applets-eventcalendar
+yay -S plasma5-applets-window-title
+yay git-interactive-rebase-tool
+yay -S c++utilities qtutilities qtforkawesome syncthingtray
 ```
 
 ## Use fish as default shell
@@ -94,25 +104,6 @@ Name=Plasma (i3)
 Comment=Plasma with i3
 ```
 
-## Install nnn's plugins
-
-`curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh`
-
-## Install more stuff (AUR)
-```
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-
-yay polybar
-yay keeweb
-yay phpstorm
-yay phpstorm-jre
-yay slack-desktop
-yay spotify
-yay -S plasma5-applets-eventcalendar
-yay git-interactive-rebase-tool
-```
 
 ## Touchpad Gestures
 
@@ -166,7 +157,7 @@ nameserver 80.67.169.40
 
 ## Performances
 
-`sudo vim /etc/sysctl.d/99-swappiness.conf` 
+`sudo vim /etc/sysctl.d/99-swappiness.conf`
 
 ```
 vw.swappiness=10
