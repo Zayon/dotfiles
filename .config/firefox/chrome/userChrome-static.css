@@ -3,6 +3,10 @@
     margin-top: -1px !important;
 }
 
+#sidebar-box {
+    width: auto;
+}
+
 #sidebar-box #sidebar {
     min-width: var(--sidebar-width) !important;
     max-width: var(--sidebar-width) !important;
