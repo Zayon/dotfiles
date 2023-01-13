@@ -8,12 +8,11 @@
 
 ```
 pacman -S git
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/Zayon/dotfiles.git $HOME/dotfiles-tmp
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+git clone --bare https://github.com/Zayon/dotfiles.git $HOME/.dotfiles
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/'
 dot checkout
 dot config status.showUntrackedFiles no
 dot restore .
-rm $HOME/dotfiles-tmp
 ```
 
 ## Install stuff
