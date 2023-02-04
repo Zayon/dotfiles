@@ -32,7 +32,7 @@ sudo pacman -S \
     bluez bluez-utils bluedevil \
     firefox \
     rofi \
-    zathura zathura-pdf-mupdf \
+    spotify-launcher \
     flameshot \
     openssh \
     playerctl \
@@ -67,7 +67,6 @@ yay phpstorm
 yay phpstorm-jre
 yay slack-desktop
 yay signal-desktop
-yay spotify
 yay chromium
 yay tidgi
 yay -S plasma5-applets-eventcalendar

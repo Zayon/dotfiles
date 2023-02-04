@@ -72,7 +72,7 @@
             "lpf-mode": "off",
             "makeup": 0.0,
             "output-gain": 8.0,
-            "reduction": -24.0,
+            "reduction": -13.999999999999895,
             "release": 100.0,
             "sidechain": {
                 "input": "Internal",
@@ -125,7 +125,7 @@
             "loudness#0"
         ],
         "rnnoise#0": {
-            "bypass": true,
+            "bypass": false,
             "input-gain": 0.0,
             "model-path": "",
             "output-gain": 0.0

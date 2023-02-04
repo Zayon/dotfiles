@@ -3,24 +3,15 @@
 
 source ~/.profile
 
-# export CLOUDSDK_PYTHON=(which python3)
-
 set --global tide_right_prompt_items status cmd_duration context jobs
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/'
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/'
-
-# export AGICAP_DOCKER_DIR="$HOME/Documents/dev/agicap/agicap-docker-compose/dev-stack"
-# pyenv
-# status is-login; and pyenv init --path | source
-# status is-interactive; and pyenv init - | source
 
 # Rust cargo
 # export PATH="$HOME/.cargo/bin:$PATH"
 
 # export GOPATH="$HOME/go/bin"
 # export PATH="$GOPATH:$PATH"
-
-#zoxide init fish | source
 
 #-------------------------------------------------------------------------------
 # SSH Agent
@@ -54,7 +45,3 @@ end
 if not __ssh_agent_is_started
     __ssh_agent_start
 end
-
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/pablogodinez/google-cloud-sdk/path.fish.inc' ]; . '/Users/pablogodinez/google-cloud-sdk/path.fish.inc'; end

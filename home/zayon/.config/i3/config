@@ -162,7 +162,7 @@ exec_always --no-startup-id systemctl --user start libinput-gestures.service
 # exec --no-startup-id nm-applet &
 exec --no-startup-id picom &
 exec --no-startup-id redshift-gtk &
-exec --no-startup-id /usr/lib/pam_kwallet_init &
+# exec --no-startup-id /usr/lib/pam_kwallet_init &
 
 ### gaps
 

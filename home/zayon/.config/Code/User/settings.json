@@ -97,5 +97,6 @@
     ],
     "workbench.preferredLightColorTheme": "Solarized Light",
     "markdown.preview.breaks": true,
-    "markdown.preview.fontSize": 16
+    "markdown.preview.fontSize": 16,
+    "explorer.confirmDelete": false
 }
