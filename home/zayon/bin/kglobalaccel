@@ -1,0 +1,6 @@
+#!/bin/dash
+
+component=$1
+shortcut=$2
+
+qdbus org.kde.kglobalaccel /component/$component org.kde.kglobalaccel.Component.invokeShortcut "$shortcut"

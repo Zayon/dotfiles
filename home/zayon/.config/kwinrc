@@ -40,7 +40,6 @@ OutRotationEdge=0
 
 [Effect-overview]
 BlurBackground=false
-BorderActivate=0
 
 [Effect-windowview]
 BorderActivateAll=9
@@ -62,6 +61,7 @@ kwin4_effect_translucencyEnabled=true
 slideEnabled=false
 
 [Script-bismuth]
+enableSpreadLayout=false
 enableStairLayout=false
 enableThreeColumnLayout=false
 floatingClass=kcalc
@@ -76,6 +76,10 @@ tileLayoutGap=10
 
 [Script-desktopchangeosd]
 PopupHideDelay=500
+
+[TabBox]
+LayoutName=org.kde.breeze.desktop
+MultiScreenMode=1
 
 [Windows]
 ActiveMouseScreen=false

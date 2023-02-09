@@ -7,6 +7,10 @@ set --global tide_right_prompt_items status cmd_duration context jobs
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/'
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/'
 
+for file in (ls ~/.config/fish/custom/functions/*.fish)
+	source $file
+end
+
 # Rust cargo
 # export PATH="$HOME/.cargo/bin:$PATH"
 

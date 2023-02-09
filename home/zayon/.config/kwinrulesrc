@@ -1,0 +1,25 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[0ede1d7f-324f-449b-ad56-8d0aac7bc55f]
+Description=Minimum Geometry Size
+minsizerule=2
+types=1
+
+[1]
+Description=Minimum Geometry Size
+minsize=1,1
+minsizerule=2
+types=1
+
+[General]
+count=2
+rules=1,e2bb7938-7e37-4640-9f1f-a58ce575d0bd
+
+[e2bb7938-7e37-4640-9f1f-a58ce575d0bd]
+Description=Easy Effects on all desktops
+desktops=\\0
+desktopsrule=3
+wmclass=easyeffects
+wmclasscomplete=true
+wmclassmatch=1

@@ -15,42 +15,70 @@ hyper + Return
 Print
     flameshot gui
 
+{super,shift} + {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
+    playerctl -p spotify {play-pause,previous,next}
+
+{XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
+    $HOME/bin/custom-playerctl {play-pause,previous,next}
+
+hyper + XF86AudioMute
+    $HOME/bin/kglobalaccel kmix mic_mute
+
 ### Window state manipulation ##################################################
 ## Close Window
 hyper + q
-    $KWIN_INVOKE "Window Close"
+    $HOME/bin/kglobalaccel kwin "Window Close"
 
 ## Put window on master area
 hyper + space
-    $BISMUTH_INVOKE push_window_to_master
+    $HOME/bin/kglobalaccel bismuth push_window_to_master
 
-## todo: sticky window
+## Toogle floating mode for window
+hyper + f
+    $HOME/bin/kglobalaccel bismuth toggle_window_floating
+
+## Sticky window (toogle)
+hyper + shift + s
+    $HOME/bin/kglobalaccel kwin "Window On All Desktops"
 
 ### Layouts ####################################################################
 ## Cycle Layouts
 hyper + {backslash,bar}
-    $BISMUTH_INVOKE {next,prev}_layout
+    $HOME/bin/kglobalaccel bismuth {next,prev}_layout
 
 ### Workspace manipulation #####################################################
 # Switch to desktop / Move window to desktop
-hyper + {_,shift +} {1-9,0,minus}
-    $KWIN_INVOKE "{Switch,Window} to Desktop {1-9,10,11}"
+hyper + {_,shift +} {1-9,0}
+    $HOME/bin/kglobalaccel kwin "{Switch,Window} to Desktop {1-9,10}"
 
 # Switch to screen / Move window to screen
 hyper + {_,shift +} {Home,End,bracketleft,bracketright}
-    $KWIN_INVOKE "{Switch,Window} to {Previous,Next,Previous,Next} Screen"
+    $HOME/bin/kglobalaccel kwin "{Switch,Window} to {Previous,Next,Previous,Next} Screen" \
+    && $HOME/bin/center-mouse-on-focused-window
+
+hyper + minus
+    $HOME/bin/kglobalaccel kwin "Switch to Screen 1" \
+    && $HOME/bin/center-mouse-on-focused-window
+
+hyper + shift + minus
+    $HOME/bin/kglobalaccel kwin "Window to Screen 1" \
+    && $HOME/bin/center-mouse-on-focused-window \
+    && ( \
+        ! $HOME/bin/is-window-displayed-on-all-desktops \
+        && $HOME/bin/kglobalaccel kwin "Window On All Desktops" \
+    )
 
 # Move Focus
 hyper + {Left,Down,Up,Right,j,k,i,l}
-    $BISMUTH_INVOKE focus_{left,bottom,upper,right,left,bottom,upper,right}_window
+    $HOME/bin/kglobalaccel bismuth focus_{left,bottom,upper,right,left,bottom,upper,right}_window
 
 # Move window
 hyper + shift + {Left,Down,Up,Right,j,k,i,l}
-    $BISMUTH_INVOKE move_window_to_{left,bottom,upper,right,left,bottom,upper,right}_pos
+    $HOME/bin/kglobalaccel bismuth move_window_to_{left,bottom,upper,right,left,bottom,upper,right}_pos
 
 # Window Size Manipulation
 hyper + super + {Left,Down,Up,Right,j,k,i,l}
-    $BISMUTH_INVOKE \
+    $HOME/bin/kglobalaccel bismuth \
        { \
             decrease_window_width, \
             increase_window_height, \

@@ -1,0 +1,20 @@
+#!/bin/dash
+
+command=$@
+
+IFS=" " set $(playerctl metadata | grep "album")
+player=$1
+album=$3
+
+if [ -z "$album" ]
+then
+    playerctl -p firefox,spotify $command
+    exit 0;
+fi
+
+if [ "$album" = "https://app.gather.town" ];
+then
+    playerctl -i $player $command
+else
+    playerctl $command
+fi

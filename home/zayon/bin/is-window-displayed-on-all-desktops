@@ -1,0 +1,8 @@
+#!/bin/dash
+
+if [ "$(~/bin/get-desktops-of-current-window)" -eq 4294967295 ];
+then
+    true
+else
+    false
+fi

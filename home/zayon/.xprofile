@@ -1,4 +1,2 @@
-export BISMUTH_INVOKE="qdbus org.kde.kglobalaccel /component/bismuth org.kde.kglobalaccel.Component.invokeShortcut"
-export KWIN_INVOKE="qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut"
 export SXHKD_SHELL="/bin/dash"
-
+export MOZ_USE_XINPUT2="1"

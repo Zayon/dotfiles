@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
+DIMS=$(xdotool getwindowgeometry -shell $ACTIVE_WINDOW_ID | awk -F "="  'NR==4,NR==5 {print $2/2}' | tr '\n' ' ')
+
+xdotool mousemove -w $ACTIVE_WINDOW_ID $DIMS

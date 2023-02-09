@@ -1,0 +1,3 @@
+#!/bin/dash
+
+~/bin/get-window-properties | grep "_NET_WM_DESKTOP(CARDINAL)" | cut -d " " -f 3
