@@ -1,20 +1,78 @@
 #!/bin/dash
+set -u  #Detect undefined variable
 
 command=$@
 
-IFS=" " set $(playerctl metadata | grep "album")
-player=$1
-album=$3
+playerctl -i "plasma-browser-integration,chromium" $command
+exit 0
 
-if [ -z "$album" ]
+player=$(playerctl metadata --format "{{ playerName }}")
+
+if [ "$player" = "chromium" ]
 then
-    playerctl -p firefox,spotify $command
-    exit 0;
+    players=$(playerctl -l)
+
+    for player in $players; do
+        case "$player" in
+            (*chromium*)
+                continue 2
+                ;;
+        esac
+
+        case "$player" in
+            (*plasma-browser-integration*)
+                playingUrl=$(playerctl -p $player metadata --format "{{ xesam:url }}")
+                case "$playingUrl" in
+                    (*youtube*)
+                        playerctl -p $player $command
+                        exit 0
+                        ;;
+                esac
+                continue 2
+                ;;
+        esac
+
+
+        # echo "$player playing $playingUrl"
+
+        if [ "$player" = "spotify" ]
+        then
+            playerctl -p $player $command
+            exit 0
+        fi
+    done
+
+    exit 0
 fi
 
-if [ "$album" = "https://app.gather.town" ];
+# playerctl $command
+exit 0
+
+if [ "$player" = "chromium" ]
 then
-    playerctl -i $player $command
-else
-    playerctl $command
+    album=$(playerctl metadata --format "{{ album }}")
+
+    if [ "$album" = "https://app.gather.town" ];
+    then
+        playerctl -p "spotify" $command
+    else
+        playerctl $command
+    fi
 fi
+
+# IFS=" " set $metadata
+# player=$1
+# album=$3
+
+# if [ -z "$album" ]
+# then
+#     playerctl $command
+#     exit 0
+# fi
+
+# if [ "$album" = "https://app.gather.town" ];
+# then
+#     playerctl -i $player $command
+# else
+#     playerctl $command
+# fi

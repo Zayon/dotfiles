@@ -1,8 +1,13 @@
 ## KWIN with bismuth config
 
 # Reload sxhkd
-{hyper,super} + shift + r
-    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+{hyper} + shift + r
+    # pkill -x sxhkd; sxhkd -m 1; notify-send 'sxhkd' 'Reloaded config'
+    # pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+    systemctl --user reload sxhkd.service; notify-send 'sxhkd' 'Reloaded config'
+
+# hyper + super + shift + r
+#     plasmashell --replace
 
 ### Launchers ##################################################################
 ## Launch Terminal
@@ -15,7 +20,7 @@ hyper + Return
 Print
     flameshot gui
 
-{super,shift} + {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
+super + {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
     playerctl -p spotify {play-pause,previous,next}
 
 {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
@@ -23,6 +28,9 @@ Print
 
 hyper + XF86AudioMute
     $HOME/bin/kglobalaccel kmix mic_mute
+
+XF86Messenger
+    $HOME/bin/kglobalaccel kwin "Overview"
 
 ### Window state manipulation ##################################################
 ## Close Window
