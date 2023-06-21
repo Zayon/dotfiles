@@ -44,7 +44,8 @@
 	instructionFormat = [%an] %s
 [core]
 	fileMode = false
-	editor = vim +2 -c 'startinsert'
+	#editor = vim +2 -c 'startinsert'
+	editor = micro +2
 	autocrlf = false
 [diff]
 	mnemonicPrefix = true
@@ -55,6 +56,7 @@
 	gpgsign = true
 [push]
 	default = current
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [credential]

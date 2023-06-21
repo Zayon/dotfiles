@@ -64,12 +64,14 @@ kwin4_effect_translucencyEnabled=true
 slideEnabled=false
 
 [Script-bismuth]
+enableSpiralLayout=false
 enableSpreadLayout=false
 enableStairLayout=false
 enableThreeColumnLayout=false
-floatingClass=kcalc
+floatingClass=kcalc, plasma-emojier
 ignoreClass=
 ignoreRole=
+ignoreScreen=1
 maximizeSoleTile=true
 screenGapBottom=10
 screenGapLeft=10
@@ -81,20 +83,32 @@ tileLayoutGap=10
 PopupHideDelay=500
 
 [TabBox]
-LayoutName=org.kde.breeze.desktop
+LayoutName=thumbnail_grid
 MultiScreenMode=1
 
 [Tiling]
 padding=4
 
 [Tiling][213a9620-187e-58a6-b80b-85d8fb95dfce]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.6395833333333334},{"width":0.3604166666666664}]}
+
+[Tiling][3e9ab47c-5fac-5bf1-9183-14b6cdbca17f]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][44657a9d-cd6e-5ff9-8c91-1f07d4373499]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][5b7a5ba4-43cc-5910-8e98-f358f9d54b43]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
-[Tiling][ce3adab9-01ad-52cc-b034-a3e7064f9808]
+[Tiling][79c07e45-a72f-55d6-830e-653ec09c9ede]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][a79a2f1c-9c29-50f3-8919-a46678024a26]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][ce3adab9-01ad-52cc-b034-a3e7064f9808]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.528125},{"width":0.47187500000000004}]}
 
 [Windows]
 ActiveMouseScreen=false
@@ -102,4 +116,4 @@ SeparateScreenFocus=true
 
 [org.kde.kdecoration2]
 ButtonsOnLeft=MN
-ButtonsOnRight=HSX
+ButtonsOnRight=HFSX

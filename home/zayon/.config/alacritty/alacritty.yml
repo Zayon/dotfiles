@@ -54,7 +54,7 @@ schemes:
       blue:    '#268bd2' # blue
       magenta: '#d33682' # magenta
       cyan:    '#2aa198' # cyan
-      white:   '0x7c6f64' # base2
+      white:   '#fdf6e3' # base2
 
     # Bright colors
     bright:

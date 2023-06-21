@@ -2,10 +2,12 @@
 Description=Simple X Hotkey Daemon
 Documentation=man:sxhkd(1)
 After=graphical-session.target
+After=xdg-desktop-portal.service
+Wants=xdg-desktop-portal.service
 
 [Service]
 ExecStart=/usr/bin/sxhkd
 ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
 
 [Install]
-WantedBy=graphical.target
+WantedBy=default.target

@@ -14,8 +14,9 @@ types=1
 
 [2]
 Description=Easy Effects on all desktops
-desktops=\\0
-desktopsrule=3
+desktops=
+desktopsrule=4
+types=1
 wmclass=easyeffects
 wmclasscomplete=true
 wmclassmatch=1
@@ -23,6 +24,20 @@ wmclassmatch=1
 [General]
 count=2
 rules=1,2
+
+[b5417123-135c-491b-8eda-8a9acbf2d7c0]
+Description=Application settings for jetbrains-client
+clientmachine=localhost
+noborder=true
+noborderrule=3
+wmclass=jetbrains-client
+wmclassmatch=1
+
+[c757fa56-e41a-4cd5-a886-0b2976c125e0]
+Description=Application settings for jetbrains-client
+clientmachine=localhost
+wmclass=jetbrains-client
+wmclassmatch=1
 
 [e2bb7938-7e37-4640-9f1f-a58ce575d0bd]
 Description=Easy Effects on all desktops

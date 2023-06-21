@@ -20,7 +20,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][206][Applets][207][Configuration]
-PreloadWeight=91
+PreloadWeight=92
 popupHeight=514
 popupWidth=669
 
@@ -46,7 +46,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][206][Applets][211][Configuration]
-PreloadWeight=81
+PreloadWeight=100
 SystrayContainmentId=212
 
 [Containments][206][Applets][230]
@@ -72,7 +72,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][206][Applets][232][Configuration]
-PreloadWeight=76
+PreloadWeight=84
 
 [Containments][206][Applets][232][Configuration][Calendar]
 monthShowBorder=true
@@ -134,7 +134,7 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller_plus
 
 [Containments][206][Applets][243][Configuration]
-PreloadWeight=79
+PreloadWeight=84
 
 [Containments][206][Applets][243][Configuration][CompactView]
 maximumWidthUnits=29
@@ -191,7 +191,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][212][Applets][215][Configuration]
-PreloadWeight=49
+PreloadWeight=89
 
 [Containments][212][Applets][215][Configuration][General]
 migrated=true
@@ -201,7 +201,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][212][Applets][216][Configuration]
-PreloadWeight=0
+PreloadWeight=7
 
 [Containments][212][Applets][217]
 immutability=1
@@ -250,21 +250,21 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][212][Applets][225][Configuration]
-PreloadWeight=76
+PreloadWeight=32
 
 [Containments][212][Applets][226]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][212][Applets][226][Configuration]
-PreloadWeight=42
+PreloadWeight=90
 
 [Containments][212][Applets][227]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][212][Applets][227][Configuration]
-PreloadWeight=76
+PreloadWeight=11
 
 [Containments][212][Applets][227][Configuration][General]
 showPercentage=true
@@ -282,18 +282,25 @@ DialogWidth=720
 
 [Containments][212][Applets][244]
 immutability=1
-plugin=org.kde.kscreen
+plugin=org.kde.kdeconnect
 
 [Containments][212][Applets][244][Configuration]
-PreloadWeight=25
+PreloadWeight=0
 
 [Containments][212][Applets][245]
 immutability=1
 plugin=martchus.syncthingplasmoid
 
 [Containments][212][Applets][245][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 selectedConfig=0
+
+[Containments][212][Applets][246]
+immutability=1
+plugin=org.kde.kscreen
+
+[Containments][212][Applets][246][Configuration]
+PreloadWeight=0
 
 [Containments][212][ConfigDialog]
 DialogHeight=540
@@ -303,9 +310,9 @@ DialogWidth=720
 PreloadWeight=0
 
 [Containments][212][General]
-extraItems=org.kde.plasma.mediacontroller_plus,org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,org.kde.kscreen,martchus.syncthingplasmoid
-hiddenItems=Syncthing Tray,flameshot,org.kde.plasma.mediacontroller_plus,org.kde.kscreen,martchus.syncthingplasmoid
-knownItems=org.kde.plasma.mediacontroller_plus,org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,martchus.syncthingplasmoid,org.kde.plasma.mediacontroller,org.kde.kscreen
+extraItems=org.kde.plasma.mediacontroller_plus,org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,org.kde.kscreen,martchus.syncthingplasmoid,org.kde.kdeconnect
+hiddenItems=Syncthing Tray,flameshot,org.kde.kscreen,martchus.syncthingplasmoid,chrome_status_icon_1,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller_plus
+knownItems=org.kde.plasma.mediacontroller_plus,org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,martchus.syncthingplasmoid,org.kde.plasma.mediacontroller,org.kde.kscreen,org.kde.kdeconnect
 scaleIconsToFit=true
 shownItems=org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth
 
@@ -330,7 +337,7 @@ PreloadWeight=0
 
 [Containments][228][General]
 ToolBoxButtonState=topcenter
-ToolBoxButtonX=443
+ToolBoxButtonX=444
 ToolBoxButtonY=28
 
 [Containments][228][Wallpaper][org.kde.image][General]
@@ -358,7 +365,7 @@ PreloadWeight=0
 
 [Containments][229][General]
 ToolBoxButtonState=topcenter
-ToolBoxButtonX=443
+ToolBoxButtonX=444
 ToolBoxButtonY=30
 
 [Containments][229][Wallpaper][org.kde.image][General]
@@ -395,18 +402,18 @@ maximumLength=786
 placeHolder=\s
 style=TitleApplication
 
-[Containments][236][Applets][238]
-immutability=1
-plugin=org.kde.plasma.panelspacer
-
-[Containments][236][Applets][238][Configuration]
-PreloadWeight=0
-
 [Containments][236][Applets][239]
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
 [Containments][236][Applets][239][Configuration]
+PreloadWeight=0
+
+[Containments][236][Applets][246]
+immutability=1
+plugin=org.kde.plasma.panelspacer
+
+[Containments][236][Applets][246][Configuration]
 PreloadWeight=0
 
 [Containments][236][ConfigDialog]
@@ -417,8 +424,8 @@ DialogWidth=1920
 PreloadWeight=0
 
 [Containments][236][General]
-AppletOrder=239;237;238
+AppletOrder=246;237;239
 
 [ScreenMapping]
 itemsOnDisabledScreens=0,e570eb4c-e049-4434-84c9-857e4f59fde9,1,desktop:/chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop
-screenMapping=desktop:/computer.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,desktop:/steam.desktop,desktop:/user-home.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/network.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/trash-can.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,file:///home/zayon/0,0,0,desktop:/Vampire Survivors.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/steam.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/steam.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5
+screenMapping=desktop:/computer.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/user-home.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/steam.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,file:///home/zayon/0,0,0,desktop:/network.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/trash-can.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/steam.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,desktop:/steam.desktop,desktop:/Vampire Survivors.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5

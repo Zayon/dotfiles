@@ -49,3 +49,6 @@ end
 if not __ssh_agent_is_started
     __ssh_agent_start
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/zayon/Documents/builds/google-cloud-sdk/path.fish.inc' ]; . '/home/zayon/Documents/builds/google-cloud-sdk/path.fish.inc'; end

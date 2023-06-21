@@ -1,0 +1,27 @@
+#!/usr/bin/dash
+
+ACTIVE_WINDOW_ID=$(xdotool getactivewindow)
+
+xdotool search --name '^Meet' windowactivate --sync key ctrl+d || \
+xdotool search --name 'Gather - Chromium$' windowactivate --sync key ctrl+shift+a || \
+$HOME/bin/kglobalaccel kmix mic_mute
+
+xdotool windowactivate $ACTIVE_WINDOW_ID
+
+# if [ $(wmctrl -l | grep Meet | wc -l) = 0 ]
+# then
+#     if [ $(wmctrl -l | grep Gather | wc -l) = 0 ]
+#     then
+#         $HOME/bin/kglobalaccel kmix mic_mute
+#     else
+#         # wmctrl -l | grep Gather | awk '{cmd="wmctrl -ia"$1; system(cmd)}'
+#         # xdotool key 'Control_L+Shift_L+A'
+
+#         xdotool search --name 'Gather - Chromium$' windowactivate --sync key ctrl+shift+a
+#         xdotool windowactivate $ACTIVE_WINDOW_ID
+#     fi
+# else
+
+# fi
+
+

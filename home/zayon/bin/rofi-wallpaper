@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 options=(random daily)
 mode=$( (printf "%s\n"  "${options[@]}") | rofi -dmenu -p "Select wallpaper mode")

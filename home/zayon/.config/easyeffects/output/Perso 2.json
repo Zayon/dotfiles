@@ -48,7 +48,7 @@
             "left": {
                 "band0": {
                     "frequency": 32.0,
-                    "gain": 6.48,
+                    "gain": 6.38,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.6,
@@ -195,7 +195,7 @@
             "right": {
                 "band0": {
                     "frequency": 32.0,
-                    "gain": 6.48,
+                    "gain": 6.38,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.6,
@@ -562,8 +562,8 @@
         "plugins_order": [
             "bass_enhancer#0",
             "multiband_compressor#0",
-            "equalizer#0",
-            "compressor#0"
+            "compressor#0",
+            "equalizer#0"
         ]
     }
 }

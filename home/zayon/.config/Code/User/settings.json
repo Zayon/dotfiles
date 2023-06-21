@@ -98,5 +98,8 @@
     "workbench.preferredLightColorTheme": "Solarized Light",
     "markdown.preview.breaks": true,
     "markdown.preview.fontSize": 16,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }

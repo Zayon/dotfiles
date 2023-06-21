@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Syncthing Tray
-Exec="/usr/bin/syncthingtray" qt-widgets-gui --single-instance
+Exec="/home/zayon/.cache/yay/syncthingtray/src/syncthingtray-1.4.3/syncthingwidgets/syncthingwidgets_wizard_tests" qt-widgets-gui --single-instance
 Comment=Tray application for Syncthing
 Icon=syncthingtray
 Type=Application
