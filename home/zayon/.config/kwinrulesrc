@@ -12,18 +12,9 @@ minsize=1,1
 minsizerule=2
 types=1
 
-[2]
-Description=Easy Effects on all desktops
-desktops=
-desktopsrule=4
-types=1
-wmclass=easyeffects
-wmclasscomplete=true
-wmclassmatch=1
-
 [General]
-count=2
-rules=1,2
+count=1
+rules=1
 
 [b5417123-135c-491b-8eda-8a9acbf2d7c0]
 Description=Application settings for jetbrains-client

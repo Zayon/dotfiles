@@ -14,7 +14,7 @@ font:
   normal:
     family: Cascadia Code PL
 
-  size: 14
+  size: 16
 
   offset:
     y: 3

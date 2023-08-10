@@ -3,16 +3,16 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 
 [Desktops]
 Id_1=1402e605-6d63-4279-9267-482c5dba250c
-Id_10=8adce37c-9af4-4bc1-a14d-4d29b9bb99ae
-Id_11=af8f5684-7092-4210-9eb0-f57ee8ed596d
-Id_2=9c6fc9d2-8bd3-4184-9b50-9b4413ecbb40
-Id_3=1dd08a22-741c-450e-9ec4-d854f88565ae
-Id_4=ba5f0201-0e26-4396-84b0-75a5e82805d5
-Id_5=e7c22c14-d54b-4169-b5da-dd51e19dd83a
-Id_6=1812ab84-4ec9-4f3c-b612-82e5d8440c8b
-Id_7=5c412f53-8fce-458f-852a-179b2410ef9e
-Id_8=d7a0a849-b463-44a7-b52f-43e446cdc451
-Id_9=31dcc494-5e42-41c3-8baf-96e75d0de54f
+Id_10=af8f5684-7092-4210-9eb0-f57ee8ed596d
+Id_11=ae3b447c-4071-49bc-a8ed-480b6a4572e3
+Id_2=1dd08a22-741c-450e-9ec4-d854f88565ae
+Id_3=ba5f0201-0e26-4396-84b0-75a5e82805d5
+Id_4=e7c22c14-d54b-4169-b5da-dd51e19dd83a
+Id_5=1812ab84-4ec9-4f3c-b612-82e5d8440c8b
+Id_6=5c412f53-8fce-458f-852a-179b2410ef9e
+Id_7=d7a0a849-b463-44a7-b52f-43e446cdc451
+Id_8=31dcc494-5e42-41c3-8baf-96e75d0de54f
+Id_9=8adce37c-9af4-4bc1-a14d-4d29b9bb99ae
 Name_1=1
 Name_10=10
 Name_11=11
@@ -64,14 +64,17 @@ kwin4_effect_translucencyEnabled=true
 slideEnabled=false
 
 [Script-bismuth]
+enableMonocleLayout=false
 enableSpiralLayout=false
 enableSpreadLayout=false
 enableStairLayout=false
-enableThreeColumnLayout=false
-floatingClass=kcalc, plasma-emojier
+enableTileLayout=false
+floatingClass=kcalc, plasma-emojier,systemsettings
 ignoreClass=
 ignoreRole=
 ignoreScreen=1
+limitTileWidth=true
+limitTileWidthRatio=1.8
 maximizeSoleTile=true
 screenGapBottom=10
 screenGapLeft=10
@@ -89,8 +92,11 @@ MultiScreenMode=1
 [Tiling]
 padding=4
 
+[Tiling][0db8f427-463c-527c-ab43-bd2cb6fe26e4]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.17063953488372094},{"width":0.32979651162790713},{"width":0.32979651162790713},{"width":0.16976744186046477}]}
+
 [Tiling][213a9620-187e-58a6-b80b-85d8fb95dfce]
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.6395833333333334},{"width":0.3604166666666664}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.6328125},{"width":0.3671875}]}
 
 [Tiling][3e9ab47c-5fac-5bf1-9183-14b6cdbca17f]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}

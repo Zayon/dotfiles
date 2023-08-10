@@ -1,3 +1,4 @@
 export SXHKD_SHELL="/bin/dash"
 export MOZ_USE_XINPUT2="1"
 export MOZ_GTK_TITLEBAR_DECORATION="system"
+export DEFAULT_TERM="/usr/bin/kitty"

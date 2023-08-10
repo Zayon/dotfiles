@@ -1,26 +1,4 @@
-# function gcloud
-#     docker run --rm -it \
-#     -v ~/.config/gcloud:/root/.config/gcloud \
-#     -v ~/.kube:/root/.kube \
-#     gcloud:local \
-#     gcloud $argv;
-# end
-
-# function gke-gcloud-auth-plugin
-#     docker run --rm -it \
-#     -v ~/.config/gcloud:/root/.config/gcloud \
-#     # -v ~/.kube:/root/.kube \
-#     gcloud:local \
-#     gke-gcloud-auth-plugin $argv;
-# end
-
-# function kubectl-docker
-#     docker run --rm -it $DOCKER_RUN_ARGS \
-#     -v ~/.config/gcloud:/root/.config/gcloud \
-#     -v ~/.kube:/root/.kube \
-#     gcloud:local \
-#     kubectl $argv;
-# end
+export EVANEOS_LOCAL_ENV=/home/zayon/Documents/dev/evaneos/local-env
 
 function __evaneos_intraneos_credentials
     PROJECT_ID=intraneos \
@@ -40,8 +18,7 @@ function __evaneos_create_cloud_sql_proxy
 end
 
 function __evaneos_cloud_sql_proxy
-    docker start {$CONTAINER_NAME} || \
-        __evaneos_create_cloud_sql_proxy
+    docker start {$CONTAINER_NAME} || __evaneos_create_cloud_sql_proxy
 end
 
 function proxy_cashmanager_sql_prod
@@ -71,8 +48,11 @@ function __evaneos_install_credentials
 end
 
 function vault_tunnel
+    kubectl tunnel vault
     # Start tunnel
     kubectl tunnel start intraneos
+
+    sleep 2
 
     # Port-forward the vault service
     kubectl \

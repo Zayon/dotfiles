@@ -2,9 +2,7 @@
 
 # Reload sxhkd
 {hyper} + shift + r
-    # pkill -x sxhkd; sxhkd -m 1; notify-send 'sxhkd' 'Reloaded config'
-    # pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
-    systemctl --user reload sxhkd.service; notify-send 'sxhkd' 'Reloaded config'
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 # hyper + super + shift + r
 #     plasmashell --replace
@@ -12,7 +10,7 @@
 ### Launchers ##################################################################
 ## Launch Terminal
 hyper + Return
-    alacritty
+    kitty
 
 {hyper,super} + d
     rofi -show
@@ -24,7 +22,8 @@ super + {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
     playerctl -p spotify {play-pause,previous,next}
 
 {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
-    $HOME/bin/custom-playerctl {play-pause,previous,next}
+    playerctl -i chromium {play-pause,previous,next}
+    # $HOME/bin/custom-playerctl {play-pause,previous,next}
 
 hyper + XF86AudioMute
     $HOME/bin/mute-gather
@@ -45,8 +44,9 @@ hyper + space
 hyper + f
     $HOME/bin/kglobalaccel bismuth toggle_window_floating
 
-hyper + shift + z
-    $HOME/bin/kglobalaccel kwin "Window to Desktop 11"
+## Minimize Window
+hyper + n
+    $HOME/bin/kglobalaccel kwin "Window Minimize"
 
 ## Sticky window (toogle)
 hyper + shift + s
@@ -57,27 +57,24 @@ hyper + shift + s
 hyper + {backslash,bar}
     $HOME/bin/kglobalaccel bismuth {next,prev}_layout
 
+hyper + m
+    $HOME/bin/kglobalaccel bismuth toggle_monocle_layout
+
+hyper + t
+    $HOME/bin/kglobalaccel bismuth toggle_three_column_layout
+
+hyper + h
+    $HOME/bin/kglobalaccel bismuth toggle_tile_layout
+
 ### Workspace manipulation #####################################################
 # Switch to desktop / Move window to desktop
-hyper + {_,shift +} {1-9,0}
-    $HOME/bin/kglobalaccel kwin "{Switch,Window} to Desktop {1-9,10}"
+hyper + {_,shift +} {1-9,0,minus}
+    $HOME/bin/kglobalaccel kwin "{Switch,Window} to Desktop {1-9,10,11}"
 
 # Switch to screen / Move window to screen
 hyper + {_,shift +} {Home,End,bracketleft,bracketright}
     $HOME/bin/kglobalaccel kwin "{Switch,Window} to {Previous,Next,Previous,Next} Screen" \
     && $HOME/bin/center-mouse-on-focused-window
-
-hyper + minus
-    $HOME/bin/kglobalaccel kwin "Switch to Screen 1" \
-    && $HOME/bin/center-mouse-on-focused-window
-
-hyper + shift + minus
-    $HOME/bin/kglobalaccel kwin "Window to Screen 1" \
-    && $HOME/bin/center-mouse-on-focused-window \
-    && ( \
-        ! $HOME/bin/is-window-displayed-on-all-desktops \
-        && $HOME/bin/kglobalaccel kwin "Window On All Desktops" \
-    )
 
 # Move Focus
 hyper + {Left,Down,Up,Right,j,k,i,l}

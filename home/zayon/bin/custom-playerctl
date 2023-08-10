@@ -3,7 +3,10 @@ set -u  #Detect undefined variable
 
 command=$@
 
-playerctl -i "plasma-browser-integration,chromium" $command
+# playerctl -i "plasma-browser-integration,chromium" $command
+# exit 0
+
+playerctl -i chromium $command
 exit 0
 
 player=$(playerctl metadata --format "{{ playerName }}")

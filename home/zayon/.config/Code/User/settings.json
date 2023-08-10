@@ -2,7 +2,7 @@
     "editor.renderWhitespace": "all",
     "editor.lineNumbers": "on",
     "workbench.iconTheme": "vscode-icons",
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "vsicons.dontShowNewVersionMessage": true,
     "editor.rulers": [
         80,
@@ -78,7 +78,7 @@
         "ini"
     ],
     "editor.fontFamily": "'Cascadia Code PL'",
-    "editor.fontSize": 16,
+    "editor.fontSize": 18,
     "window.zoomLevel": 0.5,
     "workbench.colorTheme": "Solarized Light",
     "files.associations": {

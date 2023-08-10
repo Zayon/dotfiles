@@ -15,6 +15,10 @@ dot config status.showUntrackedFiles no
 dot restore .
 ```
 
+```
+sudo git --git-dir=$HOME/.dotfiles --work-tree=/ checkout -f
+```
+
 ## Install stuff
 
 ```
@@ -22,9 +26,9 @@ sudo pacman -S reflector
 sudo reflector --country France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -S \
     plasma-desktop plasma-pm plasma-pa kscreen \
-    powerdevil qt6-tools \
+    powerdevil power-profiles-daemon qt6-tools kwallet-pam \
     breeze-gtk kde-gtk-config xdg-desktop-portal xdg-desktop-portal-kde \
-    dolphin gwenview \
+    dolphin gwenview kcalc \
     fish \
     i3 \
     pipewire \
@@ -44,6 +48,7 @@ sudo pacman -S \
     fzf \
     ncdu \
     ark \
+    xkill \
     vlc \
     python python-dbus \
     docker docker-compose \
@@ -53,9 +58,14 @@ sudo pacman -S \
     fzf git-delta \
     bandwhich \
     task \
-    lsp-plugins calf easyeffects
+    lsp-plugins calf easyeffects \
     sof-firmware # For audio on thinkpads
+    sxhkd \
+    alacritty kitty \
+    xorg-xmodmap \
 ```
+
+
 
 ## Install more stuff (AUR)
 ```
@@ -69,6 +79,7 @@ yay slack-desktop
 yay signal-desktop
 yay chromium
 yay tidgi
+yay -S bismuth
 yay -S plasma5-applets-eventcalendar
 yay -S plasma5-applets-window-title
 yay git-interactive-rebase-tool
@@ -77,6 +88,13 @@ yay -S c++utilities qtutilities qtforkawesome syncthingtray
 
 ## Use fish as default shell
 `chsh -s /usr/bin/fish`
+
+## Various useful commands
+
+```
+xmodmap .Xmodmap
+```
+
 
 ## Backlight
 
@@ -113,8 +131,6 @@ sudo make install (or sudo ./libinput-gestures-setup install)
 libinput-gestures-setup service
 systemctl --user enable libinput-gestures.service
 ```
-
-
 
 ## Syncthing
 

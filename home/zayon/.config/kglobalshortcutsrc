@@ -4,6 +4,7 @@ update_info=bismuth_shortcuts_category.upd:bismuth-shortcuts-category,bismuth_sh
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-e570eb4c-e049-4434-84c9-857e4f59fde9=none,none,Switch to activity "Default"
+switch-to-activity-ed55d858-2ca7-498a-aa56-dbd068666ae3=none,none,Switch to activity "Default"
 
 [Alacritty.desktop]
 New=none,none,New Terminal
