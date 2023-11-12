@@ -1,6 +1,9 @@
 [$Version]
 update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default,kwin.upd:overview-group-plugin-id,kwin.upd:animation-speed-cleanup,bismuth_new_logger.upd:bismuth-new-logger,kwin.upd:replace-cascaded-zerocornered
 
+[Compositing]
+LatencyPolicy=Medium
+
 [Desktops]
 Id_1=1402e605-6d63-4279-9267-482c5dba250c
 Id_10=af8f5684-7092-4210-9eb0-f57ee8ed596d
@@ -74,7 +77,7 @@ ignoreClass=
 ignoreRole=
 ignoreScreen=1
 limitTileWidth=true
-limitTileWidthRatio=1.8
+limitTileWidthRatio=1.77
 maximizeSoleTile=true
 screenGapBottom=10
 screenGapLeft=10
@@ -108,6 +111,9 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][79c07e45-a72f-55d6-830e-653ec09c9ede]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][8309888d-c9d6-531b-84fb-9b873d2cf917]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][a79a2f1c-9c29-50f3-8919-a46678024a26]

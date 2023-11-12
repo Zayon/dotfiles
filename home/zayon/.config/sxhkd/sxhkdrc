@@ -1,11 +1,14 @@
 ## KWIN with bismuth config
 
 # Reload sxhkd
-{hyper} + shift + r
+hyper + shift + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 # hyper + super + shift + r
 #     plasmashell --replace
+
+hyper + super + r
+    plasmashell --replace
 
 ### Launchers ##################################################################
 ## Launch Terminal
@@ -27,6 +30,9 @@ super + {XF86AudioPlay,XF86AudioPrev,XF86AudioNext}
 
 hyper + XF86AudioMute
     $HOME/bin/mute-gather
+
+super + XF86AudioMute
+    $HOME/bin/audio-device-switch
 
 XF86Messenger
     $HOME/bin/kglobalaccel kwin "Overview"
@@ -70,6 +76,12 @@ hyper + h
 # Switch to desktop / Move window to desktop
 hyper + {_,shift +} {1-9,0,minus}
     $HOME/bin/kglobalaccel kwin "{Switch,Window} to Desktop {1-9,10,11}"
+
+# Switch to prev / next desktop
+hyper + {comma,period}
+    $HOME/bin/kglobalaccel kwin "Switch to {Previous,Next} Desktop"
+hyper + ctrl + {Left,Right,j,l}
+    $HOME/bin/kglobalaccel kwin "Switch to {Previous,Next,Previous,Next} Desktop"
 
 # Switch to screen / Move window to screen
 hyper + {_,shift +} {Home,End,bracketleft,bracketright}

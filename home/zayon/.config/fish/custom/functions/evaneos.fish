@@ -1,10 +1,15 @@
 export EVANEOS_LOCAL_ENV=/home/zayon/Documents/dev/evaneos/local-env
+export LOCAL_ENV_CHECKOUT_DIR=/home/zayon/Documents/dev/evaneos-v2
 
 function __evaneos_intraneos_credentials
     PROJECT_ID=intraneos \
     REGION=europe-west3 \
     NAME=dev-tools2 \
     __evaneos_install_credentials;
+end
+
+function ev-tools
+    /home/zayon/Documents/dev/evaneos/evaneos-ng/docker/build/tools;
 end
 
 function __evaneos_create_cloud_sql_proxy
@@ -71,4 +76,12 @@ function __evaneos_access_kubernetes_endpoint
     -r bastion \
     --no-latency-control \
     172.16.0.0/21
+end
+
+function deploy-typhon
+    docker run -it --rm \
+        -e SSH_AUTH_SOCK='/tmp/agent.sock' \
+        -v {$HOME}/.ssh/:/root/.ssh/ \
+        -v {$SSH_AUTH_SOCK}:/tmp/agent.sock \
+        evaneos/deploy-typhon deploy-typhon $argv;
 end

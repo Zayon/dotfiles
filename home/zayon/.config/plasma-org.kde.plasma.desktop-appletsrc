@@ -37,7 +37,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][206][Applets][207][Configuration]
-PreloadWeight=100
+PreloadWeight=54
 popupHeight=606
 popupWidth=783
 
@@ -63,7 +63,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][206][Applets][211][Configuration]
-PreloadWeight=100
+PreloadWeight=97
 SystrayContainmentId=212
 
 [Containments][206][Applets][230]
@@ -89,7 +89,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][206][Applets][232][Configuration]
-PreloadWeight=100
+PreloadWeight=84
 
 [Containments][206][Applets][232][Configuration][Calendar]
 monthShowBorder=true
@@ -152,34 +152,37 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][206][Applets][249][Configuration]
-PreloadWeight=100
-popupHeight=360
-popupWidth=360
+PreloadWeight=92
+popupHeight=480
+popupWidth=480
 
 [Containments][206][Applets][250]
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
 [Containments][206][Applets][250][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][206][Applets][251]
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
 [Containments][206][Applets][251][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][206][Applets][252]
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
 [Containments][206][Applets][252][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][206][Applets][254]
 immutability=1
 plugin=org.kde.plasma.appmenu
+
+[Containments][206][Applets][254][Configuration]
+PreloadWeight=0
 
 [Containments][206][ConfigDialog]
 DialogHeight=100
@@ -228,7 +231,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][212][Applets][215][Configuration]
-PreloadWeight=100
+PreloadWeight=92
 
 [Containments][212][Applets][215][Configuration][General]
 migrated=true
@@ -238,14 +241,14 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][212][Applets][216][Configuration]
-PreloadWeight=49
+PreloadWeight=47
 
 [Containments][212][Applets][217]
 immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][212][Applets][217][Configuration]
-PreloadWeight=10
+PreloadWeight=7
 
 [Containments][212][Applets][218]
 immutability=1
@@ -287,21 +290,21 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][212][Applets][225][Configuration]
-PreloadWeight=100
+PreloadWeight=69
 
 [Containments][212][Applets][226]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][212][Applets][226][Configuration]
-PreloadWeight=100
+PreloadWeight=89
 
 [Containments][212][Applets][227]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][212][Applets][227][Configuration]
-PreloadWeight=100
+PreloadWeight=37
 
 [Containments][212][Applets][227][Configuration][General]
 showPercentage=true
@@ -348,8 +351,8 @@ PreloadWeight=0
 
 [Containments][212][General]
 extraItems=org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,org.kde.kscreen,martchus.syncthingplasmoid
-hiddenItems=Syncthing Tray,flameshot,org.kde.kscreen,martchus.syncthingplasmoid,chrome_status_icon_1,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller_plus
-knownItems=org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,martchus.syncthingplasmoid,org.kde.plasma.mediacontroller,org.kde.kscreen
+hiddenItems=Syncthing Tray,flameshot,org.kde.kscreen,martchus.syncthingplasmoid,chrome_status_icon_1,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller_plus,spotify-client
+knownItems=org.kde.plasma.networkmanagement,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.nightcolorcontrol,org.kde.plasma.mediacontroller,org.kde.kscreen,martchus.syncthingplasmoid
 scaleIconsToFit=true
 shownItems=org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth
 
@@ -367,7 +370,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][248][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][248][Wallpaper][org.kde.image][General]
 Image=/home/zayon/Pictures/Wallpapers/lorenzo-lanfranconi-ex-25-g2.jpg
@@ -386,11 +389,11 @@ plugin=org.kde.desktopcontainment
 wallpaperplugin=org.kde.image
 
 [Containments][253][ConfigDialog]
-DialogHeight=1180
-DialogWidth=2075
+DialogHeight=1030
+DialogWidth=1685
 
 [Containments][253][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][253][General]
 ToolBoxButtonState=topcenter
@@ -398,9 +401,9 @@ ToolBoxButtonX=1100
 ToolBoxButtonY=30
 
 [Containments][253][Wallpaper][org.kde.image][General]
-Image=/home/zayon/Pictures/Wallpapers/wallhaven-we13kp.jpg
+Image=/home/zayon/Pictures/Wallpapers/j8uxjy9waigb1.jpg
 SlidePaths=/usr/share/wallpapers/
 
 [ScreenMapping]
-itemsOnDisabledScreens=0,e570eb4c-e049-4434-84c9-857e4f59fde9,1,desktop:/chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop
-screenMapping=desktop:/steam.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/Vampire Survivors.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/computer.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/user-home.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,desktop:/steam.desktop,desktop:/trash-can.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/network.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/steam.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,file:///home/zayon/0,0,0
+itemsOnDisabledScreens=1,ed55d858-2ca7-498a-aa56-dbd068666ae3,1,desktop:/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+screenMapping=desktop:/trash-can.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/user-home.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,file:///home/zayon/0,0,0,desktop:/Vampire Survivors.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/steam.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/network.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/computer.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/steam.desktop,0,6a1f0f49-3d9d-426c-87b9-cd8b1a52e418,desktop:/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop,0,23f606a2-a4bb-43f6-b114-d1f60856e0d5,desktop:/Vampire Survivors.desktop,0,desktop:/steam.desktop
